@@ -185,7 +185,8 @@
             NSString *categoryName = [typeGroupDic valueForKey:@"CategoryName"];
             NSArray *searchResultList = [typeGroupDic valueForKey:@"List"];
             
-            if ([categoryName isEqualToString:@"PDQ译文"]) { // 文章数据
+//            if ([categoryName isEqualToString:@"PDQ中文"]) {
+            if ([categoryName hasPrefix:@"PDQ"]) { // 文章数据
                 for (NSDictionary *searchResultDic in searchResultList) { // 循环分组中结果
                     SearchResult *searchResult = [[SearchResult alloc] initWithDic:searchResultDic];
 #warning 文章语言切换

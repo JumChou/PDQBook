@@ -68,7 +68,7 @@ static const CGFloat kDicContentCloseBtn_W = 28.f;
         
         self.recentSearchRecords = [[RecentSearchRecords alloc] init];
         
-        WeakSelf(ws) = self;
+        WeakSelf(ws);
         self.searchResults = [[SearchResults alloc] initWithConfigureCellBlock:^(UITableViewCell *cell, NSIndexPath *indexPath) {
             [ws configureCell:cell indexPath:indexPath];
         }];

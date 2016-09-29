@@ -40,12 +40,14 @@
 #pragma mark - 处理搜索结果当前搜索词
 /**
  处理搜索结果文本的搜索词
-
- @param ranges 装载处理后所有搜词的范围
-
+ 
+ @param ranges 装载处理后所有搜索词的范围
+ 
  @return 返回剔除<br>标签的文本
  */
-- (NSString *)processAndGetSpecificWordsRanges:(NSMutableArray *)ranges;
+- (NSString *)processAndGetSearchWordsRanges:(NSMutableArray *)ranges;
+
+- (NSMutableAttributedString *)handledSearchWordFlag;
 
 
 #pragma mark - 统计specificStr

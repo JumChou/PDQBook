@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  PDQBook
+
+  Created by Mr.Chou on 2016/9/28.
+  Copyright © 2016年 weihaisi. All rights reserved.
+*/
+
+@"CFBundleDisplayName" = "PDQ(DoctorVer)";

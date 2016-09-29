@@ -89,17 +89,7 @@ static const CGFloat kMoreBtn_W = 11.f;
 #pragma mark - Mehtod
 - (void)setUpViewsWithData:(SearchResult *)searchResult {
     [self.titleView configureWithTitle:searchResult.title];
-    
-    NSMutableArray *wordsRanges = [NSMutableArray array];
-    NSString *descriptionStr = [searchResult.desc processAndGetSpecificWordsRanges:wordsRanges];
-    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:descriptionStr];
-    for (NSValue *rangeValue in wordsRanges) {
-        NSRange wordsRange = [rangeValue rangeValue];
-        [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_Blue range:wordsRange];
-//        [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:kDescLab_FontSize] range:wordsRange];
-    }
-    self.descLab.attributedText = attributedStr;
-//    self.descLab.text = searchResult.desc;
+    self.descLab.attributedText = [searchResult.desc handledSearchWordFlag];
 }
 
 

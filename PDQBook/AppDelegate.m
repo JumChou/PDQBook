@@ -65,6 +65,9 @@
     
     [self initAFNetWorkingReachability];
     [self initCancleList];
+    
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    DebugLog(@"AppLanguages:\n%@", appLanguages);
 //    [UIApplication sharedApplication].idleTimerDisabled = YES; // 限制锁屏
 }
 

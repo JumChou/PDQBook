@@ -74,11 +74,11 @@
 /**
  处理搜索结果文本的搜索词
  
- @param ranges 装载处理后所有搜词的范围
+ @param ranges 装载处理后所有搜索词的范围
  
  @return 返回剔除<br>标签的文本
  */
-- (NSString *)processAndGetSpecificWordsRanges:(NSMutableArray *)ranges {
+- (NSString *)processAndGetSearchWordsRanges:(NSMutableArray *)ranges {
     NSString *tagString = @"<b>";
     NSString *tagString_ = @"</b>";
     NSString *targetString = [self copy];
@@ -111,6 +111,20 @@
     
     return targetString;
 }
+
+- (NSMutableAttributedString *)handledSearchWordFlag {
+    NSMutableArray *wordsRanges = [NSMutableArray array];
+    NSString *descriptionStr = [self processAndGetSearchWordsRanges:wordsRanges];
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:descriptionStr];
+    for (NSValue *rangeValue in wordsRanges) {
+        NSRange wordsRange = [rangeValue rangeValue];
+        [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_Blue range:wordsRange];
+        //        [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:kDescLab_FontSize] range:wordsRange];
+    }
+    
+    return attributedStr;
+}
+
 
 
 #pragma mark - 统计specificStr

@@ -11,6 +11,7 @@
 		C9023ECF1D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
 		C9023ED01D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
 		C9023ED11D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
+		C90A13241D9BB07900D02294 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C90A13261D9BB07900D02294 /* InfoPlist.strings */; };
 		C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1E1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1F1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
@@ -220,6 +221,8 @@
 		C03D809E99F81268DBBD43D6 /* Pods-PDQBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDQBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDQBook/Pods-PDQBook.debug.xcconfig"; sourceTree = "<group>"; };
 		C9023ECD1D6372EE0014050C /* SRDictionaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryCell.h; sourceTree = "<group>"; };
 		C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryCell.m; sourceTree = "<group>"; };
+		C90A13251D9BB07900D02294 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C90A13271D9BB07E00D02294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C917EA1B1D471013003CECFD /* JCTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTabBarView.h; sourceTree = "<group>"; };
 		C917EA1C1D471013003CECFD /* JCTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTabBarView.m; sourceTree = "<group>"; };
 		C9188A971D3388E1001D1DA7 /* HyLoglnButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoglnButton.h; sourceTree = "<group>"; };
@@ -680,6 +683,7 @@
 				C9DCABFA1D2F53BE00B7F69A /* ViewController.h */,
 				C9DCABFB1D2F53BE00B7F69A /* ViewController.m */,
 				C9EAAB6A1D3372D400E7464E /* Info.plist */,
+				C90A13261D9BB07900D02294 /* InfoPlist.strings */,
 				C9DCABF41D2F53BE00B7F69A /* Supporting Files */,
 			);
 			path = PDQBook;
@@ -826,8 +830,6 @@
 			knownRegions = (
 				en,
 				Base,
-				"en-US",
-				"zh-Hans-CN",
 				"zh-Hans",
 			);
 			mainGroup = C9DCABE81D2F53BE00B7F69A;
@@ -848,6 +850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9EAAB6B1D3372D400E7464E /* Info.plist in Resources */,
+				C90A13241D9BB07900D02294 /* InfoPlist.strings in Resources */,
 				C9943E281D33834500B90006 /* Assets.xcassets in Resources */,
 				C958DBBF1D3CF31E0039EDA0 /* test.html in Resources */,
 				C954E8821D40A03600ACC975 /* Data.sqlite in Resources */,
@@ -1138,6 +1141,18 @@
 			targetProxy = C9DCAC161D2F53BF00B7F69A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C90A13261D9BB07900D02294 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C90A13251D9BB07900D02294 /* zh-Hans */,
+				C90A13271D9BB07E00D02294 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C9DCAC1C1D2F53BF00B7F69A /* Debug */ = {

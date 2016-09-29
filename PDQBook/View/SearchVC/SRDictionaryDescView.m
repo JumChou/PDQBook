@@ -100,7 +100,7 @@ static const CGFloat kDescLab_FontSize = 15.f;
 
 - (void)setUpViewsWithData:(SearchResult *)searchResult {
     self.titleLab.text = searchResult.title;
-    self.descLab.text = searchResult.desc;
+    self.descLab.attributedText = [searchResult.desc handledSearchWordFlag];
 }
 
 

@@ -44,6 +44,7 @@ const float ProgressView_H = 3.0f;
         }];
         
         [self setUpProgressView];
+        [self setUpMenuController];
         
         // 添加progress的KVO监听
         [self addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
@@ -104,6 +105,53 @@ const float ProgressView_H = 3.0f;
     
     return [super loadRequest:request];
 }
+
+
+#pragma mark - UIMenuController
+- (void)setUpMenuController {
+    UIMenuController *menuController = [UIMenuController sharedMenuController];
+    UIMenuItem *menuItemTranslation = [[UIMenuItem alloc] initWithTitle:@"翻译" action:@selector(menuItemTranslationAction:)];
+    UIMenuItem *menuItemCustomCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuItemCustomCopyAction:)];
+    
+    [menuController setMenuItems:@[menuItemTranslation, menuItemCustomCopy]];
+}
+
+- (void)copiedString {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getPasteboardString) name:UIPasteboardChangedNotification object:nil];
+    [[UIApplication sharedApplication] sendAction:@selector(copy:) to:nil from:self forEvent:nil];
+}
+
+- (void)getPasteboardString {
+    NSString *copiedString = [UIPasteboard generalPasteboard].string;
+    DebugLog(@"Copied String: %@",copiedString);
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIPasteboardChangedNotification object:nil];
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+//    DebugLog(@"SEL:%@, Sender:%@", NSStringFromSelector(action), sender);
+    if (action == @selector(menuItemTranslationAction:)) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+#pragma mark MenuAction
+- (void)menuItemTranslationAction:(UIMenuController *)sender {
+//    DebugLog(@"%@", sender);
+    [self copiedString];
+}
+
+- (void)menuItemCustomCopyAction:(UIMenuController *)sender {
+    DebugLog(@"");
+}
+
+
+
 
 #pragma mark - PrivateMethod
 - (void)setUpProgressView {
@@ -172,6 +220,22 @@ const float ProgressView_H = 3.0f;
             } else {
                 self.progressView.progress = [newValue floatValue];
             }
+            
+        } else {
+            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        }
+        
+    } else if ([keyPath isEqualToString:@"string"]) {
+        if (object == self) {
+            
+            NSLog(@"keyPath : %@", keyPath);
+            NSLog(@"ofObject : %@", object);
+            NSLog(@"change : %@", change);
+            NSLog(@"context : %@", context);
+            
+            NSString *newValue = [change valueForKey:NSKeyValueChangeNewKey];
+            NSLog(@"Copied String: %@", newValue);
+            
             
         } else {
             [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
