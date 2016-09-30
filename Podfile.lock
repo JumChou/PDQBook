@@ -21,6 +21,7 @@ PODS:
   - Masonry (1.0.1)
   - MJRefresh (3.0.8)
   - pop (1.0.9)
+  - QBPopupMenu (2.0)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - JSONKit-NoWarning (~> 1.2)
   - Masonry
   - MJRefresh (~> 3.0.7)
+  - QBPopupMenu
   - SDWebImage (~> 3.7)
   - UITextView+Placeholder
   - VBFPopFlatButton
@@ -45,10 +47,11 @@ SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MJRefresh: fafde8f18f4afd66b434331a9beb67a6c0264056
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  QBPopupMenu: e370cbc7ad8a8d09afe1726117aa18f92696f66a
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
   VBFPopFlatButton: 39e48ab56277f3d056734a9b5ec5d0cc60d69778
 
-PODFILE CHECKSUM: 0e9cea286497e36b708e1b02407bb125df0fb0af
+PODFILE CHECKSUM: 30b43ecdd857d151aefa6ad1f1980a5c9ad59c46
 
 COCOAPODS: 1.0.0

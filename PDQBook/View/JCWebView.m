@@ -9,12 +9,17 @@
 #import "JCWebView.h"
 #import "CommonDefine.h"
 #import "UCZProgressView.h"
+#import <QBPopupMenu/QBPlasticPopupMenu.h>
 
-@interface JCWebView () <WKNavigationDelegate>
+@interface JCWebView () <WKNavigationDelegate> {
+    CGRect menuFrame;
+}
 
 @property (nonatomic, strong) UCZProgressView *progressView;
 @property (nonatomic, strong) UILabel *reloadLab;
 @property (nonatomic, strong) UIButton *reloadBtn;
+@property (nonatomic, strong) QBPopupMenu *popupMenu;
+@property (nonatomic, strong) UIView *outsideView;
 
 @property (nonatomic, strong) NSURLRequest *URLRequest;
 
@@ -43,8 +48,17 @@ const float ProgressView_H = 3.0f;
             make.height.equalTo(50);
         }];
         
+        [self addSubview:self.outsideView];
+        [self.outsideView makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.width.equalTo(self);
+            make.leading.equalTo(self.trailing);
+        }];
+        
         [self setUpProgressView];
-        [self setUpMenuController];
+//        [self setUpMenuController];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillShowAction) name:UIMenuControllerWillShowMenuNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidShowAction) name:UIMenuControllerDidShowMenuNotification object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHideAction) name:UIMenuControllerDidHideMenuNotification object:nil];
         
         // 添加progress的KVO监听
         [self addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
@@ -87,6 +101,14 @@ const float ProgressView_H = 3.0f;
     return _reloadBtn;
 }
 
+- (UIView *)outsideView {
+    if (!_outsideView) {
+        _outsideView = [[UIView alloc] init];
+    }
+    
+    return _outsideView;
+}
+
 - (UCZProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[UCZProgressView alloc] initProgressTextStyle];
@@ -108,13 +130,35 @@ const float ProgressView_H = 3.0f;
 
 
 #pragma mark - UIMenuController
+/*
 - (void)setUpMenuController {
-    UIMenuController *menuController = [UIMenuController sharedMenuController];
-    UIMenuItem *menuItemTranslation = [[UIMenuItem alloc] initWithTitle:@"翻译" action:@selector(menuItemTranslationAction:)];
-    UIMenuItem *menuItemCustomCopy = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(menuItemCustomCopyAction:)];
+//    UIMenuController *menuController = [UIMenuController sharedMenuController];
+//    UIMenuItem *menuItemTranslation = [[UIMenuItem alloc] initWithTitle:@"翻译" action:@selector(menuItemTranslationAction:)];
+//    [menuController setMenuItems:@[menuItemTranslation]];
     
-    [menuController setMenuItems:@[menuItemTranslation, menuItemCustomCopy]];
+    QBPopupMenuItem *itemCopy = [QBPopupMenuItem itemWithTitle:@"复制" target:self action:@selector(menuItemTranslationAction:)];
+    QBPopupMenuItem *itemTranslate = [QBPopupMenuItem itemWithTitle:@"翻译" target:self action:@selector(menuItemTranslationAction:)];
+    QBPopupMenuItem *itemSearch = [QBPopupMenuItem itemWithTitle:@"搜索" target:self action:@selector(menuItemTranslationAction:)];
+//    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
+    self.popupMenu = [[QBPopupMenu alloc] initWithItems:@[itemCopy, itemTranslate, itemSearch]];
 }
+
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+////    DebugLog(@"SEL:%@, Sender:%@", NSStringFromSelector(action), sender);
+//    if (action == @selector(menuItemTranslationAction:)) {
+//        return YES;
+//    }
+//    
+//    return NO;
+//}
+//
+//- (BOOL)canBecomeFirstResponder {
+//    return YES;
+//}
+//
+//- (BOOL)canResignFirstResponder {
+//    return NO;
+//}
 
 - (void)copiedString {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getPasteboardString) name:UIPasteboardChangedNotification object:nil];
@@ -127,30 +171,45 @@ const float ProgressView_H = 3.0f;
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIPasteboardChangedNotification object:nil];
 }
 
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-//    DebugLog(@"SEL:%@, Sender:%@", NSStringFromSelector(action), sender);
-    if (action == @selector(menuItemTranslationAction:)) {
-        return YES;
-    }
-    
-    return NO;
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
+- (void)recursiveFindSubViewInView:(UIView*)inView {
+//    for (UIView *view in inView.subviews) {
+//        if([view isKindOfClass:[UIWebDragDotView class]]) {
+//            DebugLog(@"Finded！！！！！！");
+//        } else {
+//            DebugLog(@"Finded View : %@", view);
+//            [self recursiveFindSubViewInView:view];
+//        }
+//    }
 }
 
 #pragma mark MenuAction
 - (void)menuItemTranslationAction:(UIMenuController *)sender {
-//    DebugLog(@"%@", sender);
-    [self copiedString];
+//    [self copiedString];
+    [self recursiveFindSubViewInView:self];
 }
 
-- (void)menuItemCustomCopyAction:(UIMenuController *)sender {
+- (void)menuWillShowAction {
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
+//    });
+    
+    menuFrame = [UIMenuController sharedMenuController].menuFrame;
+    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 1, 1) inView:self.outsideView];
+    if (!self.popupMenu.isVisible) {
+        DebugLog(@"");
+        [self.popupMenu showInView:self targetRect:menuFrame animated:YES];
+    }
+}
+
+- (void)menuDidShowAction {
     DebugLog(@"");
 }
 
-
+- (void)menuDidHideAction {
+    DebugLog(@"");
+    [self.popupMenu dismissAnimated:YES];
+}
+*/
 
 
 #pragma mark - PrivateMethod
@@ -220,22 +279,6 @@ const float ProgressView_H = 3.0f;
             } else {
                 self.progressView.progress = [newValue floatValue];
             }
-            
-        } else {
-            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-        }
-        
-    } else if ([keyPath isEqualToString:@"string"]) {
-        if (object == self) {
-            
-            NSLog(@"keyPath : %@", keyPath);
-            NSLog(@"ofObject : %@", object);
-            NSLog(@"change : %@", change);
-            NSLog(@"context : %@", context);
-            
-            NSString *newValue = [change valueForKey:NSKeyValueChangeNewKey];
-            NSLog(@"Copied String: %@", newValue);
-            
             
         } else {
             [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

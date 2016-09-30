@@ -10,7 +10,7 @@
 
 #import "MPSearchPartView.h"
 
-static const CGFloat CornerRadius = 6.0f;
+static NSString *const kSearchPlaceholder = @"癌症专业词典、癌症药典查询";
 static const CGFloat SearchIMGView_Leading = 20.0f;
 static const CGFloat SearchIMGView_W = 20.0f;
 static const CGFloat SearchLab_Leading = 10.0f;
@@ -76,7 +76,7 @@ typedef void (^TapHandleBlock)(void);
     
     self.searchLab = [[UILabel alloc] init];
     self.searchLab.userInteractionEnabled = NO;
-    self.searchLab.text = @"医疗词典、医疗药品、临床查询";
+    self.searchLab.text = kSearchPlaceholder;
     self.searchLab.backgroundColor = [UIColor clearColor];
     self.searchLab.textColor = Color_TextNavy;
     self.searchLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(SearchLab_FontSize)];
