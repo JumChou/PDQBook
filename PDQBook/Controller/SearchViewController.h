@@ -10,4 +10,11 @@
 
 @interface SearchViewController : SuperViewController
 
+/**
+ 搜索
+ 
+ @param searchText 搜索的文本
+ */
+- (void)searchWithText:(NSString *)searchText;
+
 @end

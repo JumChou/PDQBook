@@ -163,13 +163,20 @@
 
 #pragma mark - Search
 - (void)showSearchVC {
-    UINavigationController *searchNavi = [[UINavigationController alloc] initWithRootViewController:[SearchViewController new]];
+    [self showSearchVCWithSearchText:nil];
+}
+
+- (void)showSearchVCWithSearchText:(NSString *)searchText {
+    SearchViewController *searchVC = [SearchViewController new];
+    UINavigationController *searchNavi = [[UINavigationController alloc] initWithRootViewController:searchVC];
     if ([searchNavi respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         searchNavi.interactivePopGestureRecognizer.delegate = nil;
     }
     
     [self presentViewController:searchNavi animated:YES completion:^{
-        
+        if (searchText && searchText.length) {
+            [searchVC searchWithText:searchText];
+        }
     }];
 }
 

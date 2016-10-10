@@ -95,6 +95,13 @@
 - (void)initAFNetWorkingReachability {
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         NSLog(@"Reachability: %@  CurrentThread: %@", AFStringFromNetworkReachabilityStatus(status), [NSThread currentThread]);
+        if (status == AFNetworkReachabilityStatusNotReachable || status == AFNetworkReachabilityStatusUnknown) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"网络好像出现问题了哦~" preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }]];
+            [alert show];
+        }
     }];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring]; // Reachability监听
 }

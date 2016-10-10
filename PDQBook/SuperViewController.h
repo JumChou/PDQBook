@@ -56,6 +56,8 @@
 #pragma mark - Search
 - (void)showSearchVC;
 
+- (void)showSearchVCWithSearchText:(NSString *)searchText;
+
 
 #pragma mark - MaskGuide
 - (BOOL)isShowMaskWithKey:(NSString *)maskKey;

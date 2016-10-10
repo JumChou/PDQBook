@@ -161,7 +161,8 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     self.overlayView = ({
         QBPopupMenuOverlayView *overlayView = [[QBPopupMenuOverlayView alloc] initWithFrame:view.bounds];
         overlayView.popupMenu = self;
-        
+        overlayView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        overlayView.alpha = 0;
         overlayView;
     });
     
@@ -175,7 +176,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
     
     if (animated) {
         self.alpha = 0;
-        [self.overlayView addSubview:self];
+        [view addSubview:self];
         
         [UIView animateWithDuration:kQBPopupMenuAnimationDuration animations:^(void) {
             self.alpha = 1.0;
@@ -188,7 +189,7 @@ static const NSTimeInterval kQBPopupMenuAnimationDuration = 0.2;
             }
         }];
     } else {
-        [self.overlayView addSubview:self];
+        [view addSubview:self];
         
         self.visible = YES;
         

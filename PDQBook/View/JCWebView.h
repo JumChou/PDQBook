@@ -18,7 +18,7 @@
  @param webView JCWebView
  @param request NSURLRequest
  */
-- (void)JCwebView:(JCWebView *)webView startLoadingRequest:(NSURLRequest *)request;
+- (void)JCWebView:(JCWebView *)webView startLoadingRequest:(NSURLRequest *)request;
 
 /**
  webView完成了跳转
@@ -26,15 +26,29 @@
  @param webView   JCWebView
  @param isSuccess 是否成功
  */
-- (void)JCwebView:(JCWebView *)webView didCompletedNavigationWithIsSuccess:(BOOL)isSuccess;
+- (void)JCWebView:(JCWebView *)webView didCompletedNavigationWithIsSuccess:(BOOL)isSuccess;
+
+/**
+ webView选择Menu点击了搜索
+
+ @param webView    JCWebView
+ @param searchText 搜索文本
+ */
+- (void)JCWebView:(JCWebView *)webView didTappedMenuSearchWithText:(NSString *)searchText;
 
 @end
 
 @interface JCWebView : WKWebView
 
-@property (nonatomic, assign) NSInteger loadingFinishDelay;
+/// delegate
 @property (nonatomic, weak) id<JCWebViewDelegate> delegate;
+/// 加载延迟(单位s)
+@property (nonatomic, assign) NSInteger loadingFinishDelay;
+/// 是否已加载成功
 @property (nonatomic, assign) BOOL isLoadingRequestSuccess;
+/// 是否需要文章长按选择menu
+@property (nonatomic, assign) BOOL isNeedPaperSelectionMenu;
+
 
 
 @end

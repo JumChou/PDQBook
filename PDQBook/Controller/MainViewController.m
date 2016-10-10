@@ -14,6 +14,7 @@
 #import "Cancers.h"
 #import "RQShineLabel.h"
 #import "AboutPDQBlurView.h"
+#import <QBPopupMenu/QBPlasticPopupMenu.h>
 
 static const CGFloat MoreBtn_Trailing = 40.0f;
 static const CGFloat MoreBtn_W = 40.0f;
@@ -66,6 +67,7 @@ static const CGFloat kAboutLab_FontSize = 14.0f;
 
 @property (nonatomic, strong) CALayer *animationLayer;
 @property (nonatomic, strong) CAShapeLayer *pathLayer;
+@property (nonatomic, strong) QBPopupMenu *popupMenu;
 
 @end
 
@@ -82,6 +84,8 @@ static BOOL isAnimating = NO;
     if (self) {
         self.cancerBtns = [NSMutableArray array];
         self.cancers = [[Cancers alloc] init];
+        
+        [self setUpMenuController];
     }
     return self;
 }
@@ -385,12 +389,13 @@ static BOOL isAnimating = NO;
 }
 
 - (void)aboutBtnAction {
-    DebugLog(@"");
+    DebugLog(@"");    
+//    CGRect menuFrame = CGRectMake(0, 0, kScreenWidth, kStatusBarHeight);
+//    [self.popupMenu showInView:self.view targetRect:menuFrame animated:YES];
     
     AboutPDQBlurView *aboutView = [AboutPDQBlurView aboutPDQBlurView];
     aboutView.delegate = self;
     [self.bgIMGView addSubview:aboutView];
-    
 }
 
 
@@ -653,6 +658,18 @@ static BOOL isAnimating = NO;
     [self.pathLayer addAnimation:pathAnimation forKey:@"strokeEnd"];
 }
 
+
+- (void)setUpMenuController {
+    QBPopupMenuItem *itemCopy = [QBPopupMenuItem itemWithTitle:@"复制" target:self action:@selector(menuItemTestAction:)];
+    QBPopupMenuItem *itemTranslate = [QBPopupMenuItem itemWithTitle:@"翻译" target:self action:@selector(menuItemTestAction:)];
+    QBPopupMenuItem *itemSearch = [QBPopupMenuItem itemWithTitle:@"搜索" target:self action:@selector(menuItemTestAction:)];
+    //    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
+    self.popupMenu = [[QBPopupMenu alloc] initWithItems:@[itemCopy, itemTranslate, itemSearch]];
+}
+
+- (void)menuItemTestAction:(UIMenuController *)sender {
+    DebugLog(@"%@", sender);
+}
 
 
 @end

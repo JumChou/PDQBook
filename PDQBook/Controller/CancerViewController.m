@@ -79,10 +79,10 @@ static NSString *const kWebViewDicKey_WebViewIndex = @"WebViewIndex";
     NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
     WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
     self.webViewConfiguration = [[WKWebViewConfiguration alloc] init];
-//    [webViewConfiguration.userContentController addUserScript:wkUScript];
-//    self.webViewConfiguration.websiteDataStore = [WKWebsiteDataStore defaultDataStore];
     self.webViewConfiguration.userContentController = [[WKUserContentController alloc] init];
     [self.webViewConfiguration.userContentController addScriptMessageHandler:self name:kWebDocListDidSelectedMethodName];
+//    [webViewConfiguration.userContentController addUserScript:wkUScript];
+//    self.webViewConfiguration.websiteDataStore = [WKWebsiteDataStore defaultDataStore];
     
     JCWebView *lastWebView;
     for (int i = 0; i < cancerWebSection.allKeys.count; i++) {

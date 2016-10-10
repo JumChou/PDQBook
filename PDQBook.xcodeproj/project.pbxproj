@@ -805,7 +805,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 87QH7BT76A;
 						DevelopmentTeamName = "WeiHaiSi Health Technology (Beijing) Co.,Ltd.";
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C9DCAC091D2F53BE00B7F69A = {
 						CreatedOnToolsVersion = 8.0;
@@ -1272,8 +1272,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "123a59ac-1275-40a8-a2fe-15ad2507ce76";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_PDQBook;
 			};
 			name = Debug;
 		};
@@ -1308,8 +1308,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2d2b5abf-0b9c-4704-a3b5-117f2fc8c5f7";
+				PROVISIONING_PROFILE_SPECIFIER = Dis_PDQBook;
 			};
 			name = Release;
 		};

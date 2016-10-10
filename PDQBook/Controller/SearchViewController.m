@@ -210,6 +210,7 @@ static const CGFloat kDicContentCloseBtn_W = 28.f;
  */
 - (void)searchWithText:(NSString *)searchText {
     DebugLog(@"搜索词:%@", searchText);
+    self.searchView.searchText.text = searchText;
     [self.searchView.searchText resignFirstResponder];
     self.recentSearchRecordsView.alpha = 0;
     [self.recentSearchRecords saveSearchRecordWithText:searchText];

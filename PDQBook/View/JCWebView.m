@@ -18,8 +18,10 @@
 @property (nonatomic, strong) UCZProgressView *progressView;
 @property (nonatomic, strong) UILabel *reloadLab;
 @property (nonatomic, strong) UIButton *reloadBtn;
+
 @property (nonatomic, strong) QBPopupMenu *popupMenu;
 @property (nonatomic, strong) UIView *outsideView;
+@property (nonatomic, strong) NSTimer *menuTimer;
 
 @property (nonatomic, strong) NSURLRequest *URLRequest;
 
@@ -30,6 +32,14 @@
 const float ProgressView_H = 3.0f;
 
 - (id)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration {
+    NSString *JS = @"function getRectForSelectedText() { var selection = window.getSelection(); var range = selection.getRangeAt(0); var rect = range.getBoundingClientRect(); return \"{{\" + rect.left + \",\" + rect.top + \"}, {\" + rect.width + \",\" + rect.height + \"}}\";}    function getSelectedText() { return window.getSelection().toString();}";
+    
+    WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:JS injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    if (!configuration.userContentController) {
+        configuration.userContentController = [[WKUserContentController alloc] init];
+    }
+    [configuration.userContentController addUserScript:wkUScript];
+    
     self = [super initWithFrame:frame configuration:configuration];
     if (self) {
         self.navigationDelegate = self;
@@ -55,11 +65,6 @@ const float ProgressView_H = 3.0f;
         }];
         
         [self setUpProgressView];
-//        [self setUpMenuController];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillShowAction) name:UIMenuControllerWillShowMenuNotification object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidShowAction) name:UIMenuControllerDidShowMenuNotification object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHideAction) name:UIMenuControllerDidHideMenuNotification object:nil];
-        
         // 添加progress的KVO监听
         [self addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:NULL];
     }
@@ -109,6 +114,23 @@ const float ProgressView_H = 3.0f;
     return _outsideView;
 }
 
+- (void)setIsNeedPaperSelectionMenu:(BOOL)isNeedPaperSelectionMenu {
+    _isNeedPaperSelectionMenu = isNeedPaperSelectionMenu;
+    if (_isNeedPaperSelectionMenu) {
+        [self setUpPaperMenu];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillShowAction) name:UIMenuControllerWillShowMenuNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidShowAction) name:UIMenuControllerDidShowMenuNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHideAction) name:UIMenuControllerDidHideMenuNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuChangeFrameAction) name:UIMenuControllerMenuFrameDidChangeNotification object:nil];
+        
+    } else {
+        self.popupMenu = nil;
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerWillShowMenuNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidShowMenuNotification object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidHideMenuNotification object:nil];
+    }
+}
+
 - (UCZProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[UCZProgressView alloc] initProgressTextStyle];
@@ -121,8 +143,8 @@ const float ProgressView_H = 3.0f;
     self.URLRequest = request;
     self.progressView.alpha = 1;
     
-    if ([self.delegate respondsToSelector:@selector(JCwebView:startLoadingRequest:)]) {
-        [self.delegate JCwebView:self startLoadingRequest:request];
+    if ([self.delegate respondsToSelector:@selector(JCWebView:startLoadingRequest:)]) {
+        [self.delegate JCWebView:self startLoadingRequest:request];
     }
     
     return [super loadRequest:request];
@@ -130,19 +152,12 @@ const float ProgressView_H = 3.0f;
 
 
 #pragma mark - UIMenuController
-/*
-- (void)setUpMenuController {
+//- (void)setUpMenuController {
 //    UIMenuController *menuController = [UIMenuController sharedMenuController];
 //    UIMenuItem *menuItemTranslation = [[UIMenuItem alloc] initWithTitle:@"翻译" action:@selector(menuItemTranslationAction:)];
 //    [menuController setMenuItems:@[menuItemTranslation]];
-    
-    QBPopupMenuItem *itemCopy = [QBPopupMenuItem itemWithTitle:@"复制" target:self action:@selector(menuItemTranslationAction:)];
-    QBPopupMenuItem *itemTranslate = [QBPopupMenuItem itemWithTitle:@"翻译" target:self action:@selector(menuItemTranslationAction:)];
-    QBPopupMenuItem *itemSearch = [QBPopupMenuItem itemWithTitle:@"搜索" target:self action:@selector(menuItemTranslationAction:)];
-//    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
-    self.popupMenu = [[QBPopupMenu alloc] initWithItems:@[itemCopy, itemTranslate, itemSearch]];
-}
-
+//}
+//
 //- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
 ////    DebugLog(@"SEL:%@, Sender:%@", NSStringFromSelector(action), sender);
 //    if (action == @selector(menuItemTranslationAction:)) {
@@ -153,12 +168,22 @@ const float ProgressView_H = 3.0f;
 //}
 //
 //- (BOOL)canBecomeFirstResponder {
+//    DebugLog(@"");
 //    return YES;
 //}
 //
 //- (BOOL)canResignFirstResponder {
-//    return NO;
+//    DebugLog(@"");
+//    return YES;
 //}
+
+- (void)setUpPaperMenu {
+    QBPopupMenuItem *itemCopy = [QBPopupMenuItem itemWithTitle:@"复制" target:self action:@selector(menuItemTranslationAction:)];
+    QBPopupMenuItem *itemTranslate = [QBPopupMenuItem itemWithTitle:@"翻译" target:self action:@selector(menuItemTranslationAction:)];
+    QBPopupMenuItem *itemSearch = [QBPopupMenuItem itemWithTitle:@"搜索" target:self action:@selector(menuItemSearchAction)];
+//    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
+    self.popupMenu = [[QBPlasticPopupMenu alloc] initWithItems:@[itemCopy, itemTranslate, itemSearch]];
+}
 
 - (void)copiedString {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getPasteboardString) name:UIPasteboardChangedNotification object:nil];
@@ -172,52 +197,137 @@ const float ProgressView_H = 3.0f;
 }
 
 - (void)recursiveFindSubViewInView:(UIView*)inView {
-//    for (UIView *view in inView.subviews) {
-//        if([view isKindOfClass:[UIWebDragDotView class]]) {
-//            DebugLog(@"Finded！！！！！！");
-//        } else {
-//            DebugLog(@"Finded View : %@", view);
-//            [self recursiveFindSubViewInView:view];
-//        }
-//    }
+    for (UIView *view in inView.subviews) {
+        if([view isKindOfClass:[UITextView class]]) {
+            DebugLog(@"Finded！！！！！！");
+        } else {
+            DebugLog(@"Finded View : %@", view);
+            [self recursiveFindSubViewInView:view];
+        }
+    }
 }
+
+/**
+ 调用JS获得选择区域Rect
+
+ @param completionHandler JS完成Block
+ */
+- (void)selectionRectInJSCompletionHandler:(void (^)(NSValue *rectValue))completionHandler {
+    __block CGRect selectionRect = CGRectZero;
+    [self evaluateJavaScript:@"getRectForSelectedText()" completionHandler:^(id _Nullable memo, NSError * _Nullable error) {
+//        DebugLog(@"memo[%@]:%@", [NSThread currentThread], memo);
+//        DebugLog(@"error[%@]:%@", [NSThread currentThread], error);
+        selectionRect = CGRectFromString(memo);
+        completionHandler([NSValue valueWithCGRect:selectionRect]);
+    }];
+}
+
+- (void)selectionTextInJSCompletionHandler:(void (^)(NSString *selectionText))completionHandler {
+    [self evaluateJavaScript:@"getSelectedText()" completionHandler:^(id _Nullable memo, NSError * _Nullable error) {
+        DebugLog(@"memo[%@]:%@", [NSThread currentThread], memo);
+        completionHandler(memo);
+    }];
+}
+
+- (void)checkSelectionAndDealWithMenu {
+    [self selectionRectInJSCompletionHandler:^(NSValue *rectValue) {
+        CGRect selectionRect = [rectValue CGRectValue];
+        if (CGRectEqualToRect(selectionRect, CGRectZero)) {
+            [self.menuTimer invalidate];
+            self.menuTimer = nil;
+            if (self.popupMenu.visible) {
+                DebugLog(@"Dismiss!");
+                [self.popupMenu dismissAnimated:YES];
+            }
+        }
+    }];
+}
+
 
 #pragma mark MenuAction
 - (void)menuItemTranslationAction:(UIMenuController *)sender {
+    [self selectionTextInJSCompletionHandler:^(NSString *selectionText) {
+        DebugLog(@"SELECTION TEXT : %@", selectionText);
+    }];
+    
 //    [self copiedString];
-    [self recursiveFindSubViewInView:self];
+//    [self recursiveFindSubViewInView:self];
 }
 
+- (void)menuItemSearchAction {
+    [self selectionTextInJSCompletionHandler:^(NSString *selectionText) {
+        DebugLog(@"SELECTION TEXT : %@", selectionText);
+        if ([self.delegate respondsToSelector:@selector(JCWebView:didTappedMenuSearchWithText:)]) {
+            [self.delegate JCWebView:self didTappedMenuSearchWithText:selectionText];
+        }
+    }];
+}
+
+
+#pragma mark UIMenuControllerNotification
 - (void)menuWillShowAction {
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        [[UIMenuController sharedMenuController] setMenuVisible:NO animated:NO];
-//    });
+    DebugLog(@"");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIMenuController sharedMenuController].menuVisible = NO;
+    });
     
-    menuFrame = [UIMenuController sharedMenuController].menuFrame;
-    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(0, 0, 1, 1) inView:self.outsideView];
-    if (!self.popupMenu.isVisible) {
-        DebugLog(@"");
-        [self.popupMenu showInView:self targetRect:menuFrame animated:YES];
+//    menuFrame = [UIMenuController sharedMenuController].menuFrame;
+//    DebugLog(@"MenuFrame:%@", NSStringFromCGRect(menuFrame));
+//    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(kScreenWidth, kScreenHeight, 100, 100) inView:self];
+//    [[UIMenuController sharedMenuController] update];
+    
+//    if (!self.popupMenu.isVisible) {
+    
+    if (self.popupMenu.isVisible) {
+        [self.popupMenu dismissAnimated:NO];
     }
+    
+        [self selectionRectInJSCompletionHandler:^(NSValue *rectValue) {
+            CGRect selectiongRect = [rectValue CGRectValue];
+            CGRect testRect = CGRectMake(selectiongRect.origin.x, selectiongRect.origin.y + 50, selectiongRect.size.width, selectiongRect.size.height);
+//            [self.popupMenu showInView:self targetRect:testRect animated:YES];
+            [self.popupMenu showInView:self targetRect:selectiongRect animated:YES];
+            
+            if (!self.menuTimer) {
+                self.menuTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(checkSelectionAndDealWithMenu) userInfo:nil repeats:YES];
+            }
+        }];
+//    }
 }
 
 - (void)menuDidShowAction {
     DebugLog(@"");
+//    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(kScreenWidth, kScreenHeight, 100, 100) inView:self];
+//    [[UIMenuController sharedMenuController] update];
+    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        DebugLog(@"%@", [NSThread currentThread]);
+//        [UIMenuController sharedMenuController].menuVisible = YES;
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHideAction) name:UIMenuControllerDidHideMenuNotification object:nil];
+//    });
 }
 
 - (void)menuDidHideAction {
     DebugLog(@"");
-    [self.popupMenu dismissAnimated:YES];
+//    if (self.popupMenu.visible) {
+//        DebugLog(@"Dismiss!");
+//        [self.popupMenu dismissAnimated:YES];
+//        //        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidHideMenuNotification object:nil];
+//    }
 }
-*/
+
+- (void)menuChangeFrameAction {
+    DebugLog(@"");
+}
+
 
 
 #pragma mark - PrivateMethod
 - (void)setUpProgressView {
-    __weak typeof(self) ws = self;
+    WeakSelf(ws);
     self.progressView.animationDidStopBlock = ^{
-        if ([ws.delegate respondsToSelector:@selector(JCwebView:didCompletedNavigationWithIsSuccess:)]) {
-            [ws.delegate JCwebView:ws didCompletedNavigationWithIsSuccess:ws.isLoadingRequestSuccess];
+        if ([ws.delegate respondsToSelector:@selector(JCWebView:didCompletedNavigationWithIsSuccess:)]) {
+            [ws.delegate JCWebView:ws didCompletedNavigationWithIsSuccess:ws.isLoadingRequestSuccess];
         }
         ws.progressView = nil;
     };

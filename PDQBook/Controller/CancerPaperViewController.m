@@ -46,6 +46,7 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
     self.webView = [[JCWebView alloc] initWithFrame:CGRectZero configuration:webViewConfiguration];
     self.webView.backgroundColor = [UIColor lightGrayColor];
     self.webView.loadingFinishDelay = 2;
+    self.webView.isNeedPaperSelectionMenu = YES;
     self.webView.delegate = self;
     [self.view addSubview:self.webView];
     [self.webView makeConstraints:^(MASConstraintMaker *make) {
@@ -154,14 +155,18 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 
 
 #pragma mark - JCWebViewDelegate
-- (void)JCwebView:(JCWebView *)webView startLoadingRequest:(NSURLRequest *)request {
+- (void)JCWebView:(JCWebView *)webView startLoadingRequest:(NSURLRequest *)request {
     self.switchLanguageBtn.alpha = 0;
 }
 
-- (void)JCwebView:(JCWebView *)webView didCompletedNavigationWithIsSuccess:(BOOL)isSuccess {
+- (void)JCWebView:(JCWebView *)webView didCompletedNavigationWithIsSuccess:(BOOL)isSuccess {
     [UIView animateWithDuration:0.3f animations:^{
         self.switchLanguageBtn.alpha = 1;
     }];
+}
+
+- (void)JCWebView:(JCWebView *)webView didTappedMenuSearchWithText:(NSString *)searchText {
+    [self showSearchVCWithSearchText:searchText];
 }
 
 
