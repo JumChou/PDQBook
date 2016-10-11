@@ -138,15 +138,16 @@ static const CGFloat kDicContentCloseBtn_W = 28.f;
  初始化NavigationBar的SearchView
  */
 - (void)initNaviSearchView {
-    __weak typeof(self) weakSelf = self;
+    WeakSelf(ws);
     self.searchView = [[NBSearchView alloc] initWithCloseHandler:^{
-        [weakSelf dismissViewControllerAnimated:YES completion:^{
+        [ws.searchResults cancelAllNetworkingTasks];
+        [ws dismissViewControllerAnimated:YES completion:^{
             
         }];
     } inputingHandler:^(NSString *inputingText) {
-        [weakSelf searchInputingAction];
+        [ws searchInputingAction];
     } searchHandler:^(NSString *searchText) {
-        [weakSelf searchWithText:searchText];
+        [ws searchWithText:searchText];
     }];
     self.searchView.frame = CGRectMake(0, 0, kScreenWidth, kNavBarHeight);
 }

@@ -58,7 +58,7 @@
 /**
  * cancel当前所有网络请求task
  */
-- (void)cancelNetworkingTasks {
+- (void)cancelAllNetworkingTasks {
     @autoreleasepool {
         NSArray *tasks = [self.networkingTasks copy];
         for (NSURLSessionTask *task in tasks) {

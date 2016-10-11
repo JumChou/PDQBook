@@ -32,7 +32,7 @@
 /**
  * cancel当前所有网络请求task
  */
-- (void)cancelNetworkingTasks;
+- (void)cancelAllNetworkingTasks;
 
 
 

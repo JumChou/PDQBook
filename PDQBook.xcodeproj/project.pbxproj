@@ -60,6 +60,7 @@
 		C94CC64F1D531B5600458804 /* CancerPaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CC64E1D531B5600458804 /* CancerPaperViewController.m */; };
 		C94CC6501D531B5600458804 /* CancerPaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CC64E1D531B5600458804 /* CancerPaperViewController.m */; };
 		C94CC6511D531B5600458804 /* CancerPaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CC64E1D531B5600458804 /* CancerPaperViewController.m */; };
+		C952BEE21DAC92710043A85B /* TranslationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEE11DAC92710043A85B /* TranslationResult.m */; };
 		C954E8821D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
 		C954E8831D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
 		C954E8841D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
@@ -256,6 +257,8 @@
 		C93803A31D5B77C500791731 /* BasicNetworkingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicNetworkingModel.m; sourceTree = "<group>"; };
 		C94CC64D1D531B5600458804 /* CancerPaperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CancerPaperViewController.h; sourceTree = "<group>"; };
 		C94CC64E1D531B5600458804 /* CancerPaperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancerPaperViewController.m; sourceTree = "<group>"; };
+		C952BEE01DAC92710043A85B /* TranslationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationResult.h; sourceTree = "<group>"; };
+		C952BEE11DAC92710043A85B /* TranslationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationResult.m; sourceTree = "<group>"; };
 		C954E8811D40A03600ACC975 /* Data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Data.sqlite; sourceTree = "<group>"; };
 		C954E8851D40A17400ACC975 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		C954E8861D40A17400ACC975 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
@@ -536,6 +539,8 @@
 				C923A4561D5AD25700CC6E69 /* Cancer.m */,
 				C923A4641D5B34F700CC6E69 /* Cancers.h */,
 				C923A4651D5B34F700CC6E69 /* Cancers.m */,
+				C952BEE01DAC92710043A85B /* TranslationResult.h */,
+				C952BEE11DAC92710043A85B /* TranslationResult.m */,
 				C955200C1D91299100CD21BF /* CancerCatalogueModels */,
 				C9551FF21D91290200CD21BF /* SearchModels */,
 			);
@@ -993,6 +998,7 @@
 				C9943E621D33876800B90006 /* PopZoomOutAnimator.m in Sources */,
 				C9DF8A521D76C56B002DACF2 /* RQShineLabel.m in Sources */,
 				C923A45C1D5B1E7F00CC6E69 /* Singleton.m in Sources */,
+				C952BEE21DAC92710043A85B /* TranslationResult.m in Sources */,
 				C9188B301D3388E1001D1DA7 /* UIImage+BoxBlur.m in Sources */,
 				C9738FEB1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */,
 				C9943E4D1D33876800B90006 /* NSObject+Custom.m in Sources */,

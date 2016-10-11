@@ -62,6 +62,7 @@
 #define RADIANS_TO_DEGREES(x)   ((x)/M_PI*180.0)            // 弧度转角度
 #define DEGREES_TO_RADIANS(x)   ((x)/180.0*M_PI)            // 角度转弧度
 
+
 #pragma mark - userDefaults配置信息
 //-----------------------------------userDefaults配置信息---------------------------------------------
 #define UD_IsAppHaveLaunched            @"IsAppHaveLaunched"    // 应用是否运行过
@@ -89,26 +90,6 @@
 #define Notifi_TabBarDidSelectIndex             @"TabBarDidSelectIndex"
 #define Notifi_UpdateSubmittedFeedback          @"UpdateSubmittedFeedback"
 
-#pragma mark - 分享平台信息
-//-----------------------------------分享平台信息---------------------------------------------
-#define Flurry_APPKey               @"HKKHQC3WTRHW66QQFJ3M"
-#define UMeng_AppID                 @"565d087ce0f55aa1f7002cdd"
-
-#define Share_ShareSDK_AppID        @"720a7dbc95ec"
-#define Share_ShareSDK_AppSecret    @"d4b93c276a0a1b3693b72a59aa98edf5"
-
-#define WeiXin_AppID                @"wxfc9a8fa86f2e67f9"
-#define WeiXin_AppSecret            @"d4624c36b6795d1d99dcf0547af5443d"
-
-#define SinaWeibo_AppID             @"343743196"
-#define SinaWeibo_AppSecret         @"ac5fc288cd3a5065bfa5bbfc3b11a19c"
-
-#define QQ_AppID                    @"1104792534"   // QQ应用
-#define QQ_AppSecret                @"Q8nuvICTGYUyxmoN"
-
-#define LoginType_Wecat                 @"weixin"
-#define LoginType_SinaWeibo             @"weibo"
-#define LoginType_TaskCode              @"taskCode"
 
 #pragma mark - 通用其他
 //-----------------------------------其他---------------------------------------------
@@ -192,14 +173,35 @@
 
 
 
+#pragma mark - 第三方平台信息
+//-----------------------------------第三方平台信息---------------------------------------------
+#define Youdao_APIKEY               @"9514342"
+#define Youdao_KEYFROM              @"PDQBook"
+
+#define Flurry_APPKey               @"HKKHQC3WTRHW66QQFJ3M"
+#define UMeng_AppID                 @"565d087ce0f55aa1f7002cdd"
+
+#define Share_ShareSDK_AppID        @"720a7dbc95ec"
+#define Share_ShareSDK_AppSecret    @"d4b93c276a0a1b3693b72a59aa98edf5"
+
+#define WeiXin_AppID                @"wxfc9a8fa86f2e67f9"
+#define WeiXin_AppSecret            @"d4624c36b6795d1d99dcf0547af5443d"
+
+#define SinaWeibo_AppID             @"343743196"
+#define SinaWeibo_AppSecret         @"ac5fc288cd3a5065bfa5bbfc3b11a19c"
+
+#define LoginType_Wecat                 @"weixin"
+#define LoginType_SinaWeibo             @"weibo"
+
+
 
 #pragma mark - 接口请求url
 //-----------------------------------接口请求url--------------------------------------------
 // 正式服
 #define URL_Host                    @"http://ps.wehealth.mobi/API/NCC"
 // 测试服
-#define URL_TestHost                @"http://service.wehealth.mobi/API"
-
+#define URL_TestHost                @""
+// 获得完整URL
 #define Get_Full_URL(PartURL)       [NSString stringWithFormat:@"%@%@", URL_Host, PartURL]
 
 // 癌症列表接口 c=null&x=null&userId=null&token=null
@@ -207,14 +209,14 @@
 // 搜索接口 c=null&x=null&userId=null&token=null&keyword=%E8%82%9D%E7%99%8C
 #define URL_Search                  Get_Full_URL(@"/Search")
 
-
 // 有道翻译
 #define URL_YouDaoTranslation       @"http://fanyi.youdao.com/openapi.do?keyfrom=yichong&key=1180506413&type=data&doctype=json&version=1.1"
+#define Get_YoudaoTranslationURL(text)          [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=%@&key=%@&type=data&doctype=json&version=1.1&q=%@", Youdao_KEYFROM, Youdao_APIKEY, text]
 
 // 获得癌症页面WebURL
-#define Get_CancerWebURL(CancerId, Section)    [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/summarylist/%@/%@", CancerId, Section]
+#define Get_CancerWebURL(CancerId, Section)     [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/summarylist/%@/%@", CancerId, Section]
 // 获得文章页面WebURL
-#define Get_PaperWebURL(CDR_id)    [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/page2/%@", CDR_id]
+#define Get_PaperWebURL(CDR_id)                 [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/page2/%@", CDR_id]
 // 获得文章段落页面WebURL
 #define Get_PaperParaWebURL(CDR_id, Para_id)    [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/page2/%@/%@", CDR_id, Para_id]
 
