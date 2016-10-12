@@ -48,6 +48,10 @@
     [self HTTPRequestWithMethod:HTTP_GET URLString:Get_YoudaoTranslationURL(content) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responeseObj = responseObject;
         DebugLog(@"%@", responeseObj);
+        if ([[responeseObj valueForKey:@"errorCode"] integerValue] != 0) {
+            failure();
+            return;
+        }
         TranslationResult *transResult = [[TranslationResult alloc] init];
         transResult.content = content;
         transResult.translateContent = [responeseObj JSONString];
