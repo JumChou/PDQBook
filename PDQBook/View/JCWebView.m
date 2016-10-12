@@ -73,8 +73,11 @@ const float ProgressView_H = 3.0f;
 }
 
 - (void)dealloc {
+    DebugLog(@"");
     [self removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self removeObserverForMenuNotifications];
 }
+
 
 #pragma mark - OverWrite
 - (UILabel *)reloadLab {
@@ -118,16 +121,11 @@ const float ProgressView_H = 3.0f;
     _isNeedPaperSelectionMenu = isNeedPaperSelectionMenu;
     if (_isNeedPaperSelectionMenu) {
         [self setUpPaperMenu];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillShowAction) name:UIMenuControllerWillShowMenuNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidShowAction) name:UIMenuControllerDidShowMenuNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHideAction) name:UIMenuControllerDidHideMenuNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuChangeFrameAction) name:UIMenuControllerMenuFrameDidChangeNotification object:nil];
+        [self addObserverForMenuNotifications];
         
     } else {
         self.popupMenu = nil;
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerWillShowMenuNotification object:nil];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidShowMenuNotification object:nil];
-        [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidHideMenuNotification object:nil];
+        [self removeObserverForMenuNotifications];
     }
 }
 
@@ -178,13 +176,26 @@ const float ProgressView_H = 3.0f;
 //}
 
 - (void)setUpPaperMenu {
-    QBPopupMenuItem *itemCopy = [QBPopupMenuItem itemWithTitle:@"复制" target:self action:@selector(menuItemTranslationAction:)];
-    QBPopupMenuItem *itemTranslate = [QBPopupMenuItem itemWithTitle:@"翻译" target:self action:@selector(menuItemTranslationAction:)];
+    QBPopupMenuItem *itemCopy = [QBPopupMenuItem itemWithTitle:@"复制" target:self action:@selector(menuItemCopyAction)];
+    QBPopupMenuItem *itemTranslate = [QBPopupMenuItem itemWithTitle:@"翻译" target:self action:@selector(menuItemTranslationAction)];
     QBPopupMenuItem *itemSearch = [QBPopupMenuItem itemWithTitle:@"搜索" target:self action:@selector(menuItemSearchAction)];
 //    QBPopupMenuItem *item2 = [QBPopupMenuItem itemWithImage:[UIImage imageNamed:@"image"] target:self action:@selector(action:)];
     self.popupMenu = [[QBPlasticPopupMenu alloc] initWithItems:@[itemCopy, itemTranslate, itemSearch]];
 }
 
+- (void)addObserverForMenuNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWillShowAction) name:UIMenuControllerWillShowMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidShowAction) name:UIMenuControllerDidShowMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHideAction) name:UIMenuControllerDidHideMenuNotification object:nil];
+}
+
+- (void)removeObserverForMenuNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerWillShowMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidShowMenuNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIMenuControllerDidHideMenuNotification object:nil];
+}
+
+#pragma mark MenuMethod
 - (void)copiedString {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getPasteboardString) name:UIPasteboardChangedNotification object:nil];
     [[UIApplication sharedApplication] sendAction:@selector(copy:) to:nil from:self forEvent:nil];
@@ -233,32 +244,47 @@ const float ProgressView_H = 3.0f;
     [self selectionRectInJSCompletionHandler:^(NSValue *rectValue) {
         CGRect selectionRect = [rectValue CGRectValue];
         if (CGRectEqualToRect(selectionRect, CGRectZero)) {
-            [self.menuTimer invalidate];
-            self.menuTimer = nil;
-            if (self.popupMenu.visible) {
-                DebugLog(@"Dismiss!");
-                [self.popupMenu dismissAnimated:YES];
-            }
+            [self dismissPopupMenuAndKillTimer];
         }
     }];
 }
 
+- (void)dismissPopupMenuAndKillTimer {
+    [self.menuTimer invalidate];
+    self.menuTimer = nil;
+    if (self.popupMenu.visible) {
+        DebugLog(@"Dismiss!");
+        [self.popupMenu dismissAnimated:YES];
+    }
+}
+
 
 #pragma mark MenuAction
-- (void)menuItemTranslationAction:(UIMenuController *)sender {
+- (void)menuItemCopyAction {
     [self selectionTextInJSCompletionHandler:^(NSString *selectionText) {
         DebugLog(@"SELECTION TEXT : %@", selectionText);
+        UIPasteboard *pboard = [UIPasteboard generalPasteboard];
+        pboard.string = selectionText;
+        if ([self.delegate respondsToSelector:@selector(JCWebView:didTappedMenuWithText:menuType:)]) {
+            [self.delegate JCWebView:self didTappedMenuWithText:selectionText menuType:JCWebViewMenuType_Copy];
+        }
     }];
-    
-//    [self copiedString];
-//    [self recursiveFindSubViewInView:self];
+}
+
+- (void)menuItemTranslationAction {
+    [self selectionTextInJSCompletionHandler:^(NSString *selectionText) {
+        DebugLog(@"SELECTION TEXT : %@", selectionText);
+        if ([self.delegate respondsToSelector:@selector(JCWebView:didTappedMenuWithText:menuType:)]) {
+            [self.delegate JCWebView:self didTappedMenuWithText:selectionText menuType:JCWebViewMenuType_Translation];
+        }
+    }];
 }
 
 - (void)menuItemSearchAction {
     [self selectionTextInJSCompletionHandler:^(NSString *selectionText) {
         DebugLog(@"SELECTION TEXT : %@", selectionText);
-        if ([self.delegate respondsToSelector:@selector(JCWebView:didTappedMenuSearchWithText:)]) {
-            [self.delegate JCWebView:self didTappedMenuSearchWithText:selectionText];
+        if ([self.delegate respondsToSelector:@selector(JCWebView:didTappedMenuWithText:menuType:)]) {
+            [self.delegate JCWebView:self didTappedMenuWithText:selectionText menuType:JCWebViewMenuType_Search];
         }
     }];
 }
@@ -284,8 +310,7 @@ const float ProgressView_H = 3.0f;
     
         [self selectionRectInJSCompletionHandler:^(NSValue *rectValue) {
             CGRect selectiongRect = [rectValue CGRectValue];
-            CGRect testRect = CGRectMake(selectiongRect.origin.x, selectiongRect.origin.y + 50, selectiongRect.size.width, selectiongRect.size.height);
-//            [self.popupMenu showInView:self targetRect:testRect animated:YES];
+//            CGRect testRect = CGRectMake(selectiongRect.origin.x, selectiongRect.origin.y + 50, selectiongRect.size.width, selectiongRect.size.height);
             [self.popupMenu showInView:self targetRect:selectiongRect animated:YES];
             
             if (!self.menuTimer) {
@@ -297,8 +322,6 @@ const float ProgressView_H = 3.0f;
 
 - (void)menuDidShowAction {
     DebugLog(@"");
-//    [[UIMenuController sharedMenuController] setTargetRect:CGRectMake(kScreenWidth, kScreenHeight, 100, 100) inView:self];
-//    [[UIMenuController sharedMenuController] update];
     
 //    dispatch_async(dispatch_get_main_queue(), ^{
 //        DebugLog(@"%@", [NSThread currentThread]);

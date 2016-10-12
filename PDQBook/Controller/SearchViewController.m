@@ -132,6 +132,10 @@ static const CGFloat kDicContentCloseBtn_W = 28.f;
     [self.searchView removeFromSuperview];
 }
 
+- (void)dealloc {
+    DebugLog(@"");
+}
+
 
 #pragma mark - PrivateMethod
 /**

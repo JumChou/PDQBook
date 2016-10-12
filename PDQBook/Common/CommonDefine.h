@@ -101,8 +101,8 @@
 #define DBFilePath          [DocumentsPath stringByAppendingPathComponent:@"Data.sqlite"] // 数据库文件路径
 #define MaskGuidPlistPath   [DocumentsPath stringByAppendingPathComponent:@"MaskGuid.plist"]  // 遮罩plist文件路径
 
-#define kDBVersion      @"1.0.0"    // 数据库版本
-#define RequestTimeOut  20          // 网络请求超时时间
+#define kDBVersion      @"1.0.1"    // 数据库版本
+#define kHTTPTimeOut    15          // 网络请求超时时间
 
 //方正黑体简体字体定义
 #define FontFZHT(sizef) [UIFont fontWithName:@"FZHTJW--GB1-0" size:sizef]
@@ -211,7 +211,8 @@
 
 // 有道翻译
 #define URL_YouDaoTranslation       @"http://fanyi.youdao.com/openapi.do?keyfrom=yichong&key=1180506413&type=data&doctype=json&version=1.1"
-#define Get_YoudaoTranslationURL(text)          [NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=%@&key=%@&type=data&doctype=json&version=1.1&q=%@", Youdao_KEYFROM, Youdao_APIKEY, text]
+#define Get_YoudaoTranslationURL(text)          [[NSString stringWithFormat:@"http://fanyi.youdao.com/openapi.do?keyfrom=%@&key=%@&type=data&doctype=json&version=1.1&q=%@", Youdao_KEYFROM, Youdao_APIKEY, text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+
 
 // 获得癌症页面WebURL
 #define Get_CancerWebURL(CancerId, Section)     [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/summarylist/%@/%@", CancerId, Section]

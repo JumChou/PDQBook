@@ -10,6 +10,8 @@
 #import "JCWebView.h"
 #import <VBFPopFlatButton/VBFPopFlatButton.h>
 #import "JCSwitchLanguageBtn.h"
+#import "TranslationHandler.h"
+#import "YouDaoTranslateView.h"
 
 static NSString *const kWebSectionDidSelected = @"WebSectionDidSelected";
 
@@ -19,8 +21,12 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 @interface CancerPaperViewController () <WKScriptMessageHandler, JCWebViewDelegate>
 
 @property (nonatomic, strong) JCWebView *webView;
+@property (nonatomic, strong) WKWebViewConfiguration *webViewConfiguration;
+
 @property (nonatomic, strong) VBFPopFlatButton *sectionsBtn;
 @property (nonatomic, strong) JCSwitchLanguageBtn *switchLanguageBtn;
+
+@property (nonatomic, strong) TranslationHandler *translationHandler;
 
 @end
 
@@ -30,6 +36,7 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
     self = [super init];
     if (self) {
         self.paperURL = paperURL;
+        self.translationHandler = [TranslationHandler new];
     }
     
     return self;
@@ -40,10 +47,10 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    WKWebViewConfiguration *webViewConfiguration = [[WKWebViewConfiguration alloc] init];
-    webViewConfiguration.userContentController = [[WKUserContentController alloc] init];
-    [webViewConfiguration.userContentController addScriptMessageHandler:self name:kWebSectionDidSelected];
-    self.webView = [[JCWebView alloc] initWithFrame:CGRectZero configuration:webViewConfiguration];
+    self.webViewConfiguration = [[WKWebViewConfiguration alloc] init];
+    self.webViewConfiguration.userContentController = [[WKUserContentController alloc] init];
+    [self.webViewConfiguration.userContentController addScriptMessageHandler:self name:kWebSectionDidSelected];
+    self.webView = [[JCWebView alloc] initWithFrame:CGRectZero configuration:self.webViewConfiguration];
     self.webView.backgroundColor = [UIColor lightGrayColor];
     self.webView.loadingFinishDelay = 2;
     self.webView.isNeedPaperSelectionMenu = YES;
@@ -79,6 +86,20 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setUpNavigationBar];
+    if (self.webView.isNeedPaperSelectionMenu) {
+        [self.webView addObserverForMenuNotifications];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (self.webView.isNeedPaperSelectionMenu) {
+        [self.webView removeObserverForMenuNotifications];
+    }
+}
+
+- (void)dealloc {
+    DebugLog(@"");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,8 +113,8 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
  配置NavigationBar
  */
 - (void)setUpNavigationBar {
-    [self setUpNaviBackBtn];
     [self setUpNaviTitle:self.paperName];
+    [self setUpNaviBackBtnWithAction:@selector(backBtnAction)];
     
     self.sectionsBtn = [[VBFPopFlatButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)
                                                     buttonType:buttonMenuType
@@ -113,6 +134,12 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 
 
 #pragma mark - EventAction
+- (void)backBtnAction {
+    [self.webView dismissPopupMenuAndKillTimer];
+    [self.webViewConfiguration.userContentController removeScriptMessageHandlerForName:kWebSectionDidSelected];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)switchLanguageBtnAction:(id)sender {
     [self.webView evaluateJavaScript:@"slideLanguage()" completionHandler:^(id _Nullable memo, NSError * _Nullable error) {
         DebugLog(@"memo:%@", memo);
@@ -165,8 +192,22 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
     }];
 }
 
-- (void)JCWebView:(JCWebView *)webView didTappedMenuSearchWithText:(NSString *)searchText {
-    [self showSearchVCWithSearchText:searchText];
+- (void)JCWebView:(JCWebView *)webView didTappedMenuWithText:(NSString *)text menuType:(JCWebViewMenuType)menuType {
+    if (menuType == JCWebViewMenuType_Translation) {
+        YouDaoTranslateView *ydTransView = [[YouDaoTranslateView alloc] init];
+        [ydTransView showInView:self.view];
+        [self.translationHandler translateContent:text success:^(TranslationResult *transResult) {
+            [ydTransView setupWithTranslation:transResult];
+        } failure:^{
+            TranslationResult *NULLResult = [[TranslationResult alloc] init];
+            NULLResult.content = text;
+            [ydTransView setupWithTranslation:NULLResult];
+        }];
+        
+    } else if (menuType == JCWebViewMenuType_Search) {
+        [self showSearchVCWithSearchText:text];
+        
+    }
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "Cancer.h"
+#import "DBManager.h"
 
 @implementation Cancer
 

@@ -9,6 +9,12 @@
 #import <WebKit/WebKit.h>
 @class JCWebView;
 
+typedef NS_ENUM(NSInteger, JCWebViewMenuType) {
+    JCWebViewMenuType_Copy,
+    JCWebViewMenuType_Translation,
+    JCWebViewMenuType_Search
+};
+
 @protocol JCWebViewDelegate <NSObject>
 
 @optional
@@ -29,12 +35,13 @@
 - (void)JCWebView:(JCWebView *)webView didCompletedNavigationWithIsSuccess:(BOOL)isSuccess;
 
 /**
- webView选择Menu点击了搜索
+ WebView选择Menu点击事件
 
- @param webView    JCWebView
- @param searchText 搜索文本
+ @param webView  JCWebView
+ @param text     选择的文本
+ @param menuType 类型
  */
-- (void)JCWebView:(JCWebView *)webView didTappedMenuSearchWithText:(NSString *)searchText;
+- (void)JCWebView:(JCWebView *)webView didTappedMenuWithText:(NSString *)text menuType:(JCWebViewMenuType)menuType;
 
 @end
 
@@ -49,6 +56,11 @@
 /// 是否需要文章长按选择menu
 @property (nonatomic, assign) BOOL isNeedPaperSelectionMenu;
 
+
+#pragma mark - 使用Menu需在VC生命周期管理
+- (void)addObserverForMenuNotifications;
+- (void)removeObserverForMenuNotifications;
+- (void)dismissPopupMenuAndKillTimer;
 
 
 @end

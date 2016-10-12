@@ -25,7 +25,7 @@
 //define this constant if you want to enable auto-boxing for default syntax
 #define MAS_SHORTHAND_GLOBALS
 #import <Masonry/Masonry.h>
-#import <FMDB/FMDB.h>
+//#import <FMDB/FMDB.h>
 #import <JSONKit-NoWarning/JSONKit.h>
 #import <MJRefresh/MJRefresh.h>
 //#import "AFNetWorking.h"

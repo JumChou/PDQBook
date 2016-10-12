@@ -6,9 +6,10 @@
 //  Copyright © 2016年 weihaisi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
 #import "SearchRecord.h"
 #import "Cancer.h"
+@class TranslationResult;
 
 @interface DBManager : NSObject
 
@@ -21,6 +22,7 @@
  *  @return DBManager
  */
 + (DBManager *)shareInstance;
+
 
 #pragma mark - 搜索记录
 /**
@@ -66,6 +68,26 @@
 - (NSArray<Cancer *> *)queryAllCancers;
 
 - (Cancer *)queryCancerWithId:(NSInteger)cancerId;
+
+
+#pragma mark - TranslationResult
+/**
+ 存储翻译结果、完善翻译库
+ 
+ @param results 翻译结果们
+ 
+ @return BOOL
+ */
+- (BOOL)bulkInsertTranslationResults:(NSArray *)results;
+
+/**
+ 根据需翻译内容查询翻译结果
+
+ @param content 需翻译内容
+
+ @return 翻译结果
+ */
+- (TranslationResult *)queryTranslationResultWithContent:(NSString *)content;
 
 
 

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "ViewController.h"
+#import "Cancer.h"
 
 @interface AppDelegate ()
 

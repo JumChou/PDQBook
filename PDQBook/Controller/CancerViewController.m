@@ -205,6 +205,7 @@ static NSString *const kWebViewDicKey_WebViewIndex = @"WebViewIndex";
         
     } else { // 返回MainVC
         [self.webViewConfiguration.userContentController removeScriptMessageHandlerForName:kWebDocListDidSelectedMethodName];
+//        [self.webViewConfiguration.userContentController removeAllUserScripts];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

@@ -8,6 +8,8 @@
 
 #import "DBManager.h"
 #import "CommonDefine.h"
+#import "TranslationResult.h"
+
 
 #define DBFileName  @"Data.sqlite"
 
@@ -197,7 +199,8 @@
             
             [results addObject:cancer];
         }
-        [resultSet close];
+        // Typically, there's no need to -close an FMResultSet yourself, since that happens when either the result set is deallocated, or the parent database is closed.
+        // [resultSet close];
     }];
     
     return results;
@@ -224,6 +227,63 @@
 }
 
 
+#pragma mark - TranslationResult
+/**
+ 存储翻译结果、完善翻译库
+
+ @param results 翻译结果们
+
+ @return BOOL
+ */
+- (BOOL)bulkInsertTranslationResults:(NSArray *)results {
+    NSString *insertSql = @"INSERT into tab_translation_result(content, translate_content, tag, source) select ?, ?, ?, ? where NOT EXISTS (select * from tab_translation_result where lower(content) in (lower(?)));";
+    __block BOOL ret = NO;
+    
+    [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        for (TranslationResult *transResult in results) {
+            ret = [db executeUpdate:insertSql,
+                   transResult.content,
+                   transResult.translateContent,
+                   transResult.tag,
+                   transResult.source,
+                   transResult.content];
+            
+            if (ret == NO) {
+                *rollback = YES;
+                return;
+            }
+        }
+    }];
+    
+    return ret;
+}
+
+/**
+ 根据需翻译内容查询翻译结果
+ 
+ @param content 需翻译内容
+ 
+ @return 翻译结果
+ */
+- (TranslationResult *)queryTranslationResultWithContent:(NSString *)content {
+    NSString *sql = @"select * from tab_translation_result where lower(content) = ?;";
+    
+    __block TranslationResult *transResult;
+    __block FMResultSet *resultSet;
+    [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        resultSet = [db executeQuery:sql, [content lowercaseString]];
+        
+        while (resultSet.next) {
+            transResult = [TranslationResult new];
+            transResult.content = [resultSet stringForColumn:@"content"];
+            transResult.translateContent = [resultSet stringForColumn:@"translate_content"];
+            transResult.tag = [resultSet stringForColumn:@"tag"];
+            transResult.source = [resultSet stringForColumn:@"source"];
+        }
+    }];
+    
+    return transResult;
+}
 
 
 

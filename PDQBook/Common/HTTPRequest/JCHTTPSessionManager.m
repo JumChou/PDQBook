@@ -24,7 +24,7 @@
 - (id)initWithSessionConfiguration:(NSURLSessionConfiguration *)configuration {
     self = [super initWithSessionConfiguration:configuration];
     if (self) {
-        self.requestSerializer.timeoutInterval = 10;
+        self.requestSerializer.timeoutInterval = kHTTPTimeOut;
         self.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         self.securityPolicy.allowInvalidCertificates = YES;
         //[self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];

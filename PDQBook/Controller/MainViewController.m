@@ -404,7 +404,7 @@ static BOOL isAnimating = NO;
  展示动画
  */
 - (void)showAnimations {
-    DebugLog(@"!!!StartShow!!!");
+//    DebugLog(@"!!!StartShow!!!");
 //    if (isAnimating) {
 //        return;
 //    }
@@ -426,10 +426,10 @@ static BOOL isAnimating = NO;
 //    if (isAnimating) {
 //        return;
 //    }
-    DebugLog(@"!!!StartFadeout!!!");
+//    DebugLog(@"!!!StartFadeout!!!");
     [self.infoLab fadeOut];
 //    [self initCancerBtns];
-    DebugLog(@"!!!EndFadeout!!!");
+//    DebugLog(@"!!!EndFadeout!!!");
 }
 
 
@@ -503,7 +503,7 @@ static BOOL isAnimating = NO;
                                         if (i == 7) { // 动画结束执行
                                             [self updateCancerBtnsConstraints]; // 更新cancerBtns们的约束
                                             isAnimating = NO;
-                                            DebugLog(@"!!!EndShow!!!");
+//                                            DebugLog(@"!!!EndShow!!!");
                                         }
                                     }];
     }

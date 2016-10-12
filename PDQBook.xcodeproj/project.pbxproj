@@ -61,6 +61,11 @@
 		C94CC6501D531B5600458804 /* CancerPaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CC64E1D531B5600458804 /* CancerPaperViewController.m */; };
 		C94CC6511D531B5600458804 /* CancerPaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C94CC64E1D531B5600458804 /* CancerPaperViewController.m */; };
 		C952BEE21DAC92710043A85B /* TranslationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEE11DAC92710043A85B /* TranslationResult.m */; };
+		C952BEE51DACCA6F0043A85B /* TranslationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEE41DACCA6F0043A85B /* TranslationHandler.m */; };
+		C952BEF01DACD4910043A85B /* AnimationDotLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEE81DACD4910043A85B /* AnimationDotLabel.m */; };
+		C952BEF11DACD4910043A85B /* TICopyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEEA1DACD4910043A85B /* TICopyTextView.m */; };
+		C952BEF21DACD4910043A85B /* YouDaoTranslateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEED1DACD4910043A85B /* YouDaoTranslateView.m */; };
+		C952BEF31DACD4910043A85B /* YouDaoTranslationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEEF1DACD4910043A85B /* YouDaoTranslationUtils.m */; };
 		C954E8821D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
 		C954E8831D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
 		C954E8841D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
@@ -259,6 +264,17 @@
 		C94CC64E1D531B5600458804 /* CancerPaperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancerPaperViewController.m; sourceTree = "<group>"; };
 		C952BEE01DAC92710043A85B /* TranslationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationResult.h; sourceTree = "<group>"; };
 		C952BEE11DAC92710043A85B /* TranslationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationResult.m; sourceTree = "<group>"; };
+		C952BEE31DACCA6F0043A85B /* TranslationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationHandler.h; sourceTree = "<group>"; };
+		C952BEE41DACCA6F0043A85B /* TranslationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationHandler.m; sourceTree = "<group>"; };
+		C952BEE71DACD4910043A85B /* AnimationDotLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationDotLabel.h; sourceTree = "<group>"; };
+		C952BEE81DACD4910043A85B /* AnimationDotLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationDotLabel.m; sourceTree = "<group>"; };
+		C952BEE91DACD4910043A85B /* TICopyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TICopyTextView.h; sourceTree = "<group>"; };
+		C952BEEA1DACD4910043A85B /* TICopyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TICopyTextView.m; sourceTree = "<group>"; };
+		C952BEEB1DACD4910043A85B /* YouDaoTranslateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouDaoTranslateProtocol.h; sourceTree = "<group>"; };
+		C952BEEC1DACD4910043A85B /* YouDaoTranslateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouDaoTranslateView.h; sourceTree = "<group>"; };
+		C952BEED1DACD4910043A85B /* YouDaoTranslateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouDaoTranslateView.m; sourceTree = "<group>"; };
+		C952BEEE1DACD4910043A85B /* YouDaoTranslationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouDaoTranslationUtils.h; sourceTree = "<group>"; };
+		C952BEEF1DACD4910043A85B /* YouDaoTranslationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouDaoTranslationUtils.m; sourceTree = "<group>"; };
 		C954E8811D40A03600ACC975 /* Data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Data.sqlite; sourceTree = "<group>"; };
 		C954E8851D40A17400ACC975 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		C954E8861D40A17400ACC975 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
@@ -448,6 +464,22 @@
 			path = HttpRequest;
 			sourceTree = "<group>";
 		};
+		C952BEE61DACD4910043A85B /* YouDaoTranslationView */ = {
+			isa = PBXGroup;
+			children = (
+				C952BEE71DACD4910043A85B /* AnimationDotLabel.h */,
+				C952BEE81DACD4910043A85B /* AnimationDotLabel.m */,
+				C952BEE91DACD4910043A85B /* TICopyTextView.h */,
+				C952BEEA1DACD4910043A85B /* TICopyTextView.m */,
+				C952BEEB1DACD4910043A85B /* YouDaoTranslateProtocol.h */,
+				C952BEEC1DACD4910043A85B /* YouDaoTranslateView.h */,
+				C952BEED1DACD4910043A85B /* YouDaoTranslateView.m */,
+				C952BEEE1DACD4910043A85B /* YouDaoTranslationUtils.h */,
+				C952BEEF1DACD4910043A85B /* YouDaoTranslationUtils.m */,
+			);
+			path = YouDaoTranslationView;
+			sourceTree = "<group>";
+		};
 		C9551FE71D91227100CD21BF /* CancerCatalogue */ = {
 			isa = PBXGroup;
 			children = (
@@ -516,6 +548,7 @@
 				C9941ADF1D60185400338E1D /* MainVC */,
 				C9941AE51D60187600338E1D /* SearchVC */,
 				C9551FE71D91227100CD21BF /* CancerCatalogue */,
+				C952BEE61DACD4910043A85B /* YouDaoTranslationView */,
 				C917EA1B1D471013003CECFD /* JCTabBarView.h */,
 				C917EA1C1D471013003CECFD /* JCTabBarView.m */,
 				C91F68051D54998800D8BB4F /* JCWebView.h */,
@@ -541,6 +574,8 @@
 				C923A4651D5B34F700CC6E69 /* Cancers.m */,
 				C952BEE01DAC92710043A85B /* TranslationResult.h */,
 				C952BEE11DAC92710043A85B /* TranslationResult.m */,
+				C952BEE31DACCA6F0043A85B /* TranslationHandler.h */,
+				C952BEE41DACCA6F0043A85B /* TranslationHandler.m */,
 				C955200C1D91299100CD21BF /* CancerCatalogueModels */,
 				C9551FF21D91290200CD21BF /* SearchModels */,
 			);
@@ -952,6 +987,7 @@
 				C9551FEF1D91262200CD21BF /* CancerCatalogueView.m in Sources */,
 				C962B1A41D800C7600F4E2E5 /* SRTitleView.m in Sources */,
 				C938039A1D5B64CD00791731 /* UIAlertController+Window.m in Sources */,
+				C952BEF21DACD4910043A85B /* YouDaoTranslateView.m in Sources */,
 				C95520061D91290200CD21BF /* SearchResults.m in Sources */,
 				C962B19F1D7ECE3500F4E2E5 /* DictionaryDescCell.m in Sources */,
 				C9551FFD1D91290200CD21BF /* RecentSearchRecords.m in Sources */,
@@ -959,6 +995,8 @@
 				C9DCABFC1D2F53BE00B7F69A /* ViewController.m in Sources */,
 				C938039F1D5B716E00791731 /* BasicModel.m in Sources */,
 				C9943E651D33876800B90006 /* PushPresentAnimator.m in Sources */,
+				C952BEF11DACD4910043A85B /* TICopyTextView.m in Sources */,
+				C952BEF31DACD4910043A85B /* YouDaoTranslationUtils.m in Sources */,
 				C9188B241D3388E1001D1DA7 /* HyLoglnButton.m in Sources */,
 				C9943E681D33876800B90006 /* PushZoomInAnimator.m in Sources */,
 				C966FB291D68A703004D7047 /* SRBasicCell.m in Sources */,
@@ -973,11 +1011,13 @@
 				C9941AE21D60185400338E1D /* MPSearchPartView.m in Sources */,
 				C958DBB71D3CCBFC0039EDA0 /* NBSearchView.m in Sources */,
 				C9EED4741D5431BD00F43C54 /* UCZProgressView.m in Sources */,
+				C952BEF01DACD4910043A85B /* AnimationDotLabel.m in Sources */,
 				C9DCABF61D2F53BE00B7F69A /* main.m in Sources */,
 				C95520031D91290200CD21BF /* SearchResult.m in Sources */,
 				C98C0D561D797D04009AF6C5 /* SRDictionaryContentView.m in Sources */,
 				C93803A41D5B77C500791731 /* BasicNetworkingModel.m in Sources */,
 				C9C4398E1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */,
+				C952BEE51DACCA6F0043A85B /* TranslationHandler.m in Sources */,
 				C958DBC81D3D060B0039EDA0 /* SearchViewController.m in Sources */,
 				C98FC8761D35D9BF0026B3CF /* MainViewController.m in Sources */,
 				C955200F1D912A4A00CD21BF /* CCUnit.m in Sources */,
