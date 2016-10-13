@@ -10,6 +10,15 @@
 
 @implementation TICopyTextView
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.userInteractionEnabled = NO;
+    }
+    
+    return self;
+}
+
 /* 选中文字后是否能够呼出菜单 */
 - (BOOL)canBecameFirstResponder {
     return YES;
@@ -17,8 +26,12 @@
 
 /* 选中文字后的菜单响应的选项 */
 - (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
-    if (action == @selector(copyAction:) ||
-        action == @selector(insertAction:)) {
+    #warning YoudaoViewMenu修改
+//    if (action == @selector(copyAction:) ||
+//        action == @selector(insertAction:)) {
+//        return YES;
+//    }
+    if (action == @selector(copyAction:)) {
         return YES;
     }
     return NO;

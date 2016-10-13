@@ -18,7 +18,7 @@ static NSString *const kWebSectionDidSelected = @"WebSectionDidSelected";
 static const CGFloat kSwitchLanguageBtn_W = 60.f;
 static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 
-@interface CancerPaperViewController () <WKScriptMessageHandler, JCWebViewDelegate>
+@interface CancerPaperViewController () <WKScriptMessageHandler, JCWebViewDelegate, YouDaoTranslateViewDelegate>
 
 @property (nonatomic, strong) JCWebView *webView;
 @property (nonatomic, strong) WKWebViewConfiguration *webViewConfiguration;
@@ -194,7 +194,9 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 
 - (void)JCWebView:(JCWebView *)webView didTappedMenuWithText:(NSString *)text menuType:(JCWebViewMenuType)menuType {
     if (menuType == JCWebViewMenuType_Translation) {
+        [webView removeObserverForMenuNotifications];
         YouDaoTranslateView *ydTransView = [[YouDaoTranslateView alloc] init];
+        ydTransView.delegate = self;
         [ydTransView showInView:self.view];
         [self.translationHandler translateContent:text success:^(TranslationResult *transResult) {
             [ydTransView setupWithTranslation:transResult];
@@ -211,12 +213,18 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 }
 
 
-#pragma mark - WKScriptMessageHandler JS调用OC方法
+#pragma mark WKScriptMessageHandler JS调用OC方法
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSLog(@"JS - UserContentConroller:%@ 调用了 %@ 方法，传回参数 %@", userContentController, message.name, message.body);
     if ([message.name isEqualToString:kWebSectionDidSelected]) { // web文章Section点击事件
         self.sectionsBtn.currentButtonType = buttonMenuType;
     }
+}
+
+
+#pragma mark - YouDaoTranslateViewDelegate
+- (void)youdaoTranslateViewWillDismiss {
+    [self.webView addObserverForMenuNotifications];
 }
 
 

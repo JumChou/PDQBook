@@ -264,10 +264,12 @@
         make.bottom.equalTo(lastView).offset(kYDTV_QueryTextView_MarginTop/2);
     }];
     [self addAnimationForView:contentView];
-    UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(copyAction:)];
-    UIMenuItem *insertItem = [[UIMenuItem alloc] initWithTitle:@"插入至译文" action:@selector(insertAction:)];
-    [UIMenuController sharedMenuController].menuItems = @[copyItem,insertItem];
     
+    #warning YoudaoViewMenu修改
+    UIMenuItem *copyItem = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(copyAction:)];
+//    UIMenuItem *insertItem = [[UIMenuItem alloc] initWithTitle:@"插入至译文" action:@selector(insertAction:)];
+//    [UIMenuController sharedMenuController].menuItems = @[copyItem,insertItem];
+    [UIMenuController sharedMenuController].menuItems = @[copyItem];
 }
 
 - (void)showNotFoundTranslationWithDict:(TranslationResult *)translation {
