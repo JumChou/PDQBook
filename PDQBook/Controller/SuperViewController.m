@@ -110,12 +110,12 @@
  */
 - (void)setUpNaviBackBtnWithAction:(SEL)action {
     // 返回按钮
-    UIButton *btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
-    btnBack.frame = CGRectMake(0, 0, 13.5, 23.5);
-    [btnBack addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
-    [btnBack setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btnBack setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
-    UIBarButtonItem *btnBackItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
+//    UIButton *btnBack = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btnBack.frame = CGRectMake(0, 0, 13.5, 23.5);
+//    [btnBack addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
+//    [btnBack setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [btnBack setBackgroundImage:[UIImage imageNamed:@"Navi_Back"] forState:UIControlStateNormal];
+//    UIBarButtonItem *btnBackItem = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
     
     VBFPopFlatButton *backBtn = [[VBFPopFlatButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)
                                                                  buttonType:buttonBackType

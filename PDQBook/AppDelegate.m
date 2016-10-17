@@ -65,6 +65,7 @@
     [DBManager shareInstance];          // 初始化数据库操作
     
     [self initAFNetWorkingReachability];
+    [self initFlurry];
     [self initCancleList];
     
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
@@ -107,7 +108,23 @@
     [[AFNetworkReachabilityManager sharedManager] startMonitoring]; // Reachability监听
 }
 
-
+/**
+ 初始化Flurry
+ */
+- (void)initFlurry {
+    // Flurry Debug模式
+    //[Flurry setDebugLogEnabled:YES];
+    
+    FlurrySessionBuilder *builder = [[[[[FlurrySessionBuilder new] withLogLevel:FlurryLogLevelDebug]
+                                      withCrashReporting:YES]
+                                      withSessionContinueSeconds:30]
+                                      withAppVersion:kAppVersion];
+    
+    [Flurry setEventLoggingEnabled:YES];
+    [Flurry setBackgroundSessionEnabled:NO];
+    // Flurry监控
+    [Flurry startSession:Flurry_APIKey withSessionBuilder:builder];
+}
 
 
 

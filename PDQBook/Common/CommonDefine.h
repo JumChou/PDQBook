@@ -101,6 +101,7 @@
 #define DBFilePath          [DocumentsPath stringByAppendingPathComponent:@"Data.sqlite"] // 数据库文件路径
 #define MaskGuidPlistPath   [DocumentsPath stringByAppendingPathComponent:@"MaskGuid.plist"]  // 遮罩plist文件路径
 
+#define kAppVersion     @"1.0.1"    // App版本
 #define kDBVersion      @"1.0.1"    // 数据库版本
 #define kHTTPTimeOut    15          // 网络请求超时时间
 
@@ -151,7 +152,7 @@
 #import <JSONKit-NoWarning/JSONKit.h>
 #import <MJRefresh/MJRefresh.h>
 //#import <AFNetworking/AFNetworking.h>
-//#import "Flurry.h"
+#import "Flurry.h"
 
 
 #pragma mark - Common
@@ -178,7 +179,8 @@
 #define Youdao_APIKEY               @"9514342"
 #define Youdao_KEYFROM              @"PDQBook"
 
-#define Flurry_APPKey               @"HKKHQC3WTRHW66QQFJ3M"
+#define Flurry_APIKey               @"BHQTX8F8CZNK6SPX8GJW"
+
 #define UMeng_AppID                 @"565d087ce0f55aa1f7002cdd"
 
 #define Share_ShareSDK_AppID        @"720a7dbc95ec"

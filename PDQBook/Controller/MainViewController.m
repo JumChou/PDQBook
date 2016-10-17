@@ -16,9 +16,9 @@
 #import "AboutPDQBlurView.h"
 #import <QBPopupMenu/QBPlasticPopupMenu.h>
 
-static const CGFloat MoreBtn_Trailing = 40.0f;
-static const CGFloat MoreBtn_W = 40.0f;
-static const CGFloat MoreBtn_H = 20.0f;
+//static const CGFloat MoreBtn_Trailing = 40.0f;
+//static const CGFloat MoreBtn_W = 40.0f;
+//static const CGFloat MoreBtn_H = 20.0f;
 
 static const CGFloat kInfoLab_Top = 50.0f;
 static const CGFloat kInfoLab_H = 50.0f;

@@ -15,15 +15,6 @@
 		C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1E1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1F1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
-		C9188B241D3388E1001D1DA7 /* HyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A981D3388E1001D1DA7 /* HyLoglnButton.m */; };
-		C9188B251D3388E1001D1DA7 /* HyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A981D3388E1001D1DA7 /* HyLoglnButton.m */; };
-		C9188B261D3388E1001D1DA7 /* HyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A981D3388E1001D1DA7 /* HyLoglnButton.m */; };
-		C9188B271D3388E1001D1DA7 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9A1D3388E1001D1DA7 /* HyTransitions.m */; };
-		C9188B281D3388E1001D1DA7 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9A1D3388E1001D1DA7 /* HyTransitions.m */; };
-		C9188B291D3388E1001D1DA7 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9A1D3388E1001D1DA7 /* HyTransitions.m */; };
-		C9188B2A1D3388E1001D1DA7 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9C1D3388E1001D1DA7 /* SpinerLayer.m */; };
-		C9188B2B1D3388E1001D1DA7 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9C1D3388E1001D1DA7 /* SpinerLayer.m */; };
-		C9188B2C1D3388E1001D1DA7 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9C1D3388E1001D1DA7 /* SpinerLayer.m */; };
 		C9188B2D1D3388E1001D1DA7 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9F1D3388E1001D1DA7 /* DRNRealTimeBlurView.m */; };
 		C9188B2E1D3388E1001D1DA7 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9F1D3388E1001D1DA7 /* DRNRealTimeBlurView.m */; };
 		C9188B2F1D3388E1001D1DA7 /* DRNRealTimeBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9188A9F1D3388E1001D1DA7 /* DRNRealTimeBlurView.m */; };
@@ -67,6 +58,8 @@
 		C952BEF21DACD4910043A85B /* YouDaoTranslateView.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEED1DACD4910043A85B /* YouDaoTranslateView.m */; };
 		C952BEF31DACD4910043A85B /* YouDaoTranslationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEEF1DACD4910043A85B /* YouDaoTranslationUtils.m */; };
 		C952BEF61DAE3FA10043A85B /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEF51DAE3FA10043A85B /* SuperViewController.m */; };
+		C952BF001DB4CAAF0043A85B /* FlurryEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = C952BEF91DB4CAAF0043A85B /* FlurryEmpty.m */; };
+		C952BF021DB4CAAF0043A85B /* libFlurry_7.8.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C952BEFD1DB4CAAF0043A85B /* libFlurry_7.8.0.a */; };
 		C954E8821D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
 		C954E8831D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
 		C954E8841D40A03600ACC975 /* Data.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = C954E8811D40A03600ACC975 /* Data.sqlite */; };
@@ -229,12 +222,6 @@
 		C90A13271D9BB07E00D02294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C917EA1B1D471013003CECFD /* JCTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTabBarView.h; sourceTree = "<group>"; };
 		C917EA1C1D471013003CECFD /* JCTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTabBarView.m; sourceTree = "<group>"; };
-		C9188A971D3388E1001D1DA7 /* HyLoglnButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoglnButton.h; sourceTree = "<group>"; };
-		C9188A981D3388E1001D1DA7 /* HyLoglnButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoglnButton.m; sourceTree = "<group>"; };
-		C9188A991D3388E1001D1DA7 /* HyTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTransitions.h; sourceTree = "<group>"; };
-		C9188A9A1D3388E1001D1DA7 /* HyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTransitions.m; sourceTree = "<group>"; };
-		C9188A9B1D3388E1001D1DA7 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
-		C9188A9C1D3388E1001D1DA7 /* SpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinerLayer.m; sourceTree = "<group>"; };
 		C9188A9E1D3388E1001D1DA7 /* DRNRealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRNRealTimeBlurView.h; sourceTree = "<group>"; };
 		C9188A9F1D3388E1001D1DA7 /* DRNRealTimeBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRNRealTimeBlurView.m; sourceTree = "<group>"; };
 		C9188AA01D3388E1001D1DA7 /* UIImage+BoxBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BoxBlur.h"; sourceTree = "<group>"; };
@@ -275,6 +262,10 @@
 		C952BEEF1DACD4910043A85B /* YouDaoTranslationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouDaoTranslationUtils.m; sourceTree = "<group>"; };
 		C952BEF41DAE3FA10043A85B /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperViewController.h; sourceTree = "<group>"; };
 		C952BEF51DAE3FA10043A85B /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperViewController.m; sourceTree = "<group>"; };
+		C952BEF81DB4CAAF0043A85B /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		C952BEF91DB4CAAF0043A85B /* FlurryEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlurryEmpty.m; sourceTree = "<group>"; };
+		C952BEFA1DB4CAAF0043A85B /* FlurrySessionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurrySessionBuilder.h; sourceTree = "<group>"; };
+		C952BEFD1DB4CAAF0043A85B /* libFlurry_7.8.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.8.0.a; sourceTree = "<group>"; };
 		C954E8811D40A03600ACC975 /* Data.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Data.sqlite; sourceTree = "<group>"; };
 		C954E8851D40A17400ACC975 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		C954E8861D40A17400ACC975 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
@@ -379,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E868F80E0003936903C81A6 /* libPods-PDQBook.a in Frameworks */,
+				C952BF021DB4CAAF0043A85B /* libFlurry_7.8.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,25 +411,12 @@
 		C9188A921D3388E1001D1DA7 /* OpenSource */ = {
 			isa = PBXGroup;
 			children = (
+				C952BEF71DB4CAAF0043A85B /* Flurry */,
 				C9DF8A4F1D76C56B002DACF2 /* RQShineLabel */,
 				C9EED4711D5431BD00F43C54 /* UCZProgressView */,
-				C9188A961D3388E1001D1DA7 /* HyLoginButton */,
 				C9188A9D1D3388E1001D1DA7 /* LiveBlur */,
 			);
 			path = OpenSource;
-			sourceTree = "<group>";
-		};
-		C9188A961D3388E1001D1DA7 /* HyLoginButton */ = {
-			isa = PBXGroup;
-			children = (
-				C9188A971D3388E1001D1DA7 /* HyLoglnButton.h */,
-				C9188A981D3388E1001D1DA7 /* HyLoglnButton.m */,
-				C9188A991D3388E1001D1DA7 /* HyTransitions.h */,
-				C9188A9A1D3388E1001D1DA7 /* HyTransitions.m */,
-				C9188A9B1D3388E1001D1DA7 /* SpinerLayer.h */,
-				C9188A9C1D3388E1001D1DA7 /* SpinerLayer.m */,
-			);
-			path = HyLoginButton;
 			sourceTree = "<group>";
 		};
 		C9188A9D1D3388E1001D1DA7 /* LiveBlur */ = {
@@ -476,6 +455,17 @@
 				C952BEEF1DACD4910043A85B /* YouDaoTranslationUtils.m */,
 			);
 			path = YouDaoTranslationView;
+			sourceTree = "<group>";
+		};
+		C952BEF71DB4CAAF0043A85B /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				C952BEF81DB4CAAF0043A85B /* Flurry.h */,
+				C952BEF91DB4CAAF0043A85B /* FlurryEmpty.m */,
+				C952BEFA1DB4CAAF0043A85B /* FlurrySessionBuilder.h */,
+				C952BEFD1DB4CAAF0043A85B /* libFlurry_7.8.0.a */,
+			);
+			path = Flurry;
 			sourceTree = "<group>";
 		};
 		C9551FE71D91227100CD21BF /* CancerCatalogue */ = {
@@ -977,7 +967,6 @@
 			files = (
 				C9943E5C1D33876800B90006 /* UIView+Custom.m in Sources */,
 				C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */,
-				C9188B2A1D3388E1001D1DA7 /* SpinerLayer.m in Sources */,
 				C99C77611D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */,
 				C923A4571D5AD25700CC6E69 /* Cancer.m in Sources */,
 				C9943E471D33876800B90006 /* NSDate+Custom.m in Sources */,
@@ -994,10 +983,10 @@
 				C9943E651D33876800B90006 /* PushPresentAnimator.m in Sources */,
 				C952BEF11DACD4910043A85B /* TICopyTextView.m in Sources */,
 				C952BEF31DACD4910043A85B /* YouDaoTranslationUtils.m in Sources */,
-				C9188B241D3388E1001D1DA7 /* HyLoglnButton.m in Sources */,
 				C9943E681D33876800B90006 /* PushZoomInAnimator.m in Sources */,
 				C966FB291D68A703004D7047 /* SRBasicCell.m in Sources */,
 				C94CC64F1D531B5600458804 /* CancerPaperViewController.m in Sources */,
+				C952BF001DB4CAAF0043A85B /* FlurryEmpty.m in Sources */,
 				C9DCABF91D2F53BE00B7F69A /* AppDelegate.m in Sources */,
 				C91F68071D54998800D8BB4F /* JCWebView.m in Sources */,
 				C9943E5F1D33876800B90006 /* PopFadeOutAnimator.m in Sources */,
@@ -1022,7 +1011,6 @@
 				C9943E501D33876800B90006 /* NSString+Custom.m in Sources */,
 				C91F680C1D549A9200D8BB4F /* JCHTTPSessionManager.m in Sources */,
 				C9943E531D33876800B90006 /* UIColor+Custom.m in Sources */,
-				C9188B271D3388E1001D1DA7 /* HyTransitions.m in Sources */,
 				C958DBCD1D3D06530039EDA0 /* CancerViewController.m in Sources */,
 				C9943E561D33876800B90006 /* UIImage+Custom.m in Sources */,
 				C954E8871D40A17400ACC975 /* DBManager.m in Sources */,
@@ -1054,7 +1042,6 @@
 				C9DCAC0F1D2F53BE00B7F69A /* PDQBookTests.m in Sources */,
 				C962B1A51D800C7600F4E2E5 /* SRTitleView.m in Sources */,
 				C9EED4751D5431BD00F43C54 /* UCZProgressView.m in Sources */,
-				C9188B2B1D3388E1001D1DA7 /* SpinerLayer.m in Sources */,
 				C98FC8771D35D9BF0026B3CF /* MainViewController.m in Sources */,
 				C9551FFE1D91290200CD21BF /* RecentSearchRecords.m in Sources */,
 				C95520011D91290200CD21BF /* SearchRecord.m in Sources */,
@@ -1065,7 +1052,6 @@
 				C9188B2E1D3388E1001D1DA7 /* DRNRealTimeBlurView.m in Sources */,
 				C958DBB81D3CCBFC0039EDA0 /* NBSearchView.m in Sources */,
 				C9023ED01D6372EE0014050C /* SRDictionaryCell.m in Sources */,
-				C9188B251D3388E1001D1DA7 /* HyLoglnButton.m in Sources */,
 				C94CC6501D531B5600458804 /* CancerPaperViewController.m in Sources */,
 				C91F68081D54998800D8BB4F /* JCWebView.m in Sources */,
 				C9943E5D1D33876800B90006 /* UIView+Custom.m in Sources */,
@@ -1089,7 +1075,6 @@
 				C93222561D58618A00B8CE87 /* UCZProgressView+Initialize.m in Sources */,
 				C938039B1D5B64CD00791731 /* UIAlertController+Window.m in Sources */,
 				C954E8881D40A17400ACC975 /* DBManager.m in Sources */,
-				C9188B281D3388E1001D1DA7 /* HyTransitions.m in Sources */,
 				C9943E631D33876800B90006 /* PopZoomOutAnimator.m in Sources */,
 				C966FB251D68A2D1004D7047 /* SRPaperCell.m in Sources */,
 				C9943E4E1D33876800B90006 /* NSObject+Custom.m in Sources */,
@@ -1117,7 +1102,6 @@
 				C9DCAC1A1D2F53BF00B7F69A /* PDQBookUITests.m in Sources */,
 				C962B1A61D800C7600F4E2E5 /* SRTitleView.m in Sources */,
 				C9EED4761D5431BD00F43C54 /* UCZProgressView.m in Sources */,
-				C9188B2C1D3388E1001D1DA7 /* SpinerLayer.m in Sources */,
 				C98FC8781D35D9BF0026B3CF /* MainViewController.m in Sources */,
 				C9551FFF1D91290200CD21BF /* RecentSearchRecords.m in Sources */,
 				C95520021D91290200CD21BF /* SearchRecord.m in Sources */,
@@ -1128,7 +1112,6 @@
 				C9188B2F1D3388E1001D1DA7 /* DRNRealTimeBlurView.m in Sources */,
 				C958DBB91D3CCBFC0039EDA0 /* NBSearchView.m in Sources */,
 				C9023ED11D6372EE0014050C /* SRDictionaryCell.m in Sources */,
-				C9188B261D3388E1001D1DA7 /* HyLoglnButton.m in Sources */,
 				C94CC6511D531B5600458804 /* CancerPaperViewController.m in Sources */,
 				C91F68091D54998800D8BB4F /* JCWebView.m in Sources */,
 				C9943E5E1D33876800B90006 /* UIView+Custom.m in Sources */,
@@ -1152,7 +1135,6 @@
 				C93222571D58618A00B8CE87 /* UCZProgressView+Initialize.m in Sources */,
 				C938039C1D5B64CD00791731 /* UIAlertController+Window.m in Sources */,
 				C954E8891D40A17400ACC975 /* DBManager.m in Sources */,
-				C9188B291D3388E1001D1DA7 /* HyTransitions.m in Sources */,
 				C9943E641D33876800B90006 /* PopZoomOutAnimator.m in Sources */,
 				C966FB261D68A2D1004D7047 /* SRPaperCell.m in Sources */,
 				C9943E4F1D33876800B90006 /* NSObject+Custom.m in Sources */,
@@ -1311,6 +1293,7 @@
 					"$(PROJECT_DIR)/PDQBook/OpenSource/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/PDQBook/OpenSource/UMengFeedback_SDK",
 					"$(PROJECT_DIR)/PDQBook/OpenSource/UMengFeedback_SDK/UMOpus",
+					"$(PROJECT_DIR)/PDQBook/OpenSource/Flurry",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1347,6 +1330,7 @@
 					"$(PROJECT_DIR)/PDQBook/OpenSource/ShareSDK/Extend/WeChatSDK",
 					"$(PROJECT_DIR)/PDQBook/OpenSource/UMengFeedback_SDK",
 					"$(PROJECT_DIR)/PDQBook/OpenSource/UMengFeedback_SDK/UMOpus",
+					"$(PROJECT_DIR)/PDQBook/OpenSource/Flurry",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
