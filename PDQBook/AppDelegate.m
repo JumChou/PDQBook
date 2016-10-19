@@ -87,6 +87,7 @@
         if (cancers.count) {
             BOOL isSuccess = [[DBManager shareInstance] bulkInsertCancers:cancers];
             DebugLog(@"%zd", isSuccess);
+            [Singleton shareInstance].isHTTPRequestedCancers = YES;
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
