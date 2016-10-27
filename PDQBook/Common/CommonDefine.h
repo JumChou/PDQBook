@@ -105,7 +105,11 @@
 #define kDBVersion      @"1.0.1"    // 数据库版本
 #define kHTTPTimeOut    15          // 网络请求超时时间
 
-//方正黑体简体字体定义
+// 方正兰亭简中
+#define FontFZLTX(sizef) [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:sizef]
+#define FontFZLTZ(sizef) [UIFont fontWithName:@"FZLTZHK--GBK1-0" size:sizef]
+#define FontFZLTT(sizef) [UIFont fontWithName:@"FZLTTHK--GBK1-0" size:sizef]
+// 方正黑体简中
 #define FontFZHT(sizef) [UIFont fontWithName:@"FZHTJW--GB1-0" size:sizef]
 
 
@@ -162,8 +166,9 @@
 #import "Singleton.h"
 #import "NSObject+Custom.h"
 #import "NSString+Custom.h"
-#import "UIColor+Custom.h"
 #import "NSDate+Custom.h"
+#import "UIFont+Custom.h"
+#import "UIColor+Custom.h"
 #import "UIImage+Custom.h"
 #import "UIView+Custom.h"
 #import "UIAlertController+Window.h"

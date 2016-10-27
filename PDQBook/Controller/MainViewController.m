@@ -195,6 +195,12 @@ static BOOL isAnimating = NO;
     [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"PDQ 最权威的癌症信息库" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:ScaleBasedOn6(kInfoLab_FontSize_L)], NSForegroundColorAttributeName:Color_Navy}]];
     [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n国家癌症中心 - National Cancer Center" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:ScaleBasedOn6(kInfoLab_FontSize_S)], NSForegroundColorAttributeName:Color_Navy}]];
     self.infoLab.attributedText = attributedStr;
+    
+//    [UIFont defaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_S)];
+//    [UIFont boldDefaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_L)];
+//    [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"PDQ 最权威的癌症信息库" attributes:@{NSFontAttributeName:[UIFont boldDefaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_L)], NSForegroundColorAttributeName:Color_Navy}]];
+//    [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n国家癌症中心 - National Cancer Center" attributes:@{NSFontAttributeName:[UIFont defaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_S)], NSForegroundColorAttributeName:Color_Navy}]];
+//    self.infoLab.attributedText = attributedStr;
 }
 
 /**
@@ -320,6 +326,7 @@ static BOOL isAnimating = NO;
     self.aboutLab.textColor = Color_Navy;
     self.aboutLab.textColor = Color_TextNavy;
     self.aboutLab.textAlignment = NSTextAlignmentCenter;
+    self.aboutLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(kAboutLab_FontSize)];
     self.aboutLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(kAboutLab_FontSize)];
     self.aboutLab.userInteractionEnabled = NO;
     [self.aboutBtn addSubview:self.aboutLab];

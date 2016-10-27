@@ -39,6 +39,7 @@
 #import "Singleton.h"
 #import "NSObject+Custom.h"
 #import "NSString+Custom.h"
+#import "UIFont+Custom.h"
 #import "UIColor+Custom.h"
 #import "NSDate+Custom.h"
 #import "UIImage+Custom.h"

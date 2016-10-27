@@ -61,16 +61,28 @@
 
 #pragma mark - InitApp
 - (void)initApp {
+//    [UIApplication sharedApplication].idleTimerDisabled = YES; // 限制锁屏
 //    [NSThread sleepForTimeInterval:0.3f];  // 延迟启动页展示
     [DBManager shareInstance];          // 初始化数据库操作
     
     [self initAFNetWorkingReachability];
-    [self initFlurry];
+//    [self initFlurry];
     [self initCancleList];
     
     NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
     DebugLog(@"AppLanguages:\n%@", appLanguages);
-//    [UIApplication sharedApplication].idleTimerDisabled = YES; // 限制锁屏
+    
+    DebugLog(@"\n-------------");
+    for(NSString *fontfamilyname in [UIFont familyNames])
+    {
+        DebugLog(@"family:'%@'",fontfamilyname);
+        for(NSString *fontName in [UIFont fontNamesForFamilyName:fontfamilyname])
+        {
+            NSLog(@"\tfont:'%@'",fontName);
+        }
+        DebugLog(@"-------------");
+    }
+
 }
 
 - (void)initCancleList {

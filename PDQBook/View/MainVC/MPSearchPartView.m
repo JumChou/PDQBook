@@ -79,6 +79,7 @@ typedef void (^TapHandleBlock)(void);
     self.searchLab.text = kSearchPlaceholder;
     self.searchLab.backgroundColor = [UIColor clearColor];
     self.searchLab.textColor = Color_TextNavy;
+    self.searchLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(SearchLab_FontSize)];
     self.searchLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(SearchLab_FontSize)];
     self.searchLab.textAlignment = NSTextAlignmentCenter;
     [self.bgBtn addSubview:self.searchLab];

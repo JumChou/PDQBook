@@ -7,6 +7,7 @@
 //
 
 #import "NSString+Custom.h"
+#import "CommonDefine.h"
 
 @implementation NSString(Custom)
 
@@ -119,7 +120,7 @@
     for (NSValue *rangeValue in wordsRanges) {
         NSRange wordsRange = [rangeValue rangeValue];
         [attributedStr addAttribute:NSForegroundColorAttributeName value:Color_Blue range:wordsRange];
-        //        [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:kDescLab_FontSize] range:wordsRange];
+//        [attributedStr addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:kDescLab_FontSize] range:wordsRange];
     }
     
     return attributedStr;
