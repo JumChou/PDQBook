@@ -11,6 +11,7 @@
 		C9023ECF1D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
 		C9023ED01D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
 		C9023ED11D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
+		C904F5F71DC6E84A00216F81 /* ASTouchVisualizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C904F5F61DC6E84A00216F81 /* ASTouchVisualizer.m */; };
 		C90A13241D9BB07900D02294 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C90A13261D9BB07900D02294 /* InfoPlist.strings */; };
 		C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1E1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
@@ -179,6 +180,8 @@
 		C99C77611D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */; };
 		C99C77621D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */; };
 		C99C77631D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */; };
+		C9C083791DC2000500052DE1 /* HYQiHei-50S.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9C083781DC2000500052DE1 /* HYQiHei-50S.otf */; };
+		C9C0837B1DC2002A00052DE1 /* HYQiHei-65S.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */; };
 		C9C4398E1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C4398F1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C439901D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
@@ -220,6 +223,8 @@
 		C03D809E99F81268DBBD43D6 /* Pods-PDQBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDQBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PDQBook/Pods-PDQBook.debug.xcconfig"; sourceTree = "<group>"; };
 		C9023ECD1D6372EE0014050C /* SRDictionaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryCell.h; sourceTree = "<group>"; };
 		C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryCell.m; sourceTree = "<group>"; };
+		C904F5F51DC6E84A00216F81 /* ASTouchVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTouchVisualizer.h; sourceTree = "<group>"; };
+		C904F5F61DC6E84A00216F81 /* ASTouchVisualizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTouchVisualizer.m; sourceTree = "<group>"; };
 		C90A13251D9BB07900D02294 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C90A13271D9BB07E00D02294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C917EA1B1D471013003CECFD /* JCTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTabBarView.h; sourceTree = "<group>"; };
@@ -347,6 +352,8 @@
 		C99C05A91DBEF7230055D1FA /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		C99C775F1D8692D400A9BC44 /* AboutPDQBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutPDQBlurView.h; sourceTree = "<group>"; };
 		C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutPDQBlurView.m; sourceTree = "<group>"; };
+		C9C083781DC2000500052DE1 /* HYQiHei-50S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-50S.otf"; sourceTree = "<group>"; };
+		C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-65S.otf"; sourceTree = "<group>"; };
 		C9C4398C1D64488D0096C8B3 /* SRDictionaryDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryDescView.h; sourceTree = "<group>"; };
 		C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryDescView.m; sourceTree = "<group>"; };
 		C9DCABF11D2F53BE00B7F69A /* PDQBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDQBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -413,6 +420,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C904F5F41DC6E84A00216F81 /* ASTouchVisualizer */ = {
+			isa = PBXGroup;
+			children = (
+				C904F5F51DC6E84A00216F81 /* ASTouchVisualizer.h */,
+				C904F5F61DC6E84A00216F81 /* ASTouchVisualizer.m */,
+			);
+			path = ASTouchVisualizer;
+			sourceTree = "<group>";
+		};
 		C9188A921D3388E1001D1DA7 /* OpenSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +436,7 @@
 				C9DF8A4F1D76C56B002DACF2 /* RQShineLabel */,
 				C9EED4711D5431BD00F43C54 /* UCZProgressView */,
 				C9188A9D1D3388E1001D1DA7 /* LiveBlur */,
+				C904F5F41DC6E84A00216F81 /* ASTouchVisualizer */,
 			);
 			path = OpenSource;
 			sourceTree = "<group>";
@@ -616,6 +633,8 @@
 			children = (
 				C954E8811D40A03600ACC975 /* Data.sqlite */,
 				C99C05A91DBEF7230055D1FA /* Lantinghei.ttc */,
+				C9C083781DC2000500052DE1 /* HYQiHei-50S.otf */,
+				C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */,
 				C958DBC21D3D017D0039EDA0 /* test_.html */,
 				C958DBBE1D3CF31E0039EDA0 /* test.html */,
 				C9943E261D33834500B90006 /* Assets.xcassets */,
@@ -886,6 +905,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99C05AA1DBEF7230055D1FA /* Lantinghei.ttc in Resources */,
+				C9C0837B1DC2002A00052DE1 /* HYQiHei-65S.otf in Resources */,
+				C9C083791DC2000500052DE1 /* HYQiHei-50S.otf in Resources */,
 				C9EAAB6B1D3372D400E7464E /* Info.plist in Resources */,
 				C90A13241D9BB07900D02294 /* InfoPlist.strings in Resources */,
 				C9943E281D33834500B90006 /* Assets.xcassets in Resources */,
@@ -974,6 +995,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C904F5F71DC6E84A00216F81 /* ASTouchVisualizer.m in Sources */,
 				C9943E5C1D33876800B90006 /* UIView+Custom.m in Sources */,
 				C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */,
 				C99C77611D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */,

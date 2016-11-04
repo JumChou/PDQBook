@@ -16,8 +16,8 @@ static const CGFloat kTitleBG_H = 34.f;
 static const CGFloat kCircleFlag_Leading = 0.f;
 static const CGFloat kCircleFlag_H = 6.f;
 static const CGFloat kTitleLab_Leading = 8.f;
-static const CGFloat kTitleLab_FontSize = 16.f;
-static const CGFloat kDescLab_FontSize = 15.f;
+static const CGFloat kTitleLab_FontSize = 17.f;
+static const CGFloat kDescLab_FontSize = 16.f;
 
 @interface SRDictionaryDescView ()
 
@@ -61,7 +61,7 @@ static const CGFloat kDescLab_FontSize = 15.f;
 //        self.titleLab.backgroundColor = Color_TextLightGray;
         self.titleLab.textColor = Color_Title;
         self.titleLab.textAlignment = NSTextAlignmentLeft;
-        self.titleLab.font = [UIFont systemFontOfSize:kTitleLab_FontSize];
+        self.titleLab.font = [UIFont defaultFontWithSize:kTitleLab_FontSize];
         [self.titleBGView addSubview:self.titleLab];
         [self.titleLab makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self.titleBGView);
@@ -75,7 +75,7 @@ static const CGFloat kDescLab_FontSize = 15.f;
 //        self.descLab.backgroundColor = Color_TextGreen;
         self.descLab.textColor = Color_Desc;
         self.descLab.textAlignment = NSTextAlignmentLeft;
-        self.descLab.font = [UIFont systemFontOfSize:kDescLab_FontSize];
+        self.descLab.font = [UIFont defaultFontWithSize:kDescLab_FontSize];
         self.descLab.numberOfLines = 0;
 //        self.descLab.lineBreakMode = NSLineBreakByWordWrapping;
         [self.descLab sizeToFit];
@@ -115,7 +115,7 @@ static const CGFloat kDescLab_FontSize = 15.f;
 + (CGFloat)calculateHeightWithData:(SearchResult *)searchResult constraintWidth:(CGFloat)constraintWidth {
     CGFloat realConstraintWidth = constraintWidth - (kCircleFlag_Leading + kCircleFlag_H + kTitleLab_Leading);
     CGFloat descLabH = [searchResult.desc sizeWithConstraintSize:CGSizeMake(realConstraintWidth, FLT_MAX)
-                                                            font:[UIFont systemFontOfSize:(kDescLab_FontSize)]].height;
+                                                            font:[UIFont defaultFontWithSize:(kDescLab_FontSize)]].height;
     CGFloat finalHeight = kTitleBG_H + descLabH;
     return finalHeight;
 }

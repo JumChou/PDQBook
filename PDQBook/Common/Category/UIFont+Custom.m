@@ -12,11 +12,13 @@
 @implementation UIFont (Custom)
 
 + (UIFont *)defaultFontWithSize:(CGFloat)fontSize {
-    return FontFZLTX(fontSize);
+//    return [UIFont systemFontOfSize:fontSize];
+    return FontHYQH50(fontSize);
 }
 
 + (UIFont *)boldDefaultFontWithSize:(CGFloat)fontSize {
-    return FontFZLTZ(fontSize);
+//    return [UIFont boldSystemFontOfSize:fontSize];
+    return FontHYQH65(fontSize);
 }
 
 + (UIFont *)thickDefaultFontWithSize:(CGFloat)fontSize {

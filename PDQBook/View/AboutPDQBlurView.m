@@ -104,7 +104,7 @@ static NSString *const kPDQCopyright = @"Copyright © 2016 PDQ. All rights reser
     self.PDQTitleLab.text = kPDQTitle;
     self.PDQTitleLab.textColor = Color_Navy;
     self.PDQTitleLab.textAlignment = NSTextAlignmentCenter;
-    self.PDQTitleLab.font = [UIFont boldSystemFontOfSize:ScaleBasedOn6(kPDQTitle_FontSize)];
+    self.PDQTitleLab.font = [UIFont boldDefaultFontWithSize:ScaleBasedOn6(kPDQTitle_FontSize)];
     [self addSubview:self.PDQTitleLab];
     [self.PDQTitleLab makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.PDQIconView.bottom);
@@ -116,7 +116,7 @@ static NSString *const kPDQCopyright = @"Copyright © 2016 PDQ. All rights reser
     self.PDQDescLab.text = kPDQDesc;
     self.PDQDescLab.textColor = Color_Navy;
     self.PDQDescLab.textAlignment = NSTextAlignmentLeft;
-    self.PDQDescLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(kPDQDesc_FontSize)];
+    self.PDQDescLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(kPDQDesc_FontSize)];
     self.PDQDescLab.numberOfLines = 0;
     [self.PDQDescLab sizeToFit];
     [self addSubview:self.PDQDescLab];
@@ -130,7 +130,7 @@ static NSString *const kPDQCopyright = @"Copyright © 2016 PDQ. All rights reser
     self.PDQCopyrightLab.text = kPDQCopyright;
     self.PDQCopyrightLab.textColor = Color_Navy;
     self.PDQCopyrightLab.textAlignment = NSTextAlignmentCenter;
-    self.PDQCopyrightLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(kPDQCopyright_FontSize)];
+    self.PDQCopyrightLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(kPDQCopyright_FontSize)];
     [self addSubview:self.PDQCopyrightLab];
     [self.PDQCopyrightLab makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self).offset(-ScaleBasedOn6(kPDQCopyright_Bottom) +kAnimation_Padding);

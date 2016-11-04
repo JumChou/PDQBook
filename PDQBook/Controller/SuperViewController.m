@@ -72,7 +72,7 @@
 //    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     
     // 这里我们设置的是颜色，还可以设置shadow等，具体可以参见api
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont defaultFontWithSize:19]}];
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack; // 设置statusBar
 }

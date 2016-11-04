@@ -49,7 +49,7 @@
         self.titleLab.backgroundColor = Color_Clear;
         self.titleLab.textColor = SRTitleView_Color_Title;
         self.titleLab.textAlignment = NSTextAlignmentLeft;
-        self.titleLab.font = [UIFont systemFontOfSize:SRTitleView_TitleLab_FontSize];
+        self.titleLab.font = [UIFont defaultFontWithSize:SRTitleView_TitleLab_FontSize];
         [self.titleBGView addSubview:self.titleLab];
         [self.titleLab makeConstraints:^(MASConstraintMaker *make) {
             make.top.bottom.equalTo(self.titleBGView);

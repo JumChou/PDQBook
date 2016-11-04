@@ -84,7 +84,7 @@ const float Marker_H = 3.f;
             tabBarLab.backgroundColor = [UIColor clearColor];
             tabBarLab.textColor = Color_Lab_Normal;
             tabBarLab.textAlignment = NSTextAlignmentCenter;
-            tabBarLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(Lab_FontSize)];
+            tabBarLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(Lab_FontSize)];
             [self addSubview:tabBarLab];
             [tabBarLab makeConstraints:^(MASConstraintMaker *make) {
                 make.leading.trailing.equalTo(tabBarBtn);

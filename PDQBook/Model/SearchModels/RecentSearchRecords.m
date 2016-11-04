@@ -62,6 +62,7 @@ const int kRecentCountLimit = 5;
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.textLabel.textColor = Color_Navy;
+        cell.textLabel.font = [UIFont defaultFontWithSize:17.f];
         UIView *line = [UIView new];
         line.backgroundColor = Color_Line;
         [cell addSubview:line];

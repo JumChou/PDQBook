@@ -10,6 +10,7 @@
 #import "MainViewController.h"
 #import "ViewController.h"
 #import "Cancer.h"
+#import "ASTouchVisualizer.h"
 
 @interface AppDelegate ()
 
@@ -32,6 +33,9 @@
     
     self.window.rootViewController = naviController;
     [self.window makeKeyAndVisible];
+    
+    // 演示用 可添加点击效果
+//    [ASTouchVisualizer install];
     
     return YES;
 }
@@ -63,26 +67,13 @@
 - (void)initApp {
 //    [UIApplication sharedApplication].idleTimerDisabled = YES; // 限制锁屏
 //    [NSThread sleepForTimeInterval:0.3f];  // 延迟启动页展示
-    [DBManager shareInstance];          // 初始化数据库操作
     
+//    [self printLanguageAndFontFamily];
+    [self initFlurry];
+    [DBManager shareInstance];          // 初始化数据库操作
     [self initAFNetWorkingReachability];
-//    [self initFlurry];
     [self initCancleList];
     
-    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
-    DebugLog(@"AppLanguages:\n%@", appLanguages);
-    
-    DebugLog(@"\n-------------");
-    for(NSString *fontfamilyname in [UIFont familyNames])
-    {
-        DebugLog(@"family:'%@'",fontfamilyname);
-        for(NSString *fontName in [UIFont fontNamesForFamilyName:fontfamilyname])
-        {
-            NSLog(@"\tfont:'%@'",fontName);
-        }
-        DebugLog(@"-------------");
-    }
-
 }
 
 - (void)initCancleList {
@@ -135,9 +126,27 @@
     
     [Flurry setEventLoggingEnabled:YES];
     [Flurry setBackgroundSessionEnabled:NO];
-    // Flurry监控
     [Flurry startSession:Flurry_APIKey withSessionBuilder:builder];
 }
+
+
+- (void)printLanguageAndFontFamily {
+    NSArray *appLanguages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+    DebugLog(@"AppLanguages:\n%@", appLanguages);
+    
+    DebugLog(@"\n-------------");
+    for(NSString *fontfamilyname in [UIFont familyNames])
+    {
+        DebugLog(@"family:'%@'",fontfamilyname);
+        for(NSString *fontName in [UIFont fontNamesForFamilyName:fontfamilyname])
+        {
+            NSLog(@"\tfont:'%@'",fontName);
+        }
+        DebugLog(@"-------------");
+    }
+}
+
+
 
 
 

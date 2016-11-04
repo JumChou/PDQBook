@@ -106,11 +106,12 @@
 #define kHTTPTimeOut    15          // 网络请求超时时间
 
 // 方正兰亭简中
-#define FontFZLTX(sizef) [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:sizef]
-#define FontFZLTZ(sizef) [UIFont fontWithName:@"FZLTZHK--GBK1-0" size:sizef]
-#define FontFZLTT(sizef) [UIFont fontWithName:@"FZLTTHK--GBK1-0" size:sizef]
-// 方正黑体简中
-#define FontFZHT(sizef) [UIFont fontWithName:@"FZHTJW--GB1-0" size:sizef]
+#define FontFZLTX(sizef)    [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:sizef]
+#define FontFZLTZ(sizef)    [UIFont fontWithName:@"FZLTZHK--GBK1-0" size:sizef]
+#define FontFZLTT(sizef)    [UIFont fontWithName:@"FZLTTHK--GBK1-0" size:sizef]
+// 汉仪旗黑简中
+#define FontHYQH50(sizef)   [UIFont fontWithName:@"HYQiHei-EZS" size:sizef]
+#define FontHYQH65(sizef)   [UIFont fontWithName:@"HYQiHei-FES" size:sizef]
 
 
 //-----------------------------------公用定义---------------------------------------------

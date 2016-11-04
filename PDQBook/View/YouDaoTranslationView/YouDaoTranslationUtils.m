@@ -8,9 +8,9 @@
 
 #import "YouDaoTranslationUtils.h"
 
-#define kYDTU_BasicTransView_DetailFont             [UIFont systemFontOfSize:16.0f]
-#define kYDTU_QueryLabel_Font                       [UIFont systemFontOfSize:16.0f]
-#define kYDTU_WebTransView_DetailFont               [UIFont systemFontOfSize:16.0f]
+#define kYDTU_BasicTransView_DetailFont             [UIFont defaultFontWithSize:16.0f]
+#define kYDTU_QueryLabel_Font                       [UIFont defaultFontWithSize:16.0f]
+#define kYDTU_WebTransView_DetailFont               [UIFont defaultFontWithSize:16.0f]
 
 @implementation YouDaoTranslationUtils
 

@@ -7,8 +7,10 @@
 //
 
 #import "DictionaryDescCell.h"
+#import "CommonDefine.h"
 #import "SRDictionaryDescView.h"
 #import "SRDictionaryCell.h"
+
 
 static const CGFloat DicDescView_Padding = 16.f;
 

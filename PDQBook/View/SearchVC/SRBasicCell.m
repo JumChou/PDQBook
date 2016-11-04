@@ -93,7 +93,10 @@
  @return CGFloat
  */
 + (CGFloat)limitHeight {
-    return 190.f + SRBasicCell_BG_Bottom;
+    // System Font
+//    return 190.f + SRBasicCell_BG_Bottom;
+    // HYQiHei
+    return 180.f + SRBasicCell_BG_Bottom;
 }
 
 

@@ -9,9 +9,8 @@
 #import "JCSwitchLanguageBtn.h"
 #import "CommonDefine.h"
 
-//#define FONT_B  [UIFont boldSystemFontOfSize:13.f]
-#define FONT_B  [UIFont systemFontOfSize:13.f]
-#define FONT_N  [UIFont systemFontOfSize:9.f]
+#define FONT_B  [UIFont defaultFontWithSize:13.f]
+#define FONT_N  [UIFont defaultFontWithSize:9.f]
 
 @interface JCSwitchLanguageBtn ()
 

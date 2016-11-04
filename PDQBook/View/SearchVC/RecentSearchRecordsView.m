@@ -46,8 +46,7 @@ static const CGFloat RecentNullLab_FontSize = 18.f;
         self.recentNullLab.backgroundColor = [UIColor clearColor];
         self.recentNullLab.textColor = Color_TextLightGray;
         self.recentNullLab.textAlignment = NSTextAlignmentCenter;
-        self.recentNullLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(RecentNullLab_FontSize)];
-//        self.recentNullLab.font = [UIFont boldSystemFontOfSize:ScaleBasedOn6(RecentNullLab_FontSize)];
+        self.recentNullLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(RecentNullLab_FontSize)];
         [self addSubview:self.recentNullLab];
         [self.recentNullLab makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.recentNullImgView.bottom).offset(ScaleBasedOn6(RecentNullLab_Top));

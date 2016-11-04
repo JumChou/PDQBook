@@ -82,7 +82,7 @@ const float ClearTextBtn_H = 15.f;
     [self.closeBtn setTitle:@"取消" forState:UIControlStateNormal];
     [self.closeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.closeBtn setTitleColor:Color_Blue forState:UIControlStateHighlighted];
-    self.closeBtn.titleLabel.font = [UIFont systemFontOfSize:SearchText_FontSize];
+    self.closeBtn.titleLabel.font = [UIFont defaultFontWithSize:SearchText_FontSize];
     [self.closeBtn addTarget:self action:@selector(closeBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.closeBtn];
     [self.closeBtn makeConstraints:^(MASConstraintMaker *make) {
@@ -129,7 +129,7 @@ const float ClearTextBtn_H = 15.f;
     self.searchText.placeholder = @"请输入搜索内容";
     self.searchText.backgroundColor = [UIColor clearColor];
     self.searchText.textColor = [UIColor whiteColor];
-    self.searchText.font = [UIFont systemFontOfSize:SearchText_FontSize];
+    self.searchText.font = [UIFont defaultFontWithSize:SearchText_FontSize];
     self.searchText.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.searchText.returnKeyType = UIReturnKeySearch;
     self.searchText.enablesReturnKeyAutomatically = YES;

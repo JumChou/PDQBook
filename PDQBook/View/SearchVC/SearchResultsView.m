@@ -48,7 +48,7 @@ static const CGFloat NoneResultLab_FontSize = 17.f;
         self.noneResultLab.backgroundColor = [UIColor clearColor];
         self.noneResultLab.textColor = Color_TextLightGray;
         self.noneResultLab.textAlignment = NSTextAlignmentCenter;
-        self.noneResultLab.font = [UIFont systemFontOfSize:ScaleBasedOn6(NoneResultLab_FontSize)];
+        self.noneResultLab.font = [UIFont defaultFontWithSize:ScaleBasedOn6(NoneResultLab_FontSize)];
         [self addSubview:self.noneResultLab];
         [self.noneResultLab makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(self.noneResultIMGView.bottom).offset(ScaleBasedOn6(NoneResultLab_Top));

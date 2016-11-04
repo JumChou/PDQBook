@@ -86,7 +86,7 @@ const float ProgressView_H = 3.0f;
         _reloadLab.text = @"网络出错啦，请点击按钮重新加载。";
         _reloadLab.backgroundColor = [UIColor clearColor];
         _reloadLab.textColor = Color_TextLightGray;
-        _reloadLab.font = [UIFont systemFontOfSize:16];
+        _reloadLab.font = [UIFont defaultFontWithSize:16];
         _reloadLab.textAlignment = NSTextAlignmentCenter;
         _reloadLab.alpha = 0;
     }
@@ -101,7 +101,7 @@ const float ProgressView_H = 3.0f;
         [_reloadBtn setTitleColor:Color_TextLightGray forState:UIControlStateNormal];
         [_reloadBtn setTitleColor:Color_TextNavy forState:UIControlStateHighlighted];
         [_reloadBtn setBackgroundImage:[UIImage imageNamed:@"JCWebView_ReloadBtnBG"] forState:UIControlStateNormal];
-        _reloadBtn.titleLabel.font = [UIFont systemFontOfSize:14.f];
+        _reloadBtn.titleLabel.font = [UIFont defaultFontWithSize:14.f];
         _reloadBtn.alpha = 0;
         [_reloadBtn addTarget:self action:@selector(reloadBtnAction) forControlEvents:UIControlEventTouchUpInside];
     }

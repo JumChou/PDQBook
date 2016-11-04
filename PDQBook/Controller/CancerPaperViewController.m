@@ -187,6 +187,7 @@ static const CGFloat kSwitchLanguageBtn_Padding = 46.f;
 }
 
 - (void)JCWebView:(JCWebView *)webView didCompletedNavigationWithIsSuccess:(BOOL)isSuccess {
+    [self.view bringSubviewToFront:self.switchLanguageBtn];
     [UIView animateWithDuration:0.3f animations:^{
         self.switchLanguageBtn.alpha = 1;
     }];

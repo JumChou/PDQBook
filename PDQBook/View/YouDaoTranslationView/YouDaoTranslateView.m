@@ -31,7 +31,7 @@
 #define kYDTV_BasicTransView_TitleLab_MarginLeft    (16.0f * kScreenScaleTo6)
 #define kYDTV_BasicTransView_TitleLab_W             (180.0f * kScreenScaleTo6)
 #define kYDTV_BasicTransView_TitleLab_H             (20.0f * kScreenScaleTo6)
-#define kYDTV_BasicTransView_TitleLab_Font          [UIFont systemFontOfSize:18.0f]
+#define kYDTV_BasicTransView_TitleLab_Font          [UIFont defaultFontWithSize:18.0f]
 #define kYDTV_BasicTransView_TitleIcon_W            (10.5f * kScreenScaleTo6)
 #define kYDTV_BasicTransView_TitleIcon_H            (10.0f * kScreenScaleTo6)
 #define kYDTV_BasicTransView_DetailTextView_MarginTop    (0.0f * kScreenScaleTo6)
@@ -41,12 +41,12 @@
 #define kYDTV_WebTransView_TitleLab_MarginLeft      (16.0f * kScreenScaleTo6)
 #define kYDTV_WebTransView_TitleLab_W               (180.0f * kScreenScaleTo6)
 #define kYDTV_WebTransView_TitleLab_H               (20.0f * kScreenScaleTo6)
-#define kYDTV_WebTransView_TitleLab_Font            [UIFont systemFontOfSize:18.0f]
+#define kYDTV_WebTransView_TitleLab_Font            [UIFont defaultFontWithSize:18.0f]
 #define kYDTV_WebTransView_TitleIcon_W              (10.5f * kScreenScaleTo6)
 #define kYDTV_WebTransView_TitleIcon_H              (10.0f * kScreenScaleTo6)
 #define kYDTV_WebTransView_DetailLab_MarginTop      (0.0f * kScreenScaleTo6)
 // 无翻译
-#define kYDTV_NotFoundLab_Font                      [UIFont systemFontOfSize:16.0f]
+#define kYDTV_NotFoundLab_Font                      [UIFont defaultFontWithSize:16.0f]
 
 
 

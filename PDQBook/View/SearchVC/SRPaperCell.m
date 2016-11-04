@@ -11,7 +11,7 @@
 #import <VBFPopFlatButton/VBFPopFlatButton.h>
 
 static const CGFloat kDescLab_Top = 10.f;
-static const CGFloat kDescLab_FontSize = 15.f;
+static const CGFloat kDescLab_FontSize = 16.f;
 static const CGFloat kMoreBtn_W = 11.f;
 
 @interface SRPaperCell ()
@@ -53,7 +53,7 @@ static const CGFloat kMoreBtn_W = 11.f;
 //    self.descLab.backgroundColor = Color_TextGreen;
     self.descLab.textColor = Color_Navy;
     self.descLab.textAlignment = NSTextAlignmentLeft;
-    self.descLab.font = [UIFont systemFontOfSize:kDescLab_FontSize];
+    self.descLab.font = [UIFont defaultFontWithSize:kDescLab_FontSize];
     self.descLab.numberOfLines = 0;
     [self.descLab sizeToFit];
     [self addSubview:self.descLab];
@@ -104,7 +104,7 @@ static const CGFloat kMoreBtn_W = 11.f;
 + (CGFloat)calculateFullHeightWithData:(SearchResult *)searchResult {
     CGFloat constraintWidth = kScreenWidth - 2*SRTitleView_Flag_Leading;
     CGFloat descLabH = [searchResult.desc sizeWithConstraintSize:CGSizeMake(constraintWidth, FLT_MAX)
-                                                            font:[UIFont systemFontOfSize:(kDescLab_FontSize)]].height;
+                                                            font:[UIFont defaultFontWithSize:(kDescLab_FontSize)]].height;
     CGFloat finalH = SRTitleView_H + descLabH + 3*kDescLab_Top;
     return finalH;
 }
