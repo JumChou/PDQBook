@@ -17,30 +17,26 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.1</string>
+	<string>1.0.2</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-<!--		<key>NSAllowsArbitraryLoadsInWebContent</key>-->
-<!--		<true/>-->
-<!--		<key>NSExceptionDomains</key>-->
-<!--		<dict>-->
-<!--			<key>ps.wehealth.mobi</key>-->
-<!--			<dict>-->
-<!--				<key>NSExceptionAllowsInsecureHTTPLoads</key>-->
-<!--				<true/>-->
-<!--			</dict>-->
-<!--		</dict>-->
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Lantinghei.ttc</string>
+		<string>HYQiHei-50S.otf</string>
+		<string>HYQiHei-65S.otf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -50,12 +46,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Lantinghei.ttc</string>
-		<string>HYQiHei-50S.otf</string>
-		<string>HYQiHei-65S.otf</string>
 	</array>
 </dict>
 </plist>
