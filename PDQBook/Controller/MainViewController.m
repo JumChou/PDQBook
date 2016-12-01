@@ -15,6 +15,8 @@
 #import "RQShineLabel.h"
 #import "AboutPDQBlurView.h"
 #import <QBPopupMenu/QBPlasticPopupMenu.h>
+#import "CEAnsweringViewController.h"
+#import "CEResultViewController.h"
 
 //static const CGFloat MoreBtn_Trailing = 40.0f;
 //static const CGFloat MoreBtn_W = 40.0f;
@@ -91,6 +93,7 @@ static BOOL isAnimating = NO;
 }
 
 - (void)viewDidLoad {
+    DebugLog(@"");
     [super viewDidLoad];
     
     [self initViews];
@@ -107,22 +110,26 @@ static BOOL isAnimating = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    DebugLog(@"");
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     [self showAnimations]; // 展示动画
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    DebugLog(@"");
     [super viewDidAppear:animated];
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
+    DebugLog(@"");
     [super viewWillDisappear:animated];
     [self fadeOutAnimations];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    DebugLog(@"");
     [super viewDidDisappear:animated];
 }
 
@@ -397,9 +404,14 @@ static BOOL isAnimating = NO;
 //    CGRect menuFrame = CGRectMake(0, 0, kScreenWidth, kStatusBarHeight);
 //    [self.popupMenu showInView:self.view targetRect:menuFrame animated:YES];
     
-    AboutPDQBlurView *aboutView = [AboutPDQBlurView aboutPDQBlurView];
-    aboutView.delegate = self;
-    [self.bgIMGView addSubview:aboutView];
+//    AboutPDQBlurView *aboutView = [AboutPDQBlurView aboutPDQBlurView];
+//    aboutView.delegate = self;
+//    [self.bgIMGView addSubview:aboutView];
+    
+//    CEResultViewController *resultVC = [[CEResultViewController alloc] init];
+//    [self.navigationController pushViewController:resultVC animated:YES];
+    CEAnsweringViewController *answeringVC = [[CEAnsweringViewController alloc] init];
+    [self.navigationController pushViewController:answeringVC animated:YES];
 }
 
 

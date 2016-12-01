@@ -118,9 +118,11 @@
 		C966FB291D68A703004D7047 /* SRBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C966FB281D68A703004D7047 /* SRBasicCell.m */; };
 		C966FB2A1D68A703004D7047 /* SRBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C966FB281D68A703004D7047 /* SRBasicCell.m */; };
 		C966FB2B1D68A703004D7047 /* SRBasicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C966FB281D68A703004D7047 /* SRBasicCell.m */; };
+		C96F2F371DDC017000D5C8C1 /* JCColorfulCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C96F2F361DDC017000D5C8C1 /* JCColorfulCircleView.m */; };
 		C9738FEB1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */; };
 		C9738FEC1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */; };
 		C9738FED1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */; };
+		C982F5231DED53C900B5DFD2 /* CEAnsweringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C982F5221DED53C900B5DFD2 /* CEAnsweringViewController.m */; };
 		C98675171DC079AA00A824A1 /* UIFont+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = C98675161DC079AA00A824A1 /* UIFont+Custom.m */; };
 		C98C0D561D797D04009AF6C5 /* SRDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C0D551D797D04009AF6C5 /* SRDictionaryContentView.m */; };
 		C98C0D571D797D04009AF6C5 /* SRDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C0D551D797D04009AF6C5 /* SRDictionaryContentView.m */; };
@@ -185,6 +187,8 @@
 		C9C4398E1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C4398F1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C439901D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
+		C9D6BC601DD56FE100B7B928 /* JCAnimatedArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D6BC5F1DD56FE100B7B928 /* JCAnimatedArcView.m */; };
+		C9D6BC631DD5CA3700B7B928 /* CEResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D6BC621DD5CA3700B7B928 /* CEResultViewController.m */; };
 		C9DCABF61D2F53BE00B7F69A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCABF51D2F53BE00B7F69A /* main.m */; };
 		C9DCABF91D2F53BE00B7F69A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCABF81D2F53BE00B7F69A /* AppDelegate.m */; };
 		C9DCABFC1D2F53BE00B7F69A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCABFB1D2F53BE00B7F69A /* ViewController.m */; };
@@ -308,8 +312,12 @@
 		C966FB231D68A2D1004D7047 /* SRPaperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRPaperCell.m; sourceTree = "<group>"; };
 		C966FB271D68A703004D7047 /* SRBasicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRBasicCell.h; sourceTree = "<group>"; };
 		C966FB281D68A703004D7047 /* SRBasicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRBasicCell.m; sourceTree = "<group>"; };
+		C96F2F351DDC017000D5C8C1 /* JCColorfulCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCColorfulCircleView.h; sourceTree = "<group>"; };
+		C96F2F361DDC017000D5C8C1 /* JCColorfulCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCColorfulCircleView.m; sourceTree = "<group>"; };
 		C9738FE91D6C2F2F00446DE9 /* JCSwitchLanguageBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSwitchLanguageBtn.h; sourceTree = "<group>"; };
 		C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCSwitchLanguageBtn.m; sourceTree = "<group>"; };
+		C982F5211DED53C900B5DFD2 /* CEAnsweringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAnsweringViewController.h; sourceTree = "<group>"; };
+		C982F5221DED53C900B5DFD2 /* CEAnsweringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAnsweringViewController.m; sourceTree = "<group>"; };
 		C98675151DC079AA00A824A1 /* UIFont+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Custom.h"; sourceTree = "<group>"; };
 		C98675161DC079AA00A824A1 /* UIFont+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Custom.m"; sourceTree = "<group>"; };
 		C98C0D541D797D04009AF6C5 /* SRDictionaryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryContentView.h; sourceTree = "<group>"; };
@@ -356,6 +364,10 @@
 		C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-65S.otf"; sourceTree = "<group>"; };
 		C9C4398C1D64488D0096C8B3 /* SRDictionaryDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryDescView.h; sourceTree = "<group>"; };
 		C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryDescView.m; sourceTree = "<group>"; };
+		C9D6BC5E1DD56FE100B7B928 /* JCAnimatedArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnimatedArcView.h; sourceTree = "<group>"; };
+		C9D6BC5F1DD56FE100B7B928 /* JCAnimatedArcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnimatedArcView.m; sourceTree = "<group>"; };
+		C9D6BC611DD5CA3700B7B928 /* CEResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEResultViewController.h; sourceTree = "<group>"; };
+		C9D6BC621DD5CA3700B7B928 /* CEResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEResultViewController.m; sourceTree = "<group>"; };
 		C9DCABF11D2F53BE00B7F69A /* PDQBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDQBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCABF51D2F53BE00B7F69A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9DCABF71D2F53BE00B7F69A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -549,6 +561,10 @@
 				C958DBCC1D3D06530039EDA0 /* CancerViewController.m */,
 				C94CC64D1D531B5600458804 /* CancerPaperViewController.h */,
 				C94CC64E1D531B5600458804 /* CancerPaperViewController.m */,
+				C982F5211DED53C900B5DFD2 /* CEAnsweringViewController.h */,
+				C982F5221DED53C900B5DFD2 /* CEAnsweringViewController.m */,
+				C9D6BC611DD5CA3700B7B928 /* CEResultViewController.h */,
+				C9D6BC621DD5CA3700B7B928 /* CEResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -569,6 +585,10 @@
 				C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */,
 				C99C775F1D8692D400A9BC44 /* AboutPDQBlurView.h */,
 				C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */,
+				C9D6BC5E1DD56FE100B7B928 /* JCAnimatedArcView.h */,
+				C9D6BC5F1DD56FE100B7B928 /* JCAnimatedArcView.m */,
+				C96F2F351DDC017000D5C8C1 /* JCColorfulCircleView.h */,
+				C96F2F361DDC017000D5C8C1 /* JCColorfulCircleView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -996,6 +1016,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C904F5F71DC6E84A00216F81 /* ASTouchVisualizer.m in Sources */,
+				C96F2F371DDC017000D5C8C1 /* JCColorfulCircleView.m in Sources */,
 				C9943E5C1D33876800B90006 /* UIView+Custom.m in Sources */,
 				C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */,
 				C99C77611D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */,
@@ -1018,6 +1039,7 @@
 				C9943E681D33876800B90006 /* PushZoomInAnimator.m in Sources */,
 				C966FB291D68A703004D7047 /* SRBasicCell.m in Sources */,
 				C94CC64F1D531B5600458804 /* CancerPaperViewController.m in Sources */,
+				C982F5231DED53C900B5DFD2 /* CEAnsweringViewController.m in Sources */,
 				C952BF001DB4CAAF0043A85B /* FlurryEmpty.m in Sources */,
 				C9DCABF91D2F53BE00B7F69A /* AppDelegate.m in Sources */,
 				C91F68071D54998800D8BB4F /* JCWebView.m in Sources */,
@@ -1025,6 +1047,7 @@
 				C923A4661D5B34F700CC6E69 /* Cancers.m in Sources */,
 				C9941AED1D60197A00338E1D /* RecentSearchRecordsView.m in Sources */,
 				C95520141D9132A800CD21BF /* CCUnitGroups.m in Sources */,
+				C9D6BC601DD56FE100B7B928 /* JCAnimatedArcView.m in Sources */,
 				C966FB241D68A2D1004D7047 /* SRPaperCell.m in Sources */,
 				C9941AE21D60185400338E1D /* MPSearchPartView.m in Sources */,
 				C958DBB71D3CCBFC0039EDA0 /* NBSearchView.m in Sources */,
@@ -1053,6 +1076,7 @@
 				C9023ECF1D6372EE0014050C /* SRDictionaryCell.m in Sources */,
 				C9941AF71D61BB7B00338E1D /* SearchResultsView.m in Sources */,
 				C9943E591D33876800B90006 /* UITableViewCell+StartAnimation.m in Sources */,
+				C9D6BC631DD5CA3700B7B928 /* CEResultViewController.m in Sources */,
 				C9943E621D33876800B90006 /* PopZoomOutAnimator.m in Sources */,
 				C9DF8A521D76C56B002DACF2 /* RQShineLabel.m in Sources */,
 				C923A45C1D5B1E7F00CC6E69 /* Singleton.m in Sources */,

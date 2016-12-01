@@ -229,7 +229,8 @@
 // 获得文章段落页面WebURL
 #define Get_PaperParaWebURL(CDR_id, Para_id)    [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/page2/%@/%@", CDR_id, Para_id]
 
-
+// 癌症风险评估测试WebURL
+#define URL_CEWebURL                            @"http://www.wehealth.mobi/H5/index_q.html"
 
 
 #endif /* CommonDefine_h */

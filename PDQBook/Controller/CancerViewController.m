@@ -88,6 +88,7 @@ static NSString *const kWebViewDicKey_WebViewIndex = @"WebViewIndex";
     for (int i = 0; i < cancerWebSection.allKeys.count; i++) {
         JCWebView *webView = [[JCWebView alloc] initWithFrame:CGRectZero configuration:self.webViewConfiguration];
         webView.backgroundColor = [UIColor lightGrayColor];
+        webView.scrollView.bounces = NO;
         webView.loadingFinishDelay = 1;
         webView.UIDelegate = self;
         [self.scrollContentView addSubview:webView];
