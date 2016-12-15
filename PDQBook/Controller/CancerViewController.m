@@ -284,8 +284,6 @@ static NSString *const kWebViewDicKey_WebViewIndex = @"WebViewIndex";
         CancerPaperViewController *paperVC = [[CancerPaperViewController alloc] initWithPaperURL:paperURLStr];
         paperVC.paperName = paperName;
         [self.navigationController pushViewController:paperVC animated:YES];
-        
-        #warning Web目录点击修改
     }
 }
 

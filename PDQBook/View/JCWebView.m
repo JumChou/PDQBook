@@ -11,7 +11,7 @@
 #import "UCZProgressView.h"
 #import <QBPopupMenu/QBPlasticPopupMenu.h>
 
-@interface JCWebView () <WKNavigationDelegate> {
+@interface JCWebView () <WKNavigationDelegate, UIScrollViewDelegate> {
     CGRect menuFrame;
 }
 
@@ -43,6 +43,7 @@ const float ProgressView_H = 3.0f;
     self = [super initWithFrame:frame configuration:configuration];
     if (self) {
         self.navigationDelegate = self;
+        self.scrollView.delegate = self;
         
         [self addSubview:self.reloadBtn];
         [self.reloadBtn makeConstraints:^(MASConstraintMaker *make) {
@@ -528,6 +529,11 @@ const float ProgressView_H = 3.0f;
     DebugLog(@"");
 }
 
+
+#pragma mark - UIScrollViewDelegate
+//- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+//    return nil;
+//}
 
 
 

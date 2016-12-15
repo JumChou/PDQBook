@@ -1,5 +1,5 @@
 //
-//  CEAnsweringViewController.h
+//  CEAnswerWebViewController.h
 //  PDQBook
 //
 //  Created by Mr.Chou on 2016/11/29.
@@ -8,6 +8,6 @@
 
 #import "SuperViewController.h"
 
-@interface CEAnsweringViewController : SuperViewController
+@interface CEAnswerWebViewController : SuperViewController
 
 @end

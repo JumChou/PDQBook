@@ -230,7 +230,13 @@
 #define Get_PaperParaWebURL(CDR_id, Para_id)    [NSString stringWithFormat:@"http://pt.wehealth.mobi/ncc/index.html#/page2/%@/%@", CDR_id, Para_id]
 
 // 癌症风险评估测试WebURL
-#define URL_CEWebURL                            @"http://www.wehealth.mobi/H5/index_q.html"
+#define URL_CEWebURL                            @"http://pt.wehealth.mobi/ncc/index.html#/page5/lung_show"
+// 癌症风险评估体检点选择WebURL
+#define URL_CEPointSelectWebURL                 @"http://ty.ddiaos.cn/PDQtijian/hospital.html"
+// 癌症风险评估填写信息WebURL
+#define URL_CEInfoSubmitWebURL                  @"http://ty.ddiaos.cn/PDQtijian/order.html"
+// 癌症风险评估订单WebURL
+#define URL_CEOrderConfirmWebURL                @"http://ty.ddiaos.cn/PDQtijian/payment.html"
 
 
 #endif /* CommonDefine_h */

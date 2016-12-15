@@ -15,7 +15,7 @@
 #import "RQShineLabel.h"
 #import "AboutPDQBlurView.h"
 #import <QBPopupMenu/QBPlasticPopupMenu.h>
-#import "CEAnsweringViewController.h"
+#import "CEAnswerWebViewController.h"
 #import "CEResultViewController.h"
 
 //static const CGFloat MoreBtn_Trailing = 40.0f;
@@ -71,6 +71,8 @@ static const CGFloat kAboutLab_FontSize = 14.0f;
 @property (nonatomic, strong) CAShapeLayer *pathLayer;
 @property (nonatomic, strong) QBPopupMenu *popupMenu;
 
+@property (nonatomic, strong) UIButton *testBtn;
+
 @end
 
 @implementation MainViewController
@@ -101,6 +103,9 @@ static BOOL isAnimating = NO;
     self.animationLayer = [[CALayer alloc] init];
     self.animationLayer.frame = CGRectMake(0, 20, kScreenWidth, 100);
     [self.view.layer addSublayer:self.animationLayer];
+    
+    self.testBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.testBtn.backgroundColor = Color_Navy;
     
 }
 
@@ -199,9 +204,6 @@ static BOOL isAnimating = NO;
 //    [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15.0f] range:NSMakeRange(0, text1.length)];
 //    [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0f] range:NSMakeRange(text1.length, text2.length)];
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] init];
-//    [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"PDQ 最权威的癌症信息库" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:ScaleBasedOn6(kInfoLab_FontSize_L)], NSForegroundColorAttributeName:Color_Navy}]];
-//    [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n国家癌症中心 - National Cancer Center" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:ScaleBasedOn6(kInfoLab_FontSize_S)], NSForegroundColorAttributeName:Color_Navy}]];
-//    self.infoLab.attributedText = attributedStr;
     
     [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"PDQ 最权威的癌症信息库" attributes:@{NSFontAttributeName:[UIFont boldDefaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_L)], NSForegroundColorAttributeName:Color_Navy}]];
     [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n国家癌症中心 - National Cancer Center" attributes:@{NSFontAttributeName:[UIFont defaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_S)], NSForegroundColorAttributeName:Color_Navy}]];
@@ -408,10 +410,8 @@ static BOOL isAnimating = NO;
 //    aboutView.delegate = self;
 //    [self.bgIMGView addSubview:aboutView];
     
-//    CEResultViewController *resultVC = [[CEResultViewController alloc] init];
-//    [self.navigationController pushViewController:resultVC animated:YES];
-    CEAnsweringViewController *answeringVC = [[CEAnsweringViewController alloc] init];
-    [self.navigationController pushViewController:answeringVC animated:YES];
+    CEAnswerWebViewController *answerWebVC = [[CEAnswerWebViewController alloc] init];
+    [self.navigationController pushViewController:answerWebVC animated:YES];
 }
 
 

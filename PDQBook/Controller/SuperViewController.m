@@ -55,10 +55,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setNeedsStatusBarAppearanceUpdate]; // 注：在navigation栈中会失效
     self.view.backgroundColor = [UIColor whiteColor];
     self.tabBarController.navigationController.navigationBar.hidden = YES;
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -74,6 +72,7 @@
     // 这里我们设置的是颜色，还可以设置shadow等，具体可以参见api
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont defaultFontWithSize:19]}];
     
+    [self setNeedsStatusBarAppearanceUpdate]; // 注：在navigation栈中会失效
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack; // 设置statusBar
 }
 

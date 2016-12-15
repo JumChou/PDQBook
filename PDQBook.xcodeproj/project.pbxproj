@@ -13,6 +13,9 @@
 		C9023ED11D6372EE0014050C /* SRDictionaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9023ECE1D6372EE0014050C /* SRDictionaryCell.m */; };
 		C904F5F71DC6E84A00216F81 /* ASTouchVisualizer.m in Sources */ = {isa = PBXBuildFile; fileRef = C904F5F61DC6E84A00216F81 /* ASTouchVisualizer.m */; };
 		C90A13241D9BB07900D02294 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C90A13261D9BB07900D02294 /* InfoPlist.strings */; };
+		C90DC3C61DFA5D42009D9184 /* CEAnswerWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C90DC3C11DFA5D42009D9184 /* CEAnswerWebViewController.m */; };
+		C90DC3C71DFA5D42009D9184 /* CEPointSelectWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C90DC3C31DFA5D42009D9184 /* CEPointSelectWebViewController.m */; };
+		C90DC3C81DFA5D42009D9184 /* CEResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C90DC3C51DFA5D42009D9184 /* CEResultViewController.m */; };
 		C917EA1D1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1E1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
 		C917EA1F1D471013003CECFD /* JCTabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C917EA1C1D471013003CECFD /* JCTabBarView.m */; };
@@ -122,7 +125,6 @@
 		C9738FEB1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */; };
 		C9738FEC1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */; };
 		C9738FED1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */; };
-		C982F5231DED53C900B5DFD2 /* CEAnsweringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C982F5221DED53C900B5DFD2 /* CEAnsweringViewController.m */; };
 		C98675171DC079AA00A824A1 /* UIFont+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = C98675161DC079AA00A824A1 /* UIFont+Custom.m */; };
 		C98C0D561D797D04009AF6C5 /* SRDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C0D551D797D04009AF6C5 /* SRDictionaryContentView.m */; };
 		C98C0D571D797D04009AF6C5 /* SRDictionaryContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98C0D551D797D04009AF6C5 /* SRDictionaryContentView.m */; };
@@ -187,8 +189,9 @@
 		C9C4398E1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C4398F1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C439901D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
+		C9C4BD1B1DFE8EF000E93D97 /* CEInfoSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4BD1A1DFE8EF000E93D97 /* CEInfoSubmitViewController.m */; };
+		C9C4BD1E1DFEA24A00E93D97 /* CEOrderConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4BD1D1DFEA24A00E93D97 /* CEOrderConfirmViewController.m */; };
 		C9D6BC601DD56FE100B7B928 /* JCAnimatedArcView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D6BC5F1DD56FE100B7B928 /* JCAnimatedArcView.m */; };
-		C9D6BC631DD5CA3700B7B928 /* CEResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D6BC621DD5CA3700B7B928 /* CEResultViewController.m */; };
 		C9DCABF61D2F53BE00B7F69A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCABF51D2F53BE00B7F69A /* main.m */; };
 		C9DCABF91D2F53BE00B7F69A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCABF81D2F53BE00B7F69A /* AppDelegate.m */; };
 		C9DCABFC1D2F53BE00B7F69A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9DCABFB1D2F53BE00B7F69A /* ViewController.m */; };
@@ -231,6 +234,12 @@
 		C904F5F61DC6E84A00216F81 /* ASTouchVisualizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTouchVisualizer.m; sourceTree = "<group>"; };
 		C90A13251D9BB07900D02294 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		C90A13271D9BB07E00D02294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C90DC3C01DFA5D42009D9184 /* CEAnswerWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAnswerWebViewController.h; sourceTree = "<group>"; };
+		C90DC3C11DFA5D42009D9184 /* CEAnswerWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAnswerWebViewController.m; sourceTree = "<group>"; };
+		C90DC3C21DFA5D42009D9184 /* CEPointSelectWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEPointSelectWebViewController.h; sourceTree = "<group>"; };
+		C90DC3C31DFA5D42009D9184 /* CEPointSelectWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEPointSelectWebViewController.m; sourceTree = "<group>"; };
+		C90DC3C41DFA5D42009D9184 /* CEResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEResultViewController.h; sourceTree = "<group>"; };
+		C90DC3C51DFA5D42009D9184 /* CEResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEResultViewController.m; sourceTree = "<group>"; };
 		C917EA1B1D471013003CECFD /* JCTabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCTabBarView.h; sourceTree = "<group>"; };
 		C917EA1C1D471013003CECFD /* JCTabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCTabBarView.m; sourceTree = "<group>"; };
 		C9188A9E1D3388E1001D1DA7 /* DRNRealTimeBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRNRealTimeBlurView.h; sourceTree = "<group>"; };
@@ -316,8 +325,6 @@
 		C96F2F361DDC017000D5C8C1 /* JCColorfulCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCColorfulCircleView.m; sourceTree = "<group>"; };
 		C9738FE91D6C2F2F00446DE9 /* JCSwitchLanguageBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCSwitchLanguageBtn.h; sourceTree = "<group>"; };
 		C9738FEA1D6C2F2F00446DE9 /* JCSwitchLanguageBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCSwitchLanguageBtn.m; sourceTree = "<group>"; };
-		C982F5211DED53C900B5DFD2 /* CEAnsweringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEAnsweringViewController.h; sourceTree = "<group>"; };
-		C982F5221DED53C900B5DFD2 /* CEAnsweringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEAnsweringViewController.m; sourceTree = "<group>"; };
 		C98675151DC079AA00A824A1 /* UIFont+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Custom.h"; sourceTree = "<group>"; };
 		C98675161DC079AA00A824A1 /* UIFont+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Custom.m"; sourceTree = "<group>"; };
 		C98C0D541D797D04009AF6C5 /* SRDictionaryContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryContentView.h; sourceTree = "<group>"; };
@@ -364,10 +371,12 @@
 		C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-65S.otf"; sourceTree = "<group>"; };
 		C9C4398C1D64488D0096C8B3 /* SRDictionaryDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryDescView.h; sourceTree = "<group>"; };
 		C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryDescView.m; sourceTree = "<group>"; };
+		C9C4BD191DFE8EF000E93D97 /* CEInfoSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoSubmitViewController.h; sourceTree = "<group>"; };
+		C9C4BD1A1DFE8EF000E93D97 /* CEInfoSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEInfoSubmitViewController.m; sourceTree = "<group>"; };
+		C9C4BD1C1DFEA24A00E93D97 /* CEOrderConfirmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEOrderConfirmViewController.h; sourceTree = "<group>"; };
+		C9C4BD1D1DFEA24A00E93D97 /* CEOrderConfirmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEOrderConfirmViewController.m; sourceTree = "<group>"; };
 		C9D6BC5E1DD56FE100B7B928 /* JCAnimatedArcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCAnimatedArcView.h; sourceTree = "<group>"; };
 		C9D6BC5F1DD56FE100B7B928 /* JCAnimatedArcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCAnimatedArcView.m; sourceTree = "<group>"; };
-		C9D6BC611DD5CA3700B7B928 /* CEResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEResultViewController.h; sourceTree = "<group>"; };
-		C9D6BC621DD5CA3700B7B928 /* CEResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEResultViewController.m; sourceTree = "<group>"; };
 		C9DCABF11D2F53BE00B7F69A /* PDQBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PDQBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCABF51D2F53BE00B7F69A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C9DCABF71D2F53BE00B7F69A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -439,6 +448,23 @@
 				C904F5F61DC6E84A00216F81 /* ASTouchVisualizer.m */,
 			);
 			path = ASTouchVisualizer;
+			sourceTree = "<group>";
+		};
+		C90DC3BF1DFA5D42009D9184 /* CancerEvaluation */ = {
+			isa = PBXGroup;
+			children = (
+				C90DC3C01DFA5D42009D9184 /* CEAnswerWebViewController.h */,
+				C90DC3C11DFA5D42009D9184 /* CEAnswerWebViewController.m */,
+				C90DC3C41DFA5D42009D9184 /* CEResultViewController.h */,
+				C90DC3C51DFA5D42009D9184 /* CEResultViewController.m */,
+				C90DC3C21DFA5D42009D9184 /* CEPointSelectWebViewController.h */,
+				C90DC3C31DFA5D42009D9184 /* CEPointSelectWebViewController.m */,
+				C9C4BD191DFE8EF000E93D97 /* CEInfoSubmitViewController.h */,
+				C9C4BD1A1DFE8EF000E93D97 /* CEInfoSubmitViewController.m */,
+				C9C4BD1C1DFEA24A00E93D97 /* CEOrderConfirmViewController.h */,
+				C9C4BD1D1DFEA24A00E93D97 /* CEOrderConfirmViewController.m */,
+			);
+			path = CancerEvaluation;
 			sourceTree = "<group>";
 		};
 		C9188A921D3388E1001D1DA7 /* OpenSource */ = {
@@ -561,10 +587,7 @@
 				C958DBCC1D3D06530039EDA0 /* CancerViewController.m */,
 				C94CC64D1D531B5600458804 /* CancerPaperViewController.h */,
 				C94CC64E1D531B5600458804 /* CancerPaperViewController.m */,
-				C982F5211DED53C900B5DFD2 /* CEAnsweringViewController.h */,
-				C982F5221DED53C900B5DFD2 /* CEAnsweringViewController.m */,
-				C9D6BC611DD5CA3700B7B928 /* CEResultViewController.h */,
-				C9D6BC621DD5CA3700B7B928 /* CEResultViewController.m */,
+				C90DC3BF1DFA5D42009D9184 /* CancerEvaluation */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -880,7 +903,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 87QH7BT76A;
 						DevelopmentTeamName = "WeiHaiSi Health Technology (Beijing) Co.,Ltd.";
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					C9DCAC091D2F53BE00B7F69A = {
 						CreatedOnToolsVersion = 8.0;
@@ -1032,6 +1055,7 @@
 				C9551FFD1D91290200CD21BF /* RecentSearchRecords.m in Sources */,
 				C95520001D91290200CD21BF /* SearchRecord.m in Sources */,
 				C9DCABFC1D2F53BE00B7F69A /* ViewController.m in Sources */,
+				C90DC3C81DFA5D42009D9184 /* CEResultViewController.m in Sources */,
 				C938039F1D5B716E00791731 /* BasicModel.m in Sources */,
 				C9943E651D33876800B90006 /* PushPresentAnimator.m in Sources */,
 				C952BEF11DACD4910043A85B /* TICopyTextView.m in Sources */,
@@ -1039,10 +1063,11 @@
 				C9943E681D33876800B90006 /* PushZoomInAnimator.m in Sources */,
 				C966FB291D68A703004D7047 /* SRBasicCell.m in Sources */,
 				C94CC64F1D531B5600458804 /* CancerPaperViewController.m in Sources */,
-				C982F5231DED53C900B5DFD2 /* CEAnsweringViewController.m in Sources */,
 				C952BF001DB4CAAF0043A85B /* FlurryEmpty.m in Sources */,
+				C9C4BD1E1DFEA24A00E93D97 /* CEOrderConfirmViewController.m in Sources */,
 				C9DCABF91D2F53BE00B7F69A /* AppDelegate.m in Sources */,
 				C91F68071D54998800D8BB4F /* JCWebView.m in Sources */,
+				C90DC3C71DFA5D42009D9184 /* CEPointSelectWebViewController.m in Sources */,
 				C9943E5F1D33876800B90006 /* PopFadeOutAnimator.m in Sources */,
 				C923A4661D5B34F700CC6E69 /* Cancers.m in Sources */,
 				C9941AED1D60197A00338E1D /* RecentSearchRecordsView.m in Sources */,
@@ -1059,6 +1084,8 @@
 				C93803A41D5B77C500791731 /* BasicNetworkingModel.m in Sources */,
 				C9C4398E1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */,
 				C952BEE51DACCA6F0043A85B /* TranslationHandler.m in Sources */,
+				C90DC3C61DFA5D42009D9184 /* CEAnswerWebViewController.m in Sources */,
+				C9C4BD1B1DFE8EF000E93D97 /* CEInfoSubmitViewController.m in Sources */,
 				C958DBC81D3D060B0039EDA0 /* SearchViewController.m in Sources */,
 				C98FC8761D35D9BF0026B3CF /* MainViewController.m in Sources */,
 				C955200F1D912A4A00CD21BF /* CCUnit.m in Sources */,
@@ -1076,7 +1103,6 @@
 				C9023ECF1D6372EE0014050C /* SRDictionaryCell.m in Sources */,
 				C9941AF71D61BB7B00338E1D /* SearchResultsView.m in Sources */,
 				C9943E591D33876800B90006 /* UITableViewCell+StartAnimation.m in Sources */,
-				C9D6BC631DD5CA3700B7B928 /* CEResultViewController.m in Sources */,
 				C9943E621D33876800B90006 /* PopZoomOutAnimator.m in Sources */,
 				C9DF8A521D76C56B002DACF2 /* RQShineLabel.m in Sources */,
 				C923A45C1D5B1E7F00CC6E69 /* Singleton.m in Sources */,
@@ -1329,7 +1355,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 87QH7BT76A;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1353,8 +1379,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "123a59ac-1275-40a8-a2fe-15ad2507ce76";
-				PROVISIONING_PROFILE_SPECIFIER = Dev_PDQBook;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -1365,8 +1391,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 87QH7BT76A;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1390,8 +1416,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2d2b5abf-0b9c-4704-a3b5-117f2fc8c5f7";
-				PROVISIONING_PROFILE_SPECIFIER = Dis_PDQBook;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

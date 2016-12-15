@@ -10,6 +10,7 @@
 #import "JCAnimatedArcView.h"
 #import "JCColorfulCircleView.h"
 #import "CancerViewController.h"
+#import "CEPointSelectWebViewController.h"
 
 #define kVeryLowLevelDesc   @"极低致癌风险"
 #define kLowLevelDesc       @"较低致癌风险"
@@ -192,6 +193,7 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
     self.medicalInfoBtn.layer.cornerRadius = 4;
     self.medicalInfoBtn.titleLabel.font = [UIFont boldDefaultFontWithSize:ScaleBasedOn6(kMedicalBtn_FontSize)];
     [self.medicalInfoBtn setTitle:@"了解体检筛查" forState:UIControlStateNormal];
+    [self.medicalInfoBtn addTarget:self action:@selector(medicalInfoBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.BGView addSubview:self.medicalInfoBtn];
     [self.medicalInfoBtn makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.BGView).offset(-ScaleBasedOn6(kMedicalBtn_Bottom));
@@ -206,6 +208,7 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
     self.medicalBookBtn.layer.cornerRadius = 4;
     self.medicalBookBtn.titleLabel.font = [UIFont boldDefaultFontWithSize:ScaleBasedOn6(kMedicalBtn_FontSize)];
     [self.medicalBookBtn setTitle:@"预约体检筛查" forState:UIControlStateNormal];
+    [self.medicalBookBtn addTarget:self action:@selector(medicalBookBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.BGView addSubview:self.medicalBookBtn];
     [self.medicalBookBtn makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.BGView).offset(-ScaleBasedOn6(kMedicalBtn_Bottom));
@@ -411,6 +414,11 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
     Cancer *cancer = [Cancer cancerWithId:5];
     CancerViewController *cancerVC = [[CancerViewController alloc] initWithCancer:cancer];
     [self.navigationController pushViewController:cancerVC animated:YES];
+}
+
+- (void)medicalBookBtnAction {
+    CEPointSelectWebViewController *pointSelectWebVC = [[CEPointSelectWebViewController alloc] init];
+    [self.navigationController pushViewController:pointSelectWebVC animated:YES];
 }
 
 

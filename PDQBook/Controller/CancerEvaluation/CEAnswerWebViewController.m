@@ -1,23 +1,25 @@
 //
-//  CEAnsweringViewController.m
+//  CEAnswerWebViewController.m
 //  PDQBook
 //
 //  Created by Mr.Chou on 2016/11/29.
 //  Copyright © 2016年 weihaisi. All rights reserved.
 //
 
-#import "CEAnsweringViewController.h"
+#import "CEAnswerWebViewController.h"
 #import "JCWebView.h"
 #import "CEResultViewController.h"
 
-@interface CEAnsweringViewController () <WKScriptMessageHandler, JCWebViewDelegate>
+static NSString *const kWebGetResultMethodName = @"WebGetResult";
+
+@interface CEAnswerWebViewController () <WKScriptMessageHandler, JCWebViewDelegate>
 
 @property (nonatomic, strong) WKWebViewConfiguration *webViewConfiguration;
 @property (nonatomic, strong) JCWebView *webView;
 
 @end
 
-@implementation CEAnsweringViewController
+@implementation CEAnswerWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,7 +29,8 @@
     
     self.webViewConfiguration = [[WKWebViewConfiguration alloc] init];
     self.webViewConfiguration.userContentController = [[WKUserContentController alloc] init];
-//    [self.webViewConfiguration.userContentController addScriptMessageHandler:self name:kWebSectionDidSelected];
+    [self.webViewConfiguration.userContentController addScriptMessageHandler:self name:kWebGetResultMethodName];
+    
     self.webView = [[JCWebView alloc] initWithFrame:CGRectZero configuration:self.webViewConfiguration];
     self.webView.backgroundColor = [UIColor lightGrayColor];
     self.webView.scrollView.bounces = NO;
@@ -49,6 +52,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self setUpNavigationBar];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,6 +101,7 @@
         
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"放弃" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self.webViewConfiguration.userContentController removeScriptMessageHandlerForName:kWebGetResultMethodName]; // 移除JS调用OC的监听
         [self.navigationController popViewControllerAnimated:YES];
         [self clearWKWebCache];
     }]];
@@ -102,9 +117,9 @@
 #pragma mark WKScriptMessageHandler JS调用OC方法
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSLog(@"JS - UserContentConroller:%@ 调用了 %@ 方法，传回参数 %@", userContentController, message.name, message.body);
-//    if ([message.name isEqualToString:kWebSectionDidSelected]) { // web文章Section点击事件
-//        self.sectionsBtn.currentButtonType = buttonMenuType;
-//    }
+    if ([message.name isEqualToString:kWebGetResultMethodName]) { // web结果返回
+        
+    }
 }
 
 
