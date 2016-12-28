@@ -118,7 +118,7 @@ static NSString *const kWebGetResultMethodName = @"WebGetResult";
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSLog(@"JS - UserContentConroller:%@ 调用了 %@ 方法，传回参数 %@", userContentController, message.name, message.body);
     if ([message.name isEqualToString:kWebGetResultMethodName]) { // web结果返回
-        
+        [self finishBtnAction];
     }
 }
 

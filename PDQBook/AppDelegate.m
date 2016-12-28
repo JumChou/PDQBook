@@ -20,6 +20,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    DebugLog(@"LaunchOptions:%@", launchOptions);
+    
     [self initApp];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -60,6 +62,11 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(nonnull UIApplicationShortcutItem *)shortcutItem completionHandler:(nonnull void (^)(BOOL))completionHandler {
+    DebugLog(@"%@", shortcutItem);
+    [[NSNotificationCenter defaultCenter] postNotificationName:Notifi_ApplicationShortcut object:nil userInfo:@{@"ShortcutItem":shortcutItem}];
 }
 
 

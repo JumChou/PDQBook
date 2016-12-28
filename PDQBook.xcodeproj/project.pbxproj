@@ -132,6 +132,7 @@
 		C98FC8761D35D9BF0026B3CF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FC8751D35D9BF0026B3CF /* MainViewController.m */; };
 		C98FC8771D35D9BF0026B3CF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FC8751D35D9BF0026B3CF /* MainViewController.m */; };
 		C98FC8781D35D9BF0026B3CF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FC8751D35D9BF0026B3CF /* MainViewController.m */; };
+		C99166D61E02A1CA0061BCBA /* MPCirclePartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99166D51E02A1CA0061BCBA /* MPCirclePartView.m */; };
 		C9941AE21D60185400338E1D /* MPSearchPartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9941AE11D60185400338E1D /* MPSearchPartView.m */; };
 		C9941AE31D60185400338E1D /* MPSearchPartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9941AE11D60185400338E1D /* MPSearchPartView.m */; };
 		C9941AE41D60185400338E1D /* MPSearchPartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9941AE11D60185400338E1D /* MPSearchPartView.m */; };
@@ -331,6 +332,8 @@
 		C98C0D551D797D04009AF6C5 /* SRDictionaryContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryContentView.m; sourceTree = "<group>"; };
 		C98FC8741D35D9BF0026B3CF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		C98FC8751D35D9BF0026B3CF /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		C99166D41E02A1CA0061BCBA /* MPCirclePartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPCirclePartView.h; sourceTree = "<group>"; };
+		C99166D51E02A1CA0061BCBA /* MPCirclePartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPCirclePartView.m; sourceTree = "<group>"; };
 		C9941AE01D60185400338E1D /* MPSearchPartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPSearchPartView.h; sourceTree = "<group>"; };
 		C9941AE11D60185400338E1D /* MPSearchPartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPSearchPartView.m; sourceTree = "<group>"; };
 		C9941AEB1D60197A00338E1D /* RecentSearchRecordsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentSearchRecordsView.h; sourceTree = "<group>"; };
@@ -642,6 +645,8 @@
 			children = (
 				C9941AE01D60185400338E1D /* MPSearchPartView.h */,
 				C9941AE11D60185400338E1D /* MPSearchPartView.m */,
+				C99166D41E02A1CA0061BCBA /* MPCirclePartView.h */,
+				C99166D51E02A1CA0061BCBA /* MPCirclePartView.m */,
 			);
 			path = MainVC;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				C90DC3C81DFA5D42009D9184 /* CEResultViewController.m in Sources */,
 				C938039F1D5B716E00791731 /* BasicModel.m in Sources */,
 				C9943E651D33876800B90006 /* PushPresentAnimator.m in Sources */,
+				C99166D61E02A1CA0061BCBA /* MPCirclePartView.m in Sources */,
 				C952BEF11DACD4910043A85B /* TICopyTextView.m in Sources */,
 				C952BEF31DACD4910043A85B /* YouDaoTranslationUtils.m in Sources */,
 				C9943E681D33876800B90006 /* PushZoomInAnimator.m in Sources */,

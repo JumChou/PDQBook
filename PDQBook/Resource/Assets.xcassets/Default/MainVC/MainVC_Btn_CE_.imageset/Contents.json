@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
-      "filename" : "bg.png",
+      "idiom" : "universal",
+      "filename" : "zhongjianxuan.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
-      "filename" : "iphon6P.png",
+      "idiom" : "universal",
+      "filename" : "zhongjianxuan-1.png",
       "scale" : "3x"
     }
   ],

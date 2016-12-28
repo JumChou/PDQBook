@@ -120,6 +120,7 @@ static const CGFloat kDicContentCloseBtn_W = 28.f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar addSubview:self.searchView];
+    [Singleton shareInstance].isShowingSearchVC = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -134,6 +135,7 @@ static const CGFloat kDicContentCloseBtn_W = 28.f;
 
 - (void)dealloc {
     DebugLog(@"");
+    [Singleton shareInstance].isShowingSearchVC = NO;
 }
 
 

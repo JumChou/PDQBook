@@ -82,13 +82,7 @@
 #define Notifi_RefreshAssetsData                @"RefreshAssetsData"        // 照片库数据刷新通知
 #define Notifi_Logout                           @"Logout"                   // 登出通知
 #define Notifi_ReLogin                          @"ReLogin"                  // 重新登录通知
-#define Notifi_SelectedLove                     @"SelectedLove"             // 点赞通知
-#define Notifi_UserInfoEdited                   @"UserInfoEdited"           // 用户信息编辑通知
-#define Notifi_WorkFilesError                   @"WorkFilesError"           // 作品文件出错
-#define Notifi_DidEnterBackground               @"DidEnterBackground"
-#define Notifi_WillEnterForeground              @"WillEnterForeground"
-#define Notifi_TabBarDidSelectIndex             @"TabBarDidSelectIndex"
-#define Notifi_UpdateSubmittedFeedback          @"UpdateSubmittedFeedback"
+#define Notifi_ApplicationShortcut              @"ApplicationShortcut"      // 3DTouch Shortcut通知
 
 
 #pragma mark - 通用其他

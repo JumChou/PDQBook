@@ -10,7 +10,7 @@
 #import "CommonDefine.h"
 
 #define Color_Progress      [UIColor colorWithHexString:@"B9C4DA"]
-#define Color_ProgressBG    [UIColor colorWithHexString:@"e7e9f0"]
+#define Color_ProgressBG    [UIColor colorWithHexString:@"f3f4f4"];
 
 @implementation UCZProgressView (Initialize)
 
@@ -22,8 +22,7 @@
         //self.tintColor = [UIColor whiteColor];
         //self.textColor = [UIColor whiteColor];
         //self.backgroundView.backgroundColor = [UIColor colorWithHexString:@"C9D0DF"];
-        UIColor *circleColor = Color_TextNavy;
-        circleColor = Color_Progress;
+        UIColor *circleColor = Color_Progress;
         self.tintColor = circleColor;
         self.textColor = circleColor;
         self.backgroundView.backgroundColor = Color_ProgressBG;

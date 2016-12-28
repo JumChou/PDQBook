@@ -9,31 +9,36 @@
 #import "MainViewController.h"
 #import "ViewController.h"
 #import "CancerViewController.h"
+#import "CEAnswerWebViewController.h"
+#import "CEResultViewController.h"
 #import "MPSearchPartView.h"
-#import <POP/POP.h>
+#import "MPCirclePartView.h"
 #import "Cancers.h"
 #import "RQShineLabel.h"
 #import "AboutPDQBlurView.h"
 #import <QBPopupMenu/QBPlasticPopupMenu.h>
-#import "CEAnswerWebViewController.h"
-#import "CEResultViewController.h"
+#import <POP/POP.h>
 
 //static const CGFloat MoreBtn_Trailing = 40.0f;
 //static const CGFloat MoreBtn_W = 40.0f;
 //static const CGFloat MoreBtn_H = 20.0f;
 
 static const CGFloat kInfoLab_Top = 50.0f;
-static const CGFloat kInfoLab_H = 50.0f;
+static const CGFloat kInfoLab_H = 44.0f;
 static const CGFloat kInfoLab_FontSize_L = 18.0f;
 static const CGFloat kInfoLab_FontSize_S = 14.0f;
 
 static const CGFloat kCancerBtn_Top = 26.0f;
 static const CGFloat kCancerBtn_Padding = 22.0f;
 static const CGFloat kCancerBtn_W = 65.0f;
+static const CGFloat kCirclePart_Top = 16.f;
+static const CGFloat kCirclePart_W = 284.f;
 
-static const CGFloat kSearchPartVew_Top = 30.0f;
+static const CGFloat kCEBtn_W = 110.f;
+
+static const CGFloat kSearchPartVew_Top = 24.0f;
 static const CGFloat kSearchPartVew_Leading = 36.0f;
-static const CGFloat kSearchPartVew_H = 48.0f;
+static const CGFloat kSearchPartVew_H = 46.0f;
 
 static const CGFloat kAboutBtn_Bottom = 20.0f;
 static const CGFloat kAboutBtn_W = 100.0f;
@@ -58,6 +63,8 @@ static const CGFloat kAboutLab_FontSize = 14.0f;
 @property (nonatomic, strong) UIImageView *lineIMGView;
 /// CancerBtns
 @property (nonatomic, strong) NSMutableArray *cancerBtns;
+@property (nonatomic, strong) MPCirclePartView *circlePartView;
+@property (nonatomic, strong) UIButton *cancerEvaluationBtn;
 /// 更多btn
 @property (nonatomic, strong) UIButton *moreBtn;
 
@@ -71,6 +78,7 @@ static const CGFloat kAboutLab_FontSize = 14.0f;
 @property (nonatomic, strong) CAShapeLayer *pathLayer;
 @property (nonatomic, strong) QBPopupMenu *popupMenu;
 
+@property (nonatomic, strong) UIView *circleBGView;
 @property (nonatomic, strong) UIButton *testBtn;
 
 @end
@@ -153,7 +161,8 @@ static BOOL isAnimating = NO;
     }];
     
     [self initInfoLab];
-    [self initCancerBtns];
+//    [self initCancerBtns];
+    [self initCirclePartViews];
     [self initAboutPDQViews];
     
     __weak typeof(self) weakSelf = self;
@@ -162,7 +171,8 @@ static BOOL isAnimating = NO;
     }];
     [self.bgIMGView addSubview:self.searchPartView];
     [self.searchPartView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.infoLab.bottom).offset(ScaleBasedOn6(3*(kCancerBtn_Top + kCancerBtn_W) + kSearchPartVew_Top));
+//        make.top.equalTo(self.infoLab.bottom).offset(ScaleBasedOn6(3*(kCancerBtn_Top + kCancerBtn_W) + kSearchPartVew_Top));
+        make.top.equalTo(self.circlePartView.bottom).offset(ScaleBasedOn6(kSearchPartVew_Top));
         make.leading.equalTo(self.bgIMGView).offset(ScaleBasedOn6(kSearchPartVew_Leading));
         make.trailing.equalTo(self.bgIMGView).offset(-ScaleBasedOn6(kSearchPartVew_Leading));
         make.height.equalTo(ScaleBasedOn6(kSearchPartVew_H));
@@ -187,7 +197,7 @@ static BOOL isAnimating = NO;
     self.infoLab = [[RQShineLabel alloc] init];
     self.infoLab.shineDuration = 1.f;
     self.infoLab.fadeoutDuration = 0.f;
-    self.infoLab.backgroundColor = Color_Clear;
+//    self.infoLab.backgroundColor = Color_Blue;
 //    self.infoLab.textColor = Color_TextNavy;
     self.infoLab.textAlignment = NSTextAlignmentCenter;
     self.infoLab.numberOfLines = 0;
@@ -304,6 +314,32 @@ static BOOL isAnimating = NO;
 }
 
 /**
+ 初始化圆盘区域按钮们
+ */
+- (void)initCirclePartViews {
+    self.circlePartView = [[MPCirclePartView alloc] initWithTarget:self action:@selector(fanshapedCancerBtnAction:)];
+    [self.bgIMGView addSubview:self.circlePartView];
+    [self.circlePartView makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.bgIMGView);
+        make.top.equalTo(self.infoLab.bottom).offset(ScaleBasedOn6(kCirclePart_Top));
+        make.width.height.equalTo(ScaleBasedOn6(kCirclePart_W));
+    }];
+    [self.circlePartView setUpViews];
+    
+    self.cancerEvaluationBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    self.cancerEvaluationBtn.backgroundColor = Color_Blue;
+    [self.cancerEvaluationBtn setBackgroundImage:[UIImage imageNamed:@"MainVC_Btn_CE"] forState:UIControlStateNormal];
+    [self.cancerEvaluationBtn setBackgroundImage:[UIImage imageNamed:@"MainVC_Btn_CE_"] forState:UIControlStateHighlighted];
+    [self.cancerEvaluationBtn addTarget:self action:@selector(cancerEvaluationBtnAction) forControlEvents:UIControlEventTouchUpInside];
+//    self.cancerEvaluationBtn.layer.cornerRadius = (ScaleBasedOn6(kCEBtn_W) / 2.f);
+    [self.bgIMGView addSubview:self.cancerEvaluationBtn];
+    [self.cancerEvaluationBtn makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.circlePartView);
+        make.width.height.equalTo(ScaleBasedOn6(kCEBtn_W));
+    }];
+}
+
+/**
  初始化关于PDQ
  */
 - (void)initAboutPDQViews {
@@ -394,6 +430,48 @@ static BOOL isAnimating = NO;
 }
 
 
+- (void)fanshapedCancerBtnAction:(UIButton *)sender {
+    DebugLog(@"%zd", sender.tag);
+    if (![Singleton shareInstance].isHTTPRequestedCancers) {
+        __block BOOL isSuccess = NO;
+        UCZProgressView *progressView = [[UCZProgressView alloc] initLoadingStyleWithIsUseArcAnim:NO];
+        progressView.animationDidStopBlock = ^{
+            if (isSuccess) {
+                [self cancerBtnAction:sender];
+            }
+        };
+        [self.view addSubview:progressView];
+        [progressView makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view).insets(UIEdgeInsetsZero);
+        }];
+        
+        [self.cancers HTTPRequestCancersWithSuccess:^{
+            [NSThread sleepForTimeInterval:0.5];
+            progressView.progress = 1;
+            [Singleton shareInstance].isHTTPRequestedCancers = YES;
+            isSuccess = YES;
+            
+        } failure:^{
+            progressView.progress = 1;
+            
+        }];
+        
+        return;
+    }
+    
+    NSInteger cancerId = sender.tag;
+    Cancer *cancer = [Cancer cancerWithId:cancerId];
+    CancerViewController *cancerVC = [[CancerViewController alloc] initWithCancer:cancer];
+    [self.navigationController pushViewController:cancerVC animated:YES];
+}
+
+
+- (void)cancerEvaluationBtnAction {
+    CEAnswerWebViewController *answerWebVC = [[CEAnswerWebViewController alloc] init];
+    [self.navigationController pushViewController:answerWebVC animated:YES];
+}
+
+
 - (void)moreBtnAction {
     DebugLog(@"");
 //    [self testAFNetWorking];
@@ -406,12 +484,9 @@ static BOOL isAnimating = NO;
 //    CGRect menuFrame = CGRectMake(0, 0, kScreenWidth, kStatusBarHeight);
 //    [self.popupMenu showInView:self.view targetRect:menuFrame animated:YES];
     
-//    AboutPDQBlurView *aboutView = [AboutPDQBlurView aboutPDQBlurView];
-//    aboutView.delegate = self;
-//    [self.bgIMGView addSubview:aboutView];
-    
-    CEAnswerWebViewController *answerWebVC = [[CEAnswerWebViewController alloc] init];
-    [self.navigationController pushViewController:answerWebVC animated:YES];
+    AboutPDQBlurView *aboutView = [AboutPDQBlurView aboutPDQBlurView];
+    aboutView.delegate = self;
+    [self.bgIMGView addSubview:aboutView];
 }
 
 
@@ -685,6 +760,10 @@ static BOOL isAnimating = NO;
 
 - (void)menuItemTestAction:(UIMenuController *)sender {
     DebugLog(@"%@", sender);
+}
+
+- (void)testBtnAction:(UIButton *)sender {
+    DebugLog(@"%zd", sender.tag);
 }
 
 

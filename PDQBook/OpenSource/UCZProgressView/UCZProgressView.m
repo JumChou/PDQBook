@@ -7,6 +7,7 @@
 //
 
 #import "UCZProgressView.h"
+#import "UIColor+Custom.h"
 
 @interface UCZProgressView ()
 
@@ -62,7 +63,7 @@
     self.backgroundLayer.frame = self.bounds;
     
     UIBezierPath *path = [UIBezierPath bezierPath];
-    path.lineCapStyle = kCGLineCapButt;
+    path.lineCapStyle = kCGLineCapRound;
     path.lineWidth = self.lineWidth;
     [path addArcWithCenter:self.backgroundView.center radius:self.radius + self.lineWidth / 2 startAngle:-M_PI_2 endAngle:M_PI + M_PI_2 clockwise:YES];
     

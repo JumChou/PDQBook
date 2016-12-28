@@ -11,7 +11,7 @@
 #import "UCZProgressView.h"
 #import <QBPopupMenu/QBPlasticPopupMenu.h>
 
-@interface JCWebView () <WKNavigationDelegate, UIScrollViewDelegate> {
+@interface JCWebView () <WKNavigationDelegate> {
     CGRect menuFrame;
 }
 
@@ -43,7 +43,6 @@ const float ProgressView_H = 3.0f;
     self = [super initWithFrame:frame configuration:configuration];
     if (self) {
         self.navigationDelegate = self;
-        self.scrollView.delegate = self;
         
         [self addSubview:self.reloadBtn];
         [self.reloadBtn makeConstraints:^(MASConstraintMaker *make) {
@@ -75,8 +74,8 @@ const float ProgressView_H = 3.0f;
 
 - (void)dealloc {
     DebugLog(@"");
-    [self removeObserver:self forKeyPath:@"estimatedProgress"];
     [self removeObserverForMenuNotifications];
+    [self removeObserver:self forKeyPath:@"estimatedProgress"];
 }
 
 
@@ -133,6 +132,7 @@ const float ProgressView_H = 3.0f;
 - (UCZProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[UCZProgressView alloc] initProgressTextStyle];
+//        _progressView.tintColor = [UIColor colorWithHexString:@"f3f4f4"];
         _progressView.alpha = 0;
     }
     return _progressView;

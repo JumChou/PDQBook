@@ -148,7 +148,7 @@ static NSString *const kPDQCopyright = @"Copyright © 2016 PDQ. All rights reser
     self.closeBtn = [[VBFPopFlatButton alloc] initWithFrame:CGRectMake(0, 0, kCloseBtn_W, kCloseBtn_W)
                                                  buttonType:buttonCloseType
                                                 buttonStyle:buttonPlainStyle
-                                      animateToInitialState:YES];
+                                      animateToInitialState:NO];
     self.closeBtn.lineThickness = 2;
     self.closeBtn.lineRadius = 2;
     self.closeBtn.tintColor = Color_Navy;

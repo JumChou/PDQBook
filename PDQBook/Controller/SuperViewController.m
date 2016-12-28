@@ -38,6 +38,7 @@
 //        self.statusBarMsg.notificationAnimationOutStyle = CWNotificationAnimationStyleTop;
 //        
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(RCIMReceiveMessageAction) name:Notifi_RCIMReceiveMessage object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShortcutAction:) name:Notifi_ApplicationShortcut object:nil];
     }
     
     return self;
@@ -49,6 +50,7 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:Notifi_ApplicationShortcut object:nil];
 //    [[NSNotificationCenter defaultCenter] removeObserver:self name:Notifi_RCIMReceiveMessage object:nil];
 }
 
@@ -146,6 +148,7 @@
 }
 
 
+#pragma mark - HandleNotification
 /**
  *  讨论组新消息通知处理
  */
@@ -159,6 +162,11 @@
 //    };
 }
 
+- (void)applicationShortcutAction:(NSDictionary *)userInfo {
+    DebugLog(@"UserInfo:%@", userInfo);
+    [self showSearchVC];
+}
+
 
 #pragma mark - Search
 - (void)showSearchVC {
@@ -166,6 +174,10 @@
 }
 
 - (void)showSearchVCWithSearchText:(NSString *)searchText {
+    if ([Singleton shareInstance].isShowingSearchVC) {
+        return;
+    }
+    
     SearchViewController *searchVC = [SearchViewController new];
     UINavigationController *searchNavi = [[UINavigationController alloc] initWithRootViewController:searchVC];
     if ([searchNavi respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -180,6 +192,9 @@
 }
 
 
+/**
+ 废弃
+ */
 - (void)becomeSearchStatus {
     self.blurView = [[DRNRealTimeBlurView alloc] initWithFrame:self.view.frame tintColor:Color_GrayBig opacity:0.5 cornerRadius:0];
     self.blurView.alpha = 0;
@@ -214,7 +229,9 @@
     }];
 }
 
-
+/**
+ 废弃
+ */
 - (void)cancelSearchStatus {
     [self.textField resignFirstResponder];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
