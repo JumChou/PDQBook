@@ -157,6 +157,10 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
     [self initArcPartViews];
     [self initMarkerPartViews];
     
+    if (_isFaking) {
+        
+    }
+    
     self.descInfoLabel = [[UILabel alloc] init];
     self.descInfoLabel.backgroundColor = Color_Clear;
     self.descInfoLabel.textColor = Color_TextLightGray;
@@ -175,14 +179,14 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
     self.moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.moreBtn.backgroundColor = Color_Clear;
     self.moreBtn.titleLabel.numberOfLines = 0;
-    self.moreBtn.titleLabel.font = [UIFont boldDefaultFontWithSize:ScaleBasedOn6(kMoreBtn_FontSize)];
+    self.moreBtn.titleLabel.font = [UIFont boldDefaultFontWithSize:ScaleBasedOn6(self.isFaking ? kMoreBtn_FontSize+2.f : kMoreBtn_FontSize)];
     [self.moreBtn setTitleColor:Color_Navy forState:UIControlStateNormal];
     [self.moreBtn setTitle:@"更多癌症筛查、预防和治疗信息 >>" forState:UIControlStateNormal];
     [self.moreBtn addTarget:self action:@selector(moreBtnAction) forControlEvents:UIControlEventTouchUpInside];
     [self.BGView addSubview:self.moreBtn];
     [self.moreBtn makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.BGView);
-        make.top.equalTo(self.descInfoLabel.bottom).offset(ScaleBasedOn6(kMoreBtn_Top));
+        make.top.equalTo(self.descInfoLabel.bottom).offset(ScaleBasedOn6(self.isFaking ? kMoreBtn_Top+23.f : kMoreBtn_Top));
         make.width.equalTo(ScaleBasedOn6(kMoreBtn_W));
         make.height.equalTo(ScaleBasedOn6(kMoreBtn_H));
     }];
@@ -199,7 +203,7 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
         make.bottom.equalTo(self.BGView).offset(-ScaleBasedOn6(kMedicalBtn_Bottom));
         make.trailing.equalTo(self.BGView.centerX).offset(-ScaleBasedOn6(kMedicalBtn_Offset));
         make.width.equalTo(ScaleBasedOn6(kMedicalBtn_W));
-        make.height.equalTo(ScaleBasedOn6(kMedicalBtn_H));
+        make.height.equalTo(ScaleBasedOn6(self.isFaking ? 0 : kMedicalBtn_H));
     }];
     
     self.medicalBookBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -214,7 +218,7 @@ typedef NS_ENUM(NSInteger, CEResultLevel) {
         make.bottom.equalTo(self.BGView).offset(-ScaleBasedOn6(kMedicalBtn_Bottom));
         make.leading.equalTo(self.BGView.centerX).offset(ScaleBasedOn6(kMedicalBtn_Offset));
         make.width.equalTo(ScaleBasedOn6(kMedicalBtn_W));
-        make.height.equalTo(ScaleBasedOn6(kMedicalBtn_H));
+        make.height.equalTo(ScaleBasedOn6(self.isFaking ? 0 : kMedicalBtn_H));
     }];
     
     

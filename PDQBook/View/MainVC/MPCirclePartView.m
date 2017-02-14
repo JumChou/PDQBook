@@ -115,7 +115,7 @@
     if (!self.userInteractionEnabled) {
         return nil;
     }
-    NSEnumerator *enumertor =[self.subviews reverseObjectEnumerator];
+    NSEnumerator *enumertor = [self.subviews reverseObjectEnumerator];
     UIView *view;
     while (view = [enumertor nextObject]) {
 //        CGPoint hitPoint = [self convertPoint:point toView:_centerView];

@@ -34,7 +34,7 @@ static NSString *const kWebGetResultMethodName = @"WebGetResult";
     self.webView = [[JCWebView alloc] initWithFrame:CGRectZero configuration:self.webViewConfiguration];
     self.webView.backgroundColor = [UIColor lightGrayColor];
     self.webView.scrollView.bounces = NO;
-    self.webView.loadingFinishDelay = 0;
+    self.webView.loadingFinishDelay = 1;
     self.webView.isNeedPaperSelectionMenu = NO;
     self.webView.delegate = self;
     [self.view addSubview:self.webView];
@@ -84,13 +84,13 @@ static NSString *const kWebGetResultMethodName = @"WebGetResult";
     [self setUpNaviTitle:@"癌症风险评估"];
     [self setUpNaviBackBtnWithAction:@selector(backBtnAction)];
     
-    UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    finishBtn.backgroundColor = Color_White;
-    finishBtn.frame = CGRectMake(0, 0, 50, 50);
-    finishBtn.titleLabel.font = [UIFont defaultFontWithSize:17.f];
-    [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
-    [finishBtn addTarget:self action:@selector(finishBtnAction) forControlEvents:UIControlEventTouchUpInside];
-    [self setUpNaviRightBarButtons:@[finishBtn]];
+//    UIButton *finishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+////    finishBtn.backgroundColor = Color_White;
+//    finishBtn.frame = CGRectMake(0, 0, 50, 50);
+//    finishBtn.titleLabel.font = [UIFont defaultFontWithSize:17.f];
+//    [finishBtn setTitle:@"完成" forState:UIControlStateNormal];
+//    [finishBtn addTarget:self action:@selector(finishBtnAction) forControlEvents:UIControlEventTouchUpInside];
+//    [self setUpNaviRightBarButtons:@[finishBtn]];
 }
 
 
@@ -118,7 +118,10 @@ static NSString *const kWebGetResultMethodName = @"WebGetResult";
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSLog(@"JS - UserContentConroller:%@ 调用了 %@ 方法，传回参数 %@", userContentController, message.name, message.body);
     if ([message.name isEqualToString:kWebGetResultMethodName]) { // web结果返回
-        [self finishBtnAction];
+        NSInteger isFaking = [[[message.body valueForKey:@"body"] valueForKey:@"isFaking"] integerValue];
+        CEResultViewController *resultVC = [[CEResultViewController alloc] init];
+        resultVC.isFaking = isFaking;
+        [self.navigationController pushViewController:resultVC animated:YES];
     }
 }
 

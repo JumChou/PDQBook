@@ -334,8 +334,7 @@
     } else if (iOS8_OR_LATER) {
         NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         NSString *cookiesFolderPath = [libraryPath stringByAppendingString:@"/Cookies"];
-        NSError *errors;
-        [[NSFileManager defaultManager] removeItemAtPath:cookiesFolderPath error:&errors];
+        [[NSFileManager defaultManager] removeItemAtPath:cookiesFolderPath error:nil];
     }
 }
 

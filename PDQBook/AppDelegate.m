@@ -81,6 +81,10 @@
     [self initAFNetWorkingReachability];
     [self initCancleList];
     
+//    NSString *queueSymbolName = [NSString stringWithFormat:@"%@.isolation.%p", [self class], self];
+//    dispatch_queue_t myQueue = dispatch_queue_create([queueSymbolName UTF8String], DISPATCH_QUEUE_CONCURRENT);
+    
+    DebugLog(@"Error: Method needs to be called on the main thread. %@", [NSThread callStackSymbols]);
 }
 
 - (void)initCancleList {

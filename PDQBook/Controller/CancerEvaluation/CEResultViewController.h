@@ -10,4 +10,7 @@
 
 @interface CEResultViewController : SuperViewController
 
+@property (nonatomic, assign) BOOL isFaking;
+
+
 @end

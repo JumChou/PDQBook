@@ -908,7 +908,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 87QH7BT76A;
 						DevelopmentTeamName = "WeiHaiSi Health Technology (Beijing) Co.,Ltd.";
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C9DCAC091D2F53BE00B7F69A = {
 						CreatedOnToolsVersion = 8.0;
@@ -1361,7 +1361,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 87QH7BT76A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1385,8 +1385,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "123a59ac-1275-40a8-a2fe-15ad2507ce76";
+				PROVISIONING_PROFILE_SPECIFIER = Dev_PDQBook;
 			};
 			name = Debug;
 		};
@@ -1397,8 +1397,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 87QH7BT76A;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1422,8 +1422,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.weihaisi.PDQBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "2d2b5abf-0b9c-4704-a3b5-117f2fc8c5f7";
+				PROVISIONING_PROFILE_SPECIFIER = Dis_PDQBook;
 			};
 			name = Release;
 		};
