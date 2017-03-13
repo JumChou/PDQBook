@@ -215,7 +215,7 @@ static BOOL isAnimating = NO;
 //    [attributedStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12.0f] range:NSMakeRange(text1.length, text2.length)];
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] init];
     
-    [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"PDQ 最权威的癌症信息库" attributes:@{NSFontAttributeName:[UIFont boldDefaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_L)], NSForegroundColorAttributeName:Color_Navy}]];
+    [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"癌症信息大全" attributes:@{NSFontAttributeName:[UIFont boldDefaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_L)], NSForegroundColorAttributeName:Color_Navy}]];
     [attributedStr appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n国家癌症中心 - National Cancer Center" attributes:@{NSFontAttributeName:[UIFont defaultFontWithSize:ScaleBasedOn6(kInfoLab_FontSize_S)], NSForegroundColorAttributeName:Color_Navy}]];
     self.infoLab.attributedText = attributedStr;
 }
