@@ -132,6 +132,7 @@ static const CGFloat kEnterBtn_H = 50.f;
 - (void)enterBtnAction {
     DebugLog(@"");
     [self.navigationController pushViewController:[MainViewController new] animated:YES];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:UD_IsAppHaveLaunched];
 }
 
 
