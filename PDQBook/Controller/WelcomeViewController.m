@@ -132,7 +132,9 @@ static const CGFloat kEnterBtn_H = 50.f;
 - (void)enterBtnAction {
     DebugLog(@"");
     [self.navigationController pushViewController:[MainViewController new] animated:YES];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:UD_IsAppHaveLaunched];
+    NSInteger currCount = [[NSUserDefaults standardUserDefaults] integerForKey:UD_WelcomeShowedCount] + 1;
+    [[NSUserDefaults standardUserDefaults] setInteger:currCount forKey:UD_WelcomeShowedCount];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 

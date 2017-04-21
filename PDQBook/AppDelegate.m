@@ -27,7 +27,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     UIViewController *rootVC;
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:UD_IsAppHaveLaunched]) {
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:UD_WelcomeShowedCount] > kWelcomeShowLimit) {
         rootVC = [MainViewController new];
     } else {
         rootVC = [WelcomeViewController new];
