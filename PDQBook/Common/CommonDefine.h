@@ -66,8 +66,9 @@
 #pragma mark - userDefaults配置信息
 //-----------------------------------userDefaults配置信息---------------------------------------------
 #define UD_IsAppHaveLaunched            @"IsAppHaveLaunched"    // 应用是否运行过
+#define UD_WelcomeShowedCount           @"WelcomeShowedCount"   // Welcome页展示计数
+
 #define UD_IsHadAccessedPhoto           @"IsHadAccessedPhoto"   // 应用是否访问过相册
-#define UD_IsWelcomeHaveShowed          @"IsWelcomeHaveShowed"  // Welcome页是否自动展示过
 #define UD_LoginAccessToken             @"LoginAccessToken"     // 第三方登录accessToken
 #define UD_LoginUserID                  @"LoginUserID"          // 第三方登录后获得的userID
 #define UD_LoginUnionID                 @"LoginUnionID"         // 第三方登录UnionId（微信）
@@ -95,9 +96,10 @@
 #define DBFilePath          [DocumentsPath stringByAppendingPathComponent:@"Data.sqlite"] // 数据库文件路径
 #define MaskGuidPlistPath   [DocumentsPath stringByAppendingPathComponent:@"MaskGuid.plist"]  // 遮罩plist文件路径
 
-#define kAppVersion     @"1.0.1"    // App版本
-#define kDBVersion      @"1.0.1"    // 数据库版本
-#define kHTTPTimeOut    15          // 网络请求超时时间
+#define kAppVersion         [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]     // App版本
+#define kDBVersion          @"1.0.1"    // 数据库版本
+#define kHTTPTimeOut        15          // 网络请求超时时间
+#define kWelcomeShowLimit   8           // 网络请求超时时间
 
 // 方正兰亭简中
 #define FontFZLTX(sizef)    [UIFont fontWithName:@"FZLTXHK--GBK1-0" size:sizef]

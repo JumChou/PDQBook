@@ -132,7 +132,7 @@ static BOOL isAnimating = NO;
 - (void)viewDidAppear:(BOOL)animated {
     DebugLog(@"");
     [super viewDidAppear:animated];
-    
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -144,6 +144,7 @@ static BOOL isAnimating = NO;
 - (void)viewDidDisappear:(BOOL)animated {
     DebugLog(@"");
     [super viewDidDisappear:animated];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
 }
 
 - (void)initViews {

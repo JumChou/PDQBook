@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WelcomeViewController.h"
 #import "MainViewController.h"
 #import "ViewController.h"
 #import "Cancer.h"
@@ -28,8 +29,14 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    MainViewController *mainVC = [MainViewController new];
-    UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    UIViewController *rootVC;
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:UD_WelcomeShowedCount] > kWelcomeShowLimit) {
+        rootVC = [MainViewController new];
+    } else {
+        rootVC = [WelcomeViewController new];
+    }
+    
+    UINavigationController *naviController = [[UINavigationController alloc] initWithRootViewController:rootVC];
     if ([naviController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         ((UINavigationController *)naviController).interactivePopGestureRecognizer.delegate = nil;
     }

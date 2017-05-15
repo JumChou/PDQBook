@@ -187,6 +187,7 @@
 		C99C77631D8692D400A9BC44 /* AboutPDQBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */; };
 		C9C083791DC2000500052DE1 /* HYQiHei-50S.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9C083781DC2000500052DE1 /* HYQiHei-50S.otf */; };
 		C9C0837B1DC2002A00052DE1 /* HYQiHei-65S.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */; };
+		C9C1F8551EA775FA00A077AF /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C1F8541EA775FA00A077AF /* WelcomeViewController.m */; };
 		C9C4398E1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C4398F1D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
 		C9C439901D64488D0096C8B3 /* SRDictionaryDescView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */; };
@@ -372,6 +373,8 @@
 		C99C77601D8692D400A9BC44 /* AboutPDQBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutPDQBlurView.m; sourceTree = "<group>"; };
 		C9C083781DC2000500052DE1 /* HYQiHei-50S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-50S.otf"; sourceTree = "<group>"; };
 		C9C0837A1DC2002A00052DE1 /* HYQiHei-65S.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HYQiHei-65S.otf"; sourceTree = "<group>"; };
+		C9C1F8531EA775FA00A077AF /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		C9C1F8541EA775FA00A077AF /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		C9C4398C1D64488D0096C8B3 /* SRDictionaryDescView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRDictionaryDescView.h; sourceTree = "<group>"; };
 		C9C4398D1D64488D0096C8B3 /* SRDictionaryDescView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRDictionaryDescView.m; sourceTree = "<group>"; };
 		C9C4BD191DFE8EF000E93D97 /* CEInfoSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEInfoSubmitViewController.h; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 			children = (
 				C952BEF41DAE3FA10043A85B /* SuperViewController.h */,
 				C952BEF51DAE3FA10043A85B /* SuperViewController.m */,
+				C9C1F8531EA775FA00A077AF /* WelcomeViewController.h */,
+				C9C1F8541EA775FA00A077AF /* WelcomeViewController.m */,
 				C98FC8741D35D9BF0026B3CF /* MainViewController.h */,
 				C98FC8751D35D9BF0026B3CF /* MainViewController.m */,
 				C958DBC61D3D060B0039EDA0 /* SearchViewController.h */,
@@ -1062,6 +1067,7 @@
 				C9DCABFC1D2F53BE00B7F69A /* ViewController.m in Sources */,
 				C90DC3C81DFA5D42009D9184 /* CEResultViewController.m in Sources */,
 				C938039F1D5B716E00791731 /* BasicModel.m in Sources */,
+				C9C1F8551EA775FA00A077AF /* WelcomeViewController.m in Sources */,
 				C9943E651D33876800B90006 /* PushPresentAnimator.m in Sources */,
 				C99166D61E02A1CA0061BCBA /* MPCirclePartView.m in Sources */,
 				C952BEF11DACD4910043A85B /* TICopyTextView.m in Sources */,
