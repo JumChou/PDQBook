@@ -19,6 +19,7 @@
 @implementation AppDelegate
 
 
+#pragma mark - ApplicationLifeCircle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     DebugLog(@"LaunchOptions:%@", launchOptions);
     
@@ -69,9 +70,15 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:Notifi_ApplicationShortcut object:nil userInfo:@{@"ShortcutItem":shortcutItem}];
 }
 
+#pragma mark URLSession
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(nonnull NSString *)identifier completionHandler:(nonnull void (^)())completionHandler {
+    
+}
+
 
 #pragma mark - InitApp
 - (void)initApp {
+    NSURLSession *session = [NSURLSession sharedSession];
 //    [UIApplication sharedApplication].idleTimerDisabled = YES; // 限制锁屏
 //    [NSThread sleepForTimeInterval:0.3f];  // 延迟启动页展示
     
