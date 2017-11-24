@@ -318,6 +318,8 @@
 - (void)clearWKWebCache {
     if (iOS9_OR_LATER) {
         WKWebsiteDataStore *dateStore = [WKWebsiteDataStore defaultDataStore];
+//        [WKWebsiteDataStore.defaultDataStore removeDataOfTypes:WKWebsiteDataStore.allWebsiteDataTypes modifiedSince:<#(nonnull NSDate *)#> completionHandler:<#^(void)completionHandler#>]
+        
         [dateStore fetchDataRecordsOfTypes:[WKWebsiteDataStore allWebsiteDataTypes]
                          completionHandler:^(NSArray<WKWebsiteDataRecord *> * __nonnull records) {
                              for (WKWebsiteDataRecord *record in records) {
@@ -339,6 +341,23 @@
 }
 
 
+// 可以高度复用的函数
+typedef BOOL (^VerifyFunction)(id value);
+
+VerifyFunction isKindOf(Class aClass)
+{
+    return ^BOOL(id value) {
+        return [value isKindOfClass:aClass];
+    };
+}
+
+
+VerifyFunction hasKey(NSString *key)
+{
+    return ^BOOL(NSDictionary *value) {
+        return value[key] != nil;
+    };
+}
 
 
 

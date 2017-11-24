@@ -21,6 +21,27 @@
 }
 
 
+#pragma mark - UUID
+/**
+ 获取UUID
+ 
+ @return uuid
+ */
++ (NSString *)UUIDString {
+    CFUUIDRef puuid = CFUUIDCreate(nil);
+    CFStringRef uuidString = CFUUIDCreateString(nil, puuid);
+    NSString *result = (NSString *)CFBridgingRelease(CFStringCreateCopy(NULL, uuidString));
+    CFRelease(puuid);
+    CFRelease(uuidString);
+    
+    result = [result stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    result = [result stringByReplacingOccurrencesOfString:@" " withString:@""];
+    result = result.lowercaseString;
+    
+    return result;
+}
+
+
 #pragma mark - 动态计算Size
 /**
  根据约束size、font动态计算最终size

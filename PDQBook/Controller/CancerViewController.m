@@ -66,7 +66,13 @@ static NSString *const kWebViewDicKey_WebViewIndex = @"WebViewIndex";
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     [self.scrollView makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake((kStatusBarHeight+kNavBarHeight), 0, kTabBarHeight, 0));
+        if (@available(iOS 11.0, *)) {
+            make.top.equalTo(self.view.safeAreaLayoutGuideTop);
+            make.leading.trailing.equalTo(self.view);
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom).offset(-kTabBarHeight);
+        } else {
+            make.edges.equalTo(self.view).insets(UIEdgeInsetsMake((kStatusBarHeight+kNavBarHeight), 0, kTabBarHeight, 0));
+        }
     }];
     
     self.scrollContentView = [UIView new];
@@ -120,7 +126,12 @@ static NSString *const kWebViewDicKey_WebViewIndex = @"WebViewIndex";
     self.tabBarView.delegate = self;
     [self.view addSubview:self.tabBarView];
     [self.tabBarView makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.bottom.equalTo(self.view);
+        make.leading.trailing.equalTo(self.view);
+        if (@available(iOS 11.0, *)) {
+            make.bottom.equalTo(self.view.safeAreaLayoutGuideBottom);
+        } else {
+            make.bottom.equalTo(self.view);
+        }
         make.height.equalTo(kTabBarHeight);
     }];
     

@@ -77,29 +77,69 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:Notifi_ApplicationShortcut object:nil userInfo:@{@"ShortcutItem":shortcutItem}];
 }
 
+
+#pragma mark OpenURL
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation {
+    DebugLog(@"OpenURL Calling Application Bundle ID: %@", sourceApplication);
+    DebugLog(@"URL:%@", [url absoluteString]);
+    DebugLog(@"URL scheme:%@", [url scheme]);
+    DebugLog(@"URL query: %@", [url query]);
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(nonnull NSURL *)url options:(nonnull NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    DebugLog(@"OpenURL Calling Application Bundle ID: %@", nil);
+    DebugLog(@"URL:%@", [url absoluteString]);
+    DebugLog(@"URL scheme:%@", [url scheme]);
+    DebugLog(@"URL resourceSpecifier: %@", [url resourceSpecifier]);
+    DebugLog(@"URL query: %@", [url query]);
+    DebugLog(@"Options: %@", options);
+    
+    return YES;
+}
+
+
 #pragma mark URLSession
-- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(nonnull NSString *)identifier completionHandler:(nonnull void (^)())completionHandler {
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(nonnull void (^)(void))completionHandler {
     
 }
 
 
 #pragma mark - InitApp
 - (void)initApp {
-    NSURLSession *session = [NSURLSession sharedSession];
 //    [UIApplication sharedApplication].idleTimerDisabled = YES; // 限制锁屏
 //    [NSThread sleepForTimeInterval:0.3f];  // 延迟启动页展示
     
 //    [self printLanguageAndFontFamily];
-    [self initFlurry];
+//    [self initFlurry];
     [DBManager shareInstance];          // 初始化数据库操作
     [self initAFNetWorkingReachability];
     [self initCancleList];
     
-//    NSString *queueSymbolName = [NSString stringWithFormat:@"%@.isolation.%p", [self class], self];
-//    dispatch_queue_t myQueue = dispatch_queue_create([queueSymbolName UTF8String], DISPATCH_QUEUE_CONCURRENT);
+    /**
+     Test Thread
+     */
+    /*
+    NSString *isolationQueueName = [NSString stringWithFormat:@"%@.%p.isolation", [self class], self];
+    dispatch_queue_t isolationQ = dispatch_queue_create([isolationQueueName UTF8String], DISPATCH_QUEUE_CONCURRENT);
     
-    DebugLog(@"Error: Method needs to be called on the main thread. %@", [NSThread callStackSymbols]);
+    dispatch_async(isolationQ, ^{
+        DebugLog(@"Do something here.");
+        DebugLog(@"Error: Method needs to be called on the main thread. %@", [NSThread callStackSymbols]);
+    });
+    
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("com.summer.concurrent", DISPATCH_QUEUE_CONCURRENT);
+    //    for (int i = 0; i < 2000; i++) {
+    dispatch_async(concurrentQueue, ^{
+        //            NSLog(@"%d, for in dispatch_async concurrentQueue1, current thread = %@", i, [NSThread currentThread]);
+        NSLog(@"for in dispatch_async concurrentQueue1, current thread = %@", [NSThread currentThread]);
+        
+    });
+    //    }
+     */
 }
+
 
 - (void)initCancleList {
     NSDictionary *params = @{@"c":@"", @"x":@"", @"userId":@"", @"token":@"", @"keyword":@"胃癌"};

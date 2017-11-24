@@ -11,8 +11,19 @@
 
 @interface NSString(Custom)
 
+@property (nonatomic, strong) NSString *testProperty;
+
 #pragma mark - 判断是否为空串、或NSNull
 + (BOOL)isNotEmptyOrNullString:(NSString *)string;
+
+
+#pragma mark - UUID
+/**
+ 获取UUID
+ 
+ @return uuid
+ */
++ (NSString *)UUIDString;
 
 
 #pragma mark - 动态计算Size
