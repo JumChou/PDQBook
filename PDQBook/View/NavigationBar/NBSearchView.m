@@ -13,6 +13,7 @@ typedef void (^InputingBlock)(NSString *inputingText);
 typedef void (^CloseBlock)(void);
 typedef void (^SearchBlock)(NSString *searchText);
 
+
 @interface NBSearchView () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UIView *searchBGView;
