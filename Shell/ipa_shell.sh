@@ -1,12 +1,8 @@
 #!/bin/sh
 
-# shell_dir_path=$(cd `dirname $0`; pwd)
-# project_path=${shell_dir_path%/*}
-# echo "shell_dir_path=$shell_dir_path"
-# echo "project_path=$project_path"
-
-# xcode-select: error: tool ‘xcodebuild’ requires Xcode, 
-# but active developer directory ‘/Library/Developer/CommandLineTools’ is a command line tools instance
+# Fix xcode-select error:
+# "xcode-select: error: tool ‘xcodebuild’ requires Xcode, but active developer directory ‘/Library/Developer/CommandLineTools’ is a command line tools instance"
+#
 # sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 # ************************* 配置 Start ********************************
